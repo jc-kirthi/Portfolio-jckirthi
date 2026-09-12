@@ -4,15 +4,20 @@
    DESIGN TOKENS — Kirthi JC Portfolio
    EDITORIAL × NEO-BRUTALIST × TECHNICAL × PERSONAL
 
+   CALIBRATED PALETTE:
    Primary: Warm Ivory (#F6F1E8) + Deep Plum (#24152F) + Near Black (#17131A)
-   Accents: Acid Lime (#D7FF3F) + Tangerine (#FF6B35) + Soft Lavender (#C7B8FF)
+   Accents (Strategic Highlights):
+   Acid Lime (#CBE836) — Focused actions / key status
+   Tangerine (#E85D26) — Hackathons / energetic badges
+   Soft Lavender (#C2B2E8) — Secondary technical notes
    ============================================================ */
 
 :root {
   /* Surface & Foundations */
   --color-background: #f6f1e8;        /* Warm Ivory */
   --color-foreground: #17131a;        /* Near Black */
-  --color-plum: #24152f;              /* Deep Plum */
+  --color-plum: #24152f;              /* Deep Plum — Primary Grounding Color */
+  --color-plum-dark: #1a0f23;         /* Deepest Plum for dark section foundations */
   --color-card: #ede6d8;              /* Warm parchment / deeper ivory card */
   --color-card-subtle: #f0eae0;       /* Very light card surface */
   --color-border: #17131a;            /* Crisp Near Black border for neo-brutalist structure */
@@ -21,15 +26,15 @@
   /* Typography */
   --color-muted: #5e5763;             /* Warm plum-tinted muted neutral text */
 
-  /* Accents */
+  /* Accents — Calibrated for sophisticated editorial contrast */
   --color-primary: #24152f;           /* Deep Plum (Primary Brand Element) */
-  --color-secondary: #d7ff3f;         /* Acid Lime (High-priority action / highlight) */
-  --color-accent-warm: #ff6b35;       /* Tangerine (Energy / Hackathon / Achievement) */
-  --color-accent-cool: #c7b8ff;       /* Soft Lavender (Secondary accent / subtle tags) */
+  --color-secondary: #cbe836;         /* Refined Acid Lime (High-priority action / highlight) */
+  --color-accent-warm: #e85d26;       /* Refined Tangerine (Hackathon / Win highlight) */
+  --color-accent-cool: #c2b2e8;       /* Refined Soft Lavender (Secondary accent / subtle tags) */
 
   /* Semantic */
   --color-success: #1f6f43;           /* Botanical dark green */
-  --color-warning: #d97706;           /* Ochre amber */
+  --color-warning: #c27803;           /* Ochre amber */
 
   /* Fonts (loaded via next/font in layout.tsx) */
   --font-display: var(--font-display);
@@ -43,6 +48,7 @@
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
   --color-plum: var(--color-plum);
+  --color-plum-dark: var(--color-plum-dark);
   --color-card: var(--color-card);
   --color-card-subtle: var(--color-card-subtle);
   --color-border: var(--color-border);

@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 type ButtonBaseProps = {
   /**
    * variant controls visual style.
-   * - "primary": Deep Plum background, crisp Near Black border, Acid Lime pop or white text.
-   * - "accent": Acid Lime (#D7FF3F) high-contrast action with Near Black text.
-   * - "warm": Tangerine (#FF6B35) energetic action.
+   * - "primary": Deep Plum background, crisp Near Black border, warm ivory text.
+   * - "accent": Acid Lime (#CBE836) high-contrast action with Near Black text.
+   * - "warm": Tangerine (#E85D26) energetic action with white text.
    * - "outline": Crisp Near Black border, inverted fill on hover.
    * - "ghost": Borderless, subtle card background on hover.
    */
@@ -45,7 +45,7 @@ const variantMap: Record<NonNullable<ButtonBaseProps["variant"]>, string> = {
   secondary:
     "bg-[var(--color-secondary)] text-[var(--color-foreground)] font-bold border-2 border-[var(--color-border)] hover:-translate-x-0.5 hover:-translate-y-0.5 shadow-[2px_2px_0px_0px_var(--color-border)] hover:shadow-[4px_4px_0px_0px_var(--color-border)]",
   outline:
-    "bg-transparent text-[var(--color-foreground)] border-2 border-[var(--color-border)] hover:bg-[var(--color-foreground)] hover:text-[var(--color-background)] hover:-translate-x-0.5 hover:-translate-y-0.5 shadow-[2px_2px_0px_0px_var(--color-border)] hover:shadow-[4px_4px_0px_0px_var(--color-border)]",
+    "bg-transparent text-[var(--color-foreground)] border-2 border-[var(--color-border)] hover:bg-[var(--color-plum)] hover:text-[#f6f1e8] hover:-translate-x-0.5 hover:-translate-y-0.5 shadow-[2px_2px_0px_0px_var(--color-border)] hover:shadow-[4px_4px_0px_0px_var(--color-border)]",
   ghost:
     "bg-transparent text-[var(--color-foreground)] border-2 border-transparent hover:border-[var(--color-border)] hover:bg-[var(--color-card)]",
 };

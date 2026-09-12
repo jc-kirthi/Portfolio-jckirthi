@@ -1,22 +1,13 @@
 /**
  * app/page.tsx
  *
- * PHASE 3 — ACTUAL HOMEPAGE EXPERIENCE
+ * PHASE 3 (CALIBRATED) — ACTUAL HOMEPAGE EXPERIENCE
  *
- * Communicates: "Kirthi is an AI/ML engineering student who builds, competes, contributes and actively grows."
- *
- * Structure:
- * SECTION 01 — HERO (Editorial Asymmetric Composition, Manifesto, Positioning, CTA, Portrait Frame)
- * SECTION 02 — QUICK PROOF / SIGNALS (Compact editorial proof strip strictly from data modules)
- * SECTION 03 — "WHAT I BUILD" (Personal technical positioning across AI/ML, Full-Stack & Systems)
- * SECTION 04 — SELECTED WORK (Curated project cards from data/projects.ts with tactile interaction)
- * SECTION 05 — HACKATHON / BUILD SIGNAL (Build under pressure, Tangerine accent, wins from data/hackathons.ts)
- * SECTION 06 — CURRENTLY (Live signal block from data/profile.ts and current milestones)
- * SECTION 07 — FINAL CTA (Confident invitation: "LET'S BUILD SOMETHING.")
- *
- * STRICT DATA INTEGRITY:
- * Zero invented statistics, awards, rankings or fake claims.
- * 100% token-driven, neo-brutalist tactile styling, responsive, accessible.
+ * Visual Calibration:
+ * - Reduced perceived accent brightness (Acid Lime & Tangerine used purposefully as highlights)
+ * - Enhanced Deep Plum as sophisticated grounding color
+ * - Increased visual breathing room and reduced simultaneous loud accents
+ * - Preserved Warm Ivory base, neo-brutalist structure, and strict data integrity
  */
 
 import type { Metadata } from "next";
@@ -62,10 +53,10 @@ export default function HomePage() {
               
               {/* 1. Small status / category label */}
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="lime">
+                <Badge variant="primary">
                   {profile.year}
                 </Badge>
-                <Badge variant="primary">
+                <Badge variant="outline">
                   AI/ML ENGINEERING
                 </Badge>
                 <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)] pl-2 border-l border-[var(--color-border-subtle)]">
@@ -84,9 +75,9 @@ export default function HomePage() {
               </div>
 
               {/* 3. Positioning Statement: Visual Brand Statement */}
-              <div className="border-l-4 border-l-[var(--color-secondary)] pl-5 py-1">
+              <div className="border-l-4 border-l-[var(--color-plum)] pl-5 py-1">
                 <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[var(--color-foreground)] leading-none">
-                  I BUILD. <span className="text-[var(--color-accent-warm)]">I COMPETE.</span> I CONTRIBUTE.
+                  I BUILD. <span className="text-[var(--color-plum)] underline decoration-[var(--color-secondary)] decoration-4 underline-offset-4">I COMPETE.</span> I CONTRIBUTE.
                 </p>
                 {/* 4. Short supporting description explaining who Kirthi is */}
                 <p className="text-sm md:text-base text-[var(--color-muted)] mt-3 max-w-xl leading-relaxed">
@@ -99,10 +90,10 @@ export default function HomePage() {
                 <Button href="/projects" variant="primary" size="md" withArrow>
                   VIEW MY WORK
                 </Button>
-                <Button href="/contact" variant="accent" size="md" withArrow>
+                <Button href="/contact" variant="outline" size="md" withArrow>
                   LET&apos;S CONNECT
                 </Button>
-                <Button href={profile.resumeUrl} external variant="outline" size="md">
+                <Button href={profile.resumeUrl} external variant="ghost" size="md">
                   RESUME ↗
                 </Button>
               </div>
@@ -156,7 +147,7 @@ export default function HomePage() {
                     <div className="absolute bottom-2.5 left-2.5 font-mono text-[10px] text-[var(--color-muted)]">
                       {profile.institution}
                     </div>
-                    <div className="absolute bottom-2.5 right-2.5 font-mono text-[10px] font-bold text-[var(--color-accent-warm)]">
+                    <div className="absolute bottom-2.5 right-2.5 font-mono text-[10px] font-bold text-[var(--color-plum)]">
                       {profile.year}
                     </div>
 
@@ -251,7 +242,7 @@ export default function HomePage() {
                 <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-plum)]">
                   {allContributionsCount}
                 </span>
-                <span className="font-mono text-xs font-bold text-[var(--color-secondary)] bg-[var(--color-foreground)] px-1.5 py-0.5">
+                <span className="font-mono text-xs font-bold text-[#f6f1e8] bg-[var(--color-plum)] px-1.5 py-0.5 border border-[var(--color-border)]">
                   OSS
                 </span>
               </div>
@@ -289,7 +280,7 @@ export default function HomePage() {
                     <span className="font-mono text-xs font-bold uppercase tracking-wider">
                       0{idx + 1} · DOMAIN
                     </span>
-                    <Badge variant={isFirst ? "lime" : "default"} size="sm">
+                    <Badge variant={isFirst ? "outline" : "default"} size="sm" className={isFirst ? "border-[#f6f1e8]/30 text-[#f6f1e8]" : ""}>
                       {category.skills.length} SKILLS
                     </Badge>
                   </div>
@@ -359,7 +350,7 @@ export default function HomePage() {
                     PROJECT · 0{idx + 1}
                   </span>
                   <div className="flex items-center gap-2">
-                    <Badge variant={project.status === "completed" ? "secondary" : "muted"} size="sm">
+                    <Badge variant={project.status === "completed" ? "default" : "muted"} size="sm">
                       {project.status}
                     </Badge>
                     <span className="font-mono text-xs text-[var(--color-muted)]">
@@ -436,12 +427,15 @@ export default function HomePage() {
       >
         <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] shadow-[4px_4px_0px_0px_var(--color-border)]">
           
-          {/* Header Banner with Tangerine Accent */}
-          <div className="bg-[var(--color-accent-warm)] text-[#ffffff] px-6 py-3 border-b-2 border-[var(--color-border)] flex items-center justify-between">
-            <span className="font-mono text-xs font-bold uppercase tracking-wider">
-              COMPETITION ARCHIVE · REPRESENTATIVE ENTRIES
-            </span>
-            <span className="font-mono text-xs font-bold uppercase">
+          {/* Header Banner: Grounded Deep Plum with intentional Tangerine indicator */}
+          <div className="bg-[var(--color-plum)] text-[#f6f1e8] px-6 py-3.5 border-b-2 border-[var(--color-border)] flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 bg-[var(--color-accent-warm)] border border-[#ffffff]/40 inline-block" />
+              <span className="font-mono text-xs font-bold uppercase tracking-wider">
+                COMPETITION ARCHIVE · REPRESENTATIVE ENTRIES
+              </span>
+            </div>
+            <span className="font-mono text-xs font-bold uppercase text-[var(--color-accent-warm)]">
               {allHackathonsCount} TOTAL IN DATA
             </span>
           </div>
@@ -524,7 +518,7 @@ export default function HomePage() {
           {/* Currently Learning */}
           <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-5 flex flex-col justify-between shadow-[2px_2px_0px_0px_var(--color-border)]">
             <div>
-              <span className="font-mono text-xs font-bold uppercase text-[var(--color-accent-warm)] tracking-widest">
+              <span className="font-mono text-xs font-bold uppercase text-[var(--color-muted)] tracking-widest">
                 [FOCUS 01]
               </span>
               <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)] mt-2">
@@ -542,7 +536,7 @@ export default function HomePage() {
           {/* Currently Building */}
           <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-5 flex flex-col justify-between shadow-[2px_2px_0px_0px_var(--color-border)]">
             <div>
-              <span className="font-mono text-xs font-bold uppercase text-[var(--color-primary)] tracking-widest">
+              <span className="font-mono text-xs font-bold uppercase text-[var(--color-muted)] tracking-widest">
                 [FOCUS 02]
               </span>
               <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)] mt-2">
@@ -576,7 +570,7 @@ export default function HomePage() {
           </div>
 
           {/* Currently Seeking */}
-          <div className="border-2 border-[var(--color-border)] bg-[var(--color-plum)] text-[#f6f1e8] p-5 flex flex-col justify-between shadow-[2px_2px_0px_0px_var(--color-secondary)]">
+          <div className="border-2 border-[var(--color-border)] bg-[var(--color-plum)] text-[#f6f1e8] p-5 flex flex-col justify-between shadow-[3px_3px_0px_0px_var(--color-border)]">
             <div>
               <span className="font-mono text-xs font-bold uppercase text-[var(--color-secondary)] tracking-widest">
                 [FOCUS 04]
@@ -612,7 +606,7 @@ export default function HomePage() {
             <div className="max-w-2xl relative z-10 flex flex-col gap-6">
               
               <div className="inline-flex items-center gap-2">
-                <Badge variant="lime">LET&apos;S CONNECT</Badge>
+                <Badge variant="primary">LET&apos;S CONNECT</Badge>
                 <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
                   DIRECT ACCESS
                 </span>

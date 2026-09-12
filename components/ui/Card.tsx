@@ -4,9 +4,9 @@
  * Distinctive Editorial & Neo-Brutalist Card Language:
  * 1. "editorial": Warm card surface, crisp dark border, optional offset shadow, interactive lift.
  * 2. "flat": Minimalist card with subtle hairline border.
- * 3. "featured": Deep Plum background with Acid Lime accent border/pop.
+ * 3. "featured": Deep Plum background with refined Near Black / subtle border and clean contrast.
  * 4. "archive": Raw ivory with dotted border for historical or archive records.
- * 5. "interactive": Highlighted on hover with translation and accent border shift.
+ * 5. "interactive": Highlighted on hover with translation and border shift.
  */
 
 import { cn } from "@/lib/utils";
@@ -19,7 +19,7 @@ export interface CardProps {
    * Card styling treatment:
    * - "editorial": Standard neo-brutalist card with crisp dark border & 3px offset shadow
    * - "flat": Clean info surface with subtle border
-   * - "featured": High contrast Deep Plum card with accent border
+   * - "featured": High contrast Deep Plum card with grounded dark border
    * - "archive": Monospace/record feel with dashed/dotted border
    * - "interactive": Lifts and shifts shadow on hover
    * - "default": Maps to editorial
@@ -44,7 +44,7 @@ const variantMap: Record<NonNullable<CardProps["variant"]>, string> = {
   flat:
     "bg-[var(--color-card-subtle)] border border-[var(--color-border-subtle)]",
   featured:
-    "bg-[var(--color-plum)] text-[#f6f1e8] border-2 border-[var(--color-secondary)] shadow-[4px_4px_0px_0px_var(--color-secondary)]",
+    "bg-[var(--color-plum)] text-[#f6f1e8] border-2 border-[var(--color-border)] shadow-[4px_4px_0px_0px_var(--color-border)]",
   archive:
     "bg-[var(--color-background)] border-2 border-dashed border-[var(--color-border)]",
   interactive:
