@@ -2,7 +2,7 @@
  * components/ui/Link.tsx
  *
  * Polymorphic link component wrapping Next.js Link.
- * Handles both internal and external links consistently.
+ * Editorial hover behaviors with subtle translation and underline offsets.
  */
 
 import NextLink from "next/link";
@@ -13,9 +13,15 @@ interface LinkProps {
   children: React.ReactNode;
   className?: string;
   /**
-   * variant controls the visual style.
+   * variant controls the visual style:
+   * - "default": Deep plum with hover opacity
+   * - "underline": Editorial thick bottom underline
+   * - "arrow": Text with animated right arrow
+   * - "muted": Secondary text transitioning to crisp near black
+   * - "tag": Monospace label style
+   * - "none": Passthrough style
    */
-  variant?: "default" | "underline" | "muted" | "none";
+  variant?: "default" | "underline" | "arrow" | "muted" | "tag" | "none";
   /**
    * external: if true, opens in a new tab with safe rel attributes.
    */
@@ -25,11 +31,15 @@ interface LinkProps {
 
 const variantMap: Record<NonNullable<LinkProps["variant"]>, string> = {
   default:
-    "text-[var(--color-primary)] hover:opacity-80 transition-opacity",
+    "text-[var(--color-plum)] font-semibold hover:text-[var(--color-foreground)] transition-colors",
   underline:
-    "underline underline-offset-4 hover:text-[var(--color-primary)] transition-colors",
+    "font-medium underline decoration-2 underline-offset-4 decoration-[var(--color-primary)] hover:decoration-[var(--color-secondary)] transition-colors",
+  arrow:
+    "group inline-flex items-center gap-1.5 font-semibold text-[var(--color-foreground)] hover:text-[var(--color-plum)] transition-colors",
   muted:
     "text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors",
+  tag:
+    "font-mono text-xs uppercase text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors",
   none: "",
 };
 
@@ -45,6 +55,8 @@ export function Link({
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
 
+  const isArrow = variant === "arrow";
+
   return (
     <NextLink
       href={href}
@@ -52,7 +64,15 @@ export function Link({
       aria-label={ariaLabel}
       {...externalProps}
     >
-      {children}
+      <span>{children}</span>
+      {isArrow && (
+        <span
+          aria-hidden="true"
+          className="transition-transform duration-150 group-hover:translate-x-1 font-mono text-xs inline-block"
+        >
+          {external ? "↗" : "→"}
+        </span>
+      )}
     </NextLink>
   );
 }

@@ -2,45 +2,51 @@
 
 /* ============================================================
    DESIGN TOKENS — Kirthi JC Portfolio
-   Editorial + Neo-Brutalist + Technical + Personal
+   EDITORIAL × NEO-BRUTALIST × TECHNICAL × PERSONAL
 
-   All color decisions should be made here.
-   Components must reference these tokens, never raw colors.
+   Primary: Warm Ivory (#F6F1E8) + Deep Plum (#24152F) + Near Black (#17131A)
+   Accents: Acid Lime (#D7FF3F) + Tangerine (#FF6B35) + Soft Lavender (#C7B8FF)
    ============================================================ */
 
 :root {
-  /* Surface */
-  --color-background: #faf8f4;        /* Warm Ivory */
-  --color-foreground: #1a1118;        /* Near Black (warm-tinted) */
-  --color-card: #f3f0ea;              /* Slightly deeper ivory for cards */
-  --color-border: #d9d4cb;            /* Muted warm border */
+  /* Surface & Foundations */
+  --color-background: #f6f1e8;        /* Warm Ivory */
+  --color-foreground: #17131a;        /* Near Black */
+  --color-plum: #24152f;              /* Deep Plum */
+  --color-card: #ede6d8;              /* Warm parchment / deeper ivory card */
+  --color-card-subtle: #f0eae0;       /* Very light card surface */
+  --color-border: #17131a;            /* Crisp Near Black border for neo-brutalist structure */
+  --color-border-subtle: #d6ccbe;     /* Muted secondary editorial rule */
 
   /* Typography */
-  --color-muted: #6b6460;             /* Muted warm text */
+  --color-muted: #5e5763;             /* Warm plum-tinted muted neutral text */
 
   /* Accents */
-  --color-primary: #5c1a6e;           /* Deep Plum */
-  --color-secondary: #c8e600;         /* Acid Lime */
-  --color-accent-warm: #f07830;       /* Tangerine */
-  --color-accent-cool: #b8a8d8;       /* Soft Lavender */
+  --color-primary: #24152f;           /* Deep Plum (Primary Brand Element) */
+  --color-secondary: #d7ff3f;         /* Acid Lime (High-priority action / highlight) */
+  --color-accent-warm: #ff6b35;       /* Tangerine (Energy / Hackathon / Achievement) */
+  --color-accent-cool: #c7b8ff;       /* Soft Lavender (Secondary accent / subtle tags) */
 
   /* Semantic */
-  --color-success: #3d7a4a;           /* Forest green */
-  --color-warning: #c88a00;           /* Amber */
+  --color-success: #1f6f43;           /* Botanical dark green */
+  --color-warning: #d97706;           /* Ochre amber */
 
-  /* Fonts (set by Next.js font loader) */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Fonts (loaded via next/font in layout.tsx) */
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
 }
 
 /* ============================================================
-   Tailwind v4 theme bridge — expose tokens to utility classes
+   Tailwind v4 Theme Bridge
    ============================================================ */
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
+  --color-plum: var(--color-plum);
   --color-card: var(--color-card);
+  --color-card-subtle: var(--color-card-subtle);
   --color-border: var(--color-border);
+  --color-border-subtle: var(--color-border-subtle);
   --color-muted: var(--color-muted);
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
@@ -48,12 +54,12 @@
   --color-accent-cool: var(--color-accent-cool);
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
+  --font-display: var(--font-display);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
 }
 
 /* ============================================================
-   Base
+   Base Setup
    ============================================================ */
 *,
 *::before,
@@ -74,15 +80,23 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  /* Subtle tactile editorial paper texture using CSS micro-dots */
+  background-image: radial-gradient(
+    rgba(23, 19, 26, 0.05) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
 }
 
 /* ============================================================
-   Typography scale
+   Editorial Typography Scale
    ============================================================ */
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   font-weight: 700;
+  text-wrap: balance;
 }
 
 p {
@@ -90,35 +104,64 @@ p {
 }
 
 /* ============================================================
-   Focus visible — accessible outline
+   Neo-Brutalist Focus States & Selection
    ============================================================ */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-foreground);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
-/* ============================================================
-   Selection
-   ============================================================ */
 ::selection {
   background-color: var(--color-secondary);
   color: var(--color-foreground);
 }
 
 /* ============================================================
-   Scrollbar (thin, consistent)
+   Editorial Scrollbar
    ============================================================ */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-background);
+  border-left: 1px solid var(--color-border-subtle);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 3px;
+  background: var(--color-plum);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted);
+  background: var(--color-foreground);
+}
+
+/* ============================================================
+   Neo-Brutalist Utility Classes
+   ============================================================ */
+.neo-box-shadow {
+  box-shadow: 4px 4px 0px 0px var(--color-border);
+}
+
+.neo-box-shadow-sm {
+  box-shadow: 2px 2px 0px 0px var(--color-border);
+}
+
+.neo-box-shadow-accent {
+  box-shadow: 4px 4px 0px 0px var(--color-secondary);
+}
+
+.neo-box-shadow-warm {
+  box-shadow: 4px 4px 0px 0px var(--color-accent-warm);
+}
+
+.neo-box-shadow-plum {
+  box-shadow: 4px 4px 0px 0px var(--color-plum);
+}
+
+/* Hover offset translation helper */
+.neo-hover-lift {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.neo-hover-lift:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--color-border);
 }
