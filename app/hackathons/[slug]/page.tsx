@@ -104,14 +104,14 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
               {year}
             </Badge>
             <Badge variant="outline" size="md">
-              {hackathon.location}
+              {hackathon.location || "Location not published"}
             </Badge>
             <span className="font-mono text-xs text-[var(--color-muted)] pl-2 border-l border-[var(--color-border-subtle)]">
-              {new Date(hackathon.date).toLocaleDateString("en-US", {
+              {hackathon.date ? new Date(hackathon.date).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
-              })}
+              }) : "Date not published"}
             </span>
           </div>
 
@@ -124,8 +124,9 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
           </Heading>
 
           <p className="text-sm font-mono text-[var(--color-muted)]">
-            TEAM · {hackathon.teamSize}{" "}
-            {hackathon.teamSize === 1 ? "ENGINEER" : "ENGINEERS"}
+            {hackathon.teamSize
+              ? `TEAM · ${hackathon.teamSize} ${hackathon.teamSize === 1 ? "ENGINEER" : "ENGINEERS"}`
+              : "TEAM SIZE NOT PUBLISHED"}
           </p>
         </div>
 
@@ -242,7 +243,7 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
                 <div>
                   <dt className="text-[var(--color-muted)] uppercase">Location</dt>
                   <dd className="font-bold text-[var(--color-foreground)] mt-0.5">
-                    {hackathon.location}
+                    {hackathon.location || "Not published"}
                   </dd>
                 </div>
 
@@ -254,18 +255,20 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
                 <div>
                   <dt className="text-[var(--color-muted)] uppercase">Date</dt>
                   <dd className="font-bold text-[var(--color-foreground)] mt-0.5">
-                    {new Date(hackathon.date).toLocaleDateString("en-US", {
+                    {hackathon.date ? new Date(hackathon.date).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
-                    })}
+                    }) : "Not published"}
                   </dd>
                 </div>
 
                 <div>
                   <dt className="text-[var(--color-muted)] uppercase">Team Size</dt>
                   <dd className="font-bold text-[var(--color-foreground)] mt-0.5">
-                    {hackathon.teamSize} {hackathon.teamSize === 1 ? "Engineer" : "Engineers"}
+                    {hackathon.teamSize
+                      ? `${hackathon.teamSize} ${hackathon.teamSize === 1 ? "Engineer" : "Engineers"}`
+                      : "Not published"}
                   </dd>
                 </div>
 

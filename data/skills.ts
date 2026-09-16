@@ -1,7 +1,8 @@
 /**
  * data/skills.ts
  *
- * Technical and soft skills organized by domain without percentage bars.
+ * Technical and soft skills. No percentage bars — qualitative groupings only.
+ * Replace with real data later.
  */
 
 export type SkillLevel = "familiar" | "proficient" | "expert";
@@ -22,10 +23,14 @@ export const skills: SkillCategory[] = [
     id: "languages",
     label: "Languages",
     skills: [
-      { name: "Python", level: "expert" },
-      { name: "TypeScript", level: "proficient" },
-      { name: "C", level: "proficient" },
-      { name: "SQL", level: "proficient" },
+      { name: "C" },
+      { name: "Java" },
+      { name: "Python" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "SQL" },
     ],
   },
   {
@@ -33,32 +38,42 @@ export const skills: SkillCategory[] = [
     label: "ML / AI",
     skills: [
       { name: "Machine Learning" },
+      { name: "Deep Learning" },
+      { name: "NLP" },
       { name: "Generative AI" },
-      { name: "Data Analysis" },
-      { name: "Feature Engineering" },
-      { name: "Model Evaluation" },
+      { name: "LLMs" },
+      { name: "RAG" },
+      { name: "Agents" },
+      { name: "MCP" },
+      { name: "XGBoost" },
+      { name: "SHAP" },
+      { name: "Hugging Face" },
+      { name: "Transformers" },
+      { name: "OpenCV" },
     ],
   },
   {
     id: "web",
     label: "Web",
     skills: [
-      { name: "Next.js" },
       { name: "React" },
+      { name: "Next.js" },
       { name: "Node.js" },
-      { name: "Firebase" },
+      { name: "Express" },
+      { name: "FastAPI" },
       { name: "Tailwind CSS" },
+      { name: "MongoDB / MERN" },
+      { name: "MySQL" },
     ],
   },
   {
     id: "tools",
     label: "Tools & Platforms",
     skills: [
-      { name: "Git" },
-      { name: "GitHub" },
-      { name: "Docker" },
+      { name: "Git / GitHub" },
+      { name: "Firebase" },
       { name: "Vercel" },
-      { name: "Figma" },
+      { name: "Google Cloud AI APIs" },
     ],
   },
 ];

@@ -1,7 +1,7 @@
 /**
  * data/education.ts
  *
- * Education timeline retained from the portfolio requirements.
+ * Academic education history. Replace with real data later.
  */
 
 export interface Education {
@@ -11,8 +11,8 @@ export interface Education {
   institution: string;
   institutionUrl?: string;
   location: string;
-  startYear: number;
-  endYear?: number;
+  startYear?: number;
+  endYear?: number;      // Omit if currently enrolled
   current: boolean;
   cgpa?: string;
   highlights: string[];
@@ -21,17 +21,13 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    id: "edu-1",
+    id: "cambridge-institute-of-technology-aiml",
     degree: "B.Tech",
     field: "Artificial Intelligence & Machine Learning",
-    institution: "Engineering Program",
-    location: "India",
-    startYear: 2023,
+    institution: "Cambridge Institute of Technology",
+    location: "Bengaluru",
     current: true,
-    cgpa: "9.4",
-    highlights: [
-      "Focused on AI/ML fundamentals, applied systems, and product-driven problem solving.",
-      "Building projects across civic-tech, security, data science, and modern web engineering.",
-    ],
+    cgpa: "9.65 (1st year)",
+    highlights: ["10th: 92%", "12th: 85%"],
   },
 ];
