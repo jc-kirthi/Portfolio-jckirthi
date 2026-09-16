@@ -14,23 +14,23 @@
 
 :root {
   /* Surface & Foundations */
-  --color-background: #f6f1e8;        /* Warm Ivory */
-  --color-foreground: #17131a;        /* Near Black */
-  --color-plum: #24152f;              /* Deep Plum — Primary Grounding Color */
-  --color-plum-dark: #1a0f23;         /* Deepest Plum for dark section foundations */
-  --color-card: #ede6d8;              /* Warm parchment / deeper ivory card */
-  --color-card-subtle: #f0eae0;       /* Very light card surface */
-  --color-border: #17131a;            /* Crisp Near Black border for neo-brutalist structure */
+  --color-background: #f2ece2;        /* Warm Ivory */
+  --color-foreground: #151118;        /* Near Black */
+  --color-plum: #21132b;              /* Deep Plum — Primary Grounding Color */
+  --color-plum-dark: #170c1f;         /* Deepest Plum for dark section foundations */
+  --color-card: #e8dfd0;              /* Warm parchment / deeper ivory card */
+  --color-card-subtle: #ede6dc;       /* Very light card surface */
+  --color-border: #151118;            /* Crisp Near Black border for neo-brutalist structure */
   --color-border-subtle: #d6ccbe;     /* Muted secondary editorial rule */
 
   /* Typography */
-  --color-muted: #5e5763;             /* Warm plum-tinted muted neutral text */
+  --color-muted: #554d59;             /* Warm plum-tinted muted neutral text */
 
   /* Accents — Calibrated for sophisticated editorial contrast */
-  --color-primary: #24152f;           /* Deep Plum (Primary Brand Element) */
-  --color-secondary: #cbe836;         /* Refined Acid Lime (High-priority action / highlight) */
-  --color-accent-warm: #e85d26;       /* Refined Tangerine (Hackathon / Win highlight) */
-  --color-accent-cool: #c2b2e8;       /* Refined Soft Lavender (Secondary accent / subtle tags) */
+  --color-primary: #21132b;           /* Deep Plum (Primary Brand Element) */
+  --color-secondary: #c4dc32;         /* Refined Acid Lime (High-priority action / highlight) */
+  --color-accent-warm: #d95724;       /* Refined Tangerine (Hackathon / Win highlight) */
+  --color-accent-cool: #b9a9df;       /* Refined Soft Lavender (Secondary accent / subtle tags) */
 
   /* Semantic */
   --color-success: #1f6f43;           /* Botanical dark green */

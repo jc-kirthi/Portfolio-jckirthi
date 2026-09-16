@@ -14,7 +14,6 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
-import { profile } from "@/data/profile";
 
 const navLinks = [
   { label: "WORK", href: "/projects" },
@@ -24,12 +23,22 @@ const navLinks = [
   { label: "CONTACT", href: "/contact" },
 ] as const;
 
+const moreLinks = [
+  { label: "ACHIEVEMENTS", href: "/achievements" },
+  { label: "CERTIFICATIONS", href: "/certifications" },
+  { label: "CODING", href: "/coding" },
+] as const;
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleMenu = () => setMobileOpen((prev) => !prev);
-  const closeMenu = () => setMobileOpen(false);
+  const closeMenu = () => {
+    setMobileOpen(false);
+    setMoreOpen(false);
+  };
 
   return (
     <header
@@ -59,8 +68,8 @@ export function Navbar() {
           </NextLink>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
-            <ul className="flex items-center gap-6" role="list">
+          <div className="hidden md:flex items-center gap-5">
+            <ul className="flex items-center gap-5" role="list">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -79,32 +88,53 @@ export function Navbar() {
                   </li>
                 );
               })}
+              <li className="relative">
+                <button
+                  type="button"
+                  onClick={() => setMoreOpen((prev) => !prev)}
+                  aria-expanded={moreOpen}
+                  aria-controls="more-menu"
+                  aria-haspopup="menu"
+                  className={cn(
+                    "inline-flex items-center gap-1 py-1 font-display text-xs font-bold tracking-wider uppercase transition-colors",
+                    moreLinks.some((link) => pathname === link.href)
+                      ? "text-[var(--color-plum)]"
+                      : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
+                  )}
+                >
+                  MORE <span aria-hidden="true">{moreOpen ? "↑" : "↓"}</span>
+                </button>
+                {moreOpen && (
+                  <ul
+                    id="more-menu"
+                    role="menu"
+                    className="absolute right-0 top-8 z-50 min-w-48 border-2 border-[var(--color-border)] bg-[var(--color-card)] p-2 shadow-[4px_4px_0px_0px_var(--color-border)]"
+                  >
+                    {moreLinks.map((link) => (
+                      <li key={link.href} role="none">
+                        <NextLink
+                          href={link.href}
+                          role="menuitem"
+                          onClick={closeMenu}
+                          className={cn(
+                            "block px-3 py-2 font-display text-xs font-bold tracking-wider uppercase transition-colors",
+                            pathname === link.href
+                              ? "bg-[var(--color-secondary)] text-[var(--color-foreground)]"
+                              : "text-[var(--color-muted)] hover:bg-[var(--color-background)] hover:text-[var(--color-foreground)]"
+                          )}
+                        >
+                          {link.label}
+                        </NextLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             </ul>
-
-            {/* Quick Resume Link */}
-            <a
-              href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[var(--color-secondary)] text-[var(--color-foreground)] font-display text-xs font-bold uppercase tracking-wider border border-[var(--color-border)] shadow-[2px_2px_0px_0px_var(--color-border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_var(--color-border)] transition-all"
-            >
-              <span>RESUME</span>
-              <span className="font-mono text-xs" aria-hidden="true">
-                ↗
-              </span>
-            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex items-center gap-3 md:hidden">
-            <a
-              href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-2.5 py-1 bg-[var(--color-secondary)] text-[var(--color-foreground)] font-display text-[11px] font-bold uppercase border border-[var(--color-border)] shadow-[1px_1px_0px_0px_var(--color-border)]"
-            >
-              CV ↗
-            </a>
             <button
               className="flex flex-col justify-center gap-1.5 w-9 h-9 p-2 border border-[var(--color-border)] bg-[var(--color-card)] focus-visible:outline-2 focus-visible:outline-[var(--color-foreground)]"
               onClick={toggleMenu}
@@ -143,7 +173,7 @@ export function Navbar() {
         >
           <Container>
             <ul className="flex flex-col divide-y divide-[var(--color-border-subtle)]" role="list">
-              {navLinks.map((link) => {
+              {[...navLinks, ...moreLinks].map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <li key={link.href}>

@@ -32,15 +32,25 @@ const navSections: FooterSection[] = [
       { label: "04 / EXPERIENCE", href: "/experience" },
       { label: "05 / ACHIEVEMENTS", href: "/achievements" },
       { label: "06 / CERTIFICATIONS", href: "/certifications" },
+      { label: "07 / CODING", href: "/coding" },
+      { label: "08 / CONTACT", href: "/contact" },
     ],
   },
   {
     title: "SIGNALS",
     links: [
-      { label: "GITHUB", href: profile.socials.github, external: true },
-      { label: "LINKEDIN", href: profile.socials.linkedin, external: true },
-      { label: "TWITTER / X", href: profile.socials.twitter, external: true },
-      { label: "LEETCODE", href: profile.socials.leetcode, external: true },
+      ...(profile.socials.github
+        ? [{ label: "GITHUB", href: profile.socials.github, external: true }]
+        : []),
+      ...(profile.socials.linkedin
+        ? [{ label: "LINKEDIN", href: profile.socials.linkedin, external: true }]
+        : []),
+      ...(profile.socials.twitter
+        ? [{ label: "TWITTER / X", href: profile.socials.twitter, external: true }]
+        : []),
+      ...(profile.socials.leetcode
+        ? [{ label: "LEETCODE", href: profile.socials.leetcode, external: true }]
+        : []),
     ],
   },
 ];

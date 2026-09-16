@@ -16,7 +16,3 @@ public/
 Files in `public/` are served from the root:
 - `public/images/avatar.jpg` → accessible at `/images/avatar.jpg`
 - `public/certificates/cert.png` → accessible at `/certificates/cert.png`
-
-## Placeholder
-
-Place actual images in Phase 2 when visual design is implemented.

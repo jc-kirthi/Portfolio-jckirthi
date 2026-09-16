@@ -46,7 +46,7 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
           {h.name}
         </p>
         <p className="text-xs text-[var(--color-muted)] font-mono mt-1">
-          {h.organizer} · {h.location}
+          {h.organizer}{h.location ? ` · ${h.location}` : ""}
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
       )}
 
       <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-3">
-        TEAM · {h.teamSize} {h.teamSize === 1 ? "ENGINEER" : "ENGINEERS"}
+        {h.teamSize ? `TEAM · ${h.teamSize} ${h.teamSize === 1 ? "ENGINEER" : "ENGINEERS"}` : "TEAM SIZE NOT PUBLISHED"}
       </span>
     </div>
   );
