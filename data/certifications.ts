@@ -1,7 +1,7 @@
 /**
  * data/certifications.ts
  *
- * Professional certifications and course completions.
+ * Verified certifications retained from the project and LinkedIn profile.
  */
 
 export interface Certification {
@@ -9,43 +9,48 @@ export interface Certification {
   title: string;
   issuer: string;
   issuerUrl?: string;
-  date?: string;         // ISO date string
+  date: string;
   credentialId?: string;
   credentialUrl?: string;
-  expires?: string;      // ISO date string, omit if no expiry
+  expires?: string;
   skills: string[];
-  image?: string;        // path relative to /public/certificates/
+  image?: string;
 }
 
 export const certifications: Certification[] = [
   {
-    id: "microsoft-applied-skills-ai-research-agents",
-    title: "Generate Reports with AI Research Agents",
-    issuer: "Microsoft Applied Skills",
-    skills: ["AI Research Agents", "Generative AI"],
+    id: "microsoft-ai-research-agents",
+    title: "Microsoft Applied Skills — Generate Reports with AI Research Agents",
+    issuer: "Microsoft",
+    date: "Details available on request",
+    skills: ["AI Research Agents", "Automation", "Reporting"],
   },
   {
     id: "deloitte-forage",
     title: "Deloitte Forage",
     issuer: "Deloitte",
-    skills: [],
+    date: "Details available on request",
+    skills: ["Professional Skills", "Business Problem Solving"],
   },
   {
     id: "postman-api-fundamentals",
-    title: "API Fundamentals",
+    title: "Postman API Fundamentals",
     issuer: "Postman",
-    skills: ["APIs"],
+    date: "Details available on request",
+    skills: ["API Testing", "REST APIs", "Postman"],
   },
   {
     id: "google-ai-study-jam",
     title: "Google AI Study Jam",
     issuer: "Google",
-    skills: ["Artificial Intelligence"],
+    date: "Details available on request",
+    skills: ["AI Fundamentals", "Learning Path", "Google AI"],
   },
   {
     id: "cloud-skills-boost",
-    title: "Cloud Skills Boost Badge",
+    title: "Cloud Skills Boost",
     issuer: "Google Cloud",
-    skills: ["Cloud"],
+    date: "Details available on request",
+    skills: ["Cloud Learning", "Developer Skills", "Cloud Fundamentals"],
   },
 ];

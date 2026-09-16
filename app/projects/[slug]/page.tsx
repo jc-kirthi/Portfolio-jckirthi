@@ -46,73 +46,35 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <Heading as="h1" size="2xl">
             {project.title}
           </Heading>
-          {project.status && (
-            <Badge variant={project.status === "completed" ? "secondary" : "muted"}>
-              {project.status}
-            </Badge>
-          )}
+          <Badge variant={project.status === "completed" ? "secondary" : "muted"}>
+            {project.status}
+          </Badge>
         </div>
 
-        <div className="grid gap-8 border-t-2 border-[var(--color-border)] pt-8">
-          <section>
-            <p className="font-mono text-xs tracking-[0.16em] text-[var(--color-muted)] mb-2">
-              WHY / CONTEXT
-            </p>
-            <p className="text-sm leading-relaxed">{project.description}</p>
-          </section>
+        <p className="text-[var(--color-muted)] mb-6">{project.description}</p>
 
-          <section>
-            <p className="font-mono text-xs tracking-[0.16em] text-[var(--color-muted)] mb-2">
-              TECHNICAL APPROACH
-            </p>
-            {project.tech.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((t) => (
-                  <Badge key={t} variant="default">
-                    {t}
-                  </Badge>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-[var(--color-muted)]">
-                Technical details will be added as the project documentation is finalized.
-              </p>
-            )}
-          </section>
+        <div className="flex flex-wrap gap-2 mb-8">
+          {project.tech.map((t) => (
+            <Badge key={t} variant="default">
+              {t}
+            </Badge>
+          ))}
+        </div>
 
-          <section>
-            <p className="font-mono text-xs tracking-[0.16em] text-[var(--color-muted)] mb-2">
-              OUTCOME / LEARNING
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-              {project.longDescription ??
-                "Details will be added as the project documentation is finalized."}
-            </p>
-          </section>
+        {project.longDescription && (
+          <p className="text-sm leading-relaxed mb-8">{project.longDescription}</p>
+        )}
 
-          {(project.links.github || project.links.live || project.links.demo) && (
-            <section>
-              <p className="font-mono text-xs tracking-[0.16em] text-[var(--color-muted)] mb-2">
-                LINKS
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {project.links.github && (
-                  <Link href={project.links.github} external variant="none" className="text-sm px-4 py-2 border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors">
-                    View on GitHub
-                  </Link>
-                )}
-                {project.links.live && (
-                  <Link href={project.links.live} external variant="none" className="text-sm px-4 py-2 bg-[var(--color-primary)] text-[var(--color-background)] hover:opacity-90 transition-opacity">
-                    Live Demo
-                  </Link>
-                )}
-                {!project.links.live && project.links.demo && (
-                  <Link href={project.links.demo} external variant="none" className="text-sm px-4 py-2 bg-[var(--color-primary)] text-[var(--color-background)] hover:opacity-90 transition-opacity">
-                    Demo
-                  </Link>
-                )}
-              </div>
-            </section>
+        <div className="flex gap-4">
+          {project.links.github && (
+            <Link href={project.links.github} external variant="none" className="text-sm px-4 py-2 border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors">
+              View on GitHub
+            </Link>
+          )}
+          {project.links.live && (
+            <Link href={project.links.live} external variant="none" className="text-sm px-4 py-2 bg-[var(--color-primary)] text-[var(--color-background)] hover:opacity-90 transition-opacity">
+              Live Demo
+            </Link>
           )}
         </div>
       </Container>

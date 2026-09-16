@@ -20,7 +20,15 @@ export function formatDate(
   dateString: string,
   options: Intl.DateTimeFormatOptions = { month: "long", year: "numeric" }
 ): string {
+  if (!dateString || dateString === "Details available on request") {
+    return dateString;
+  }
+
   const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) {
+    return dateString;
+  }
+
   return date.toLocaleDateString("en-US", options);
 }
 
@@ -32,6 +40,7 @@ export function formatDateRange(
   startDate: string,
   endDate?: string
 ): string {
+  if (!startDate) return "Details available on request";
   const start = formatDate(startDate, { month: "short", year: "numeric" });
   if (!endDate) return `${start} – Present`;
   const end = formatDate(endDate, { month: "short", year: "numeric" });

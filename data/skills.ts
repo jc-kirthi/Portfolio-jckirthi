@@ -1,7 +1,7 @@
 /**
  * data/skills.ts
  *
- * Technical and soft skills. No percentage bars — qualitative groupings only.
+ * Technical and soft skills organized by domain without percentage bars.
  */
 
 export type SkillLevel = "familiar" | "proficient" | "expert";
@@ -22,14 +22,10 @@ export const skills: SkillCategory[] = [
     id: "languages",
     label: "Languages",
     skills: [
-      { name: "C" },
-      { name: "Java" },
-      { name: "Python" },
-      { name: "HTML" },
-      { name: "CSS" },
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "SQL" },
+      { name: "Python", level: "expert" },
+      { name: "TypeScript", level: "proficient" },
+      { name: "C", level: "proficient" },
+      { name: "SQL", level: "proficient" },
     ],
   },
   {
@@ -37,42 +33,32 @@ export const skills: SkillCategory[] = [
     label: "ML / AI",
     skills: [
       { name: "Machine Learning" },
-      { name: "Deep Learning" },
-      { name: "NLP" },
       { name: "Generative AI" },
-      { name: "LLMs" },
-      { name: "RAG" },
-      { name: "Agents" },
-      { name: "MCP" },
-      { name: "XGBoost" },
-      { name: "SHAP" },
-      { name: "Hugging Face" },
-      { name: "Transformers" },
-      { name: "OpenCV" },
+      { name: "Data Analysis" },
+      { name: "Feature Engineering" },
+      { name: "Model Evaluation" },
     ],
   },
   {
     id: "web",
     label: "Web",
     skills: [
-      { name: "React" },
       { name: "Next.js" },
+      { name: "React" },
       { name: "Node.js" },
-      { name: "Express" },
-      { name: "FastAPI" },
+      { name: "Firebase" },
       { name: "Tailwind CSS" },
-      { name: "MongoDB / MERN" },
-      { name: "MySQL" },
     ],
   },
   {
     id: "tools",
     label: "Tools & Platforms",
     skills: [
-      { name: "Git / GitHub" },
-      { name: "Firebase" },
+      { name: "Git" },
+      { name: "GitHub" },
+      { name: "Docker" },
       { name: "Vercel" },
-      { name: "Google Cloud AI APIs" },
+      { name: "Figma" },
     ],
   },
 ];

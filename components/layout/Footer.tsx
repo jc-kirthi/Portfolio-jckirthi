@@ -1,125 +1,78 @@
-/**
- * components/layout/Footer.tsx
- *
- * Publication-style editorial footer.
- * Clean, structured, resembling the colophon of a designed product.
- */
-
 import { Container } from "@/components/ui/Container";
 import { Link } from "@/components/ui/Link";
 import { profile } from "@/data/profile";
 
 const currentYear = new Date().getFullYear();
 
-interface FooterLink {
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
-
-const navSections: FooterSection[] = [
-  {
-    title: "INDEX",
-    links: [
-      { label: "01 / WORK", href: "/projects" },
-      { label: "02 / JOURNEY", href: "/journey" },
-      { label: "03 / HACKATHONS", href: "/hackathons" },
-      { label: "04 / EXPERIENCE", href: "/experience" },
-      { label: "05 / ACHIEVEMENTS", href: "/achievements" },
-      { label: "06 / CERTIFICATIONS", href: "/certifications" },
-      { label: "07 / CODING", href: "/coding" },
-      { label: "08 / CONTACT", href: "/contact" },
-    ],
-  },
-  {
-    title: "SIGNALS",
-    links: [
-      ...(profile.socials.github
-        ? [{ label: "GITHUB", href: profile.socials.github, external: true }]
-        : []),
-      ...(profile.socials.linkedin
-        ? [{ label: "LINKEDIN", href: profile.socials.linkedin, external: true }]
-        : []),
-      ...(profile.socials.twitter
-        ? [{ label: "TWITTER / X", href: profile.socials.twitter, external: true }]
-        : []),
-      ...(profile.socials.leetcode
-        ? [{ label: "LEETCODE", href: profile.socials.leetcode, external: true }]
-        : []),
-    ],
-  },
-];
-
 export function Footer() {
   return (
-    <footer
-      className="mt-auto border-t-2 border-[var(--color-border)] bg-[var(--color-card)]/50 pt-16 pb-12"
-      role="contentinfo"
-    >
+    <footer className="mt-auto border-t-2 border-[var(--color-border)] bg-[var(--color-card)]/70 pt-12 pb-10" role="contentinfo">
       <Container>
-        {/* Top Editorial Banner */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--color-border-subtle)]">
-          <div className="lg:col-span-6 flex flex-col gap-4">
+        <div className="grid gap-10 border-b border-[var(--color-border-subtle)] pb-8 lg:grid-cols-12">
+          <div className="lg:col-span-6">
             <div className="flex items-baseline gap-2">
-              <span className="font-display font-black text-2xl tracking-tighter uppercase text-[var(--color-foreground)]">
+              <span className="font-display text-2xl font-black uppercase tracking-tighter text-[var(--color-foreground)]">
                 {profile.name}
               </span>
-              <span className="text-xs font-mono font-bold text-[var(--color-accent-warm)]">
-                ®
-              </span>
+              <span className="font-mono text-[11px] font-bold uppercase text-[var(--color-accent-warm)]">®</span>
             </div>
-            <p className="text-sm text-[var(--color-muted)] max-w-md leading-relaxed">
-              {profile.tagline}
-            </p>
-            <div className="pt-2">
-              <span className="inline-block font-mono text-[11px] font-bold uppercase tracking-wider bg-[var(--color-plum)] text-[#f6f1e8] px-2.5 py-1 border border-[var(--color-border)]">
-                BUILD • COMPETE • CONTRIBUTE • GROW
-              </span>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--color-muted)]">{profile.tagline}</p>
+            <div className="mt-4 inline-block border-2 border-[var(--color-border)] bg-[var(--color-plum)] px-2.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[#f6f1e8]">
+              Build • Compete • Contribute
             </div>
           </div>
 
-          <div className="lg:col-span-6 grid grid-cols-2 gap-8">
-            {navSections.map((sec) => (
-              <div key={sec.title} className="flex flex-col gap-3">
-                <span className="font-mono text-xs font-extrabold uppercase tracking-widest text-[var(--color-foreground)] border-b border-[var(--color-border-subtle)] pb-1">
-                  {sec.title}
-                </span>
-                <ul className="flex flex-col gap-2" role="list">
-                  {sec.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        external={link.external}
-                        variant="none"
-                        className="font-display text-xs font-medium text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors inline-block"
-                      >
-                        {link.label} {link.external ? "↗" : ""}
+          <div className="grid grid-cols-2 gap-8 lg:col-span-6">
+            <div>
+              <p className="border-b border-[var(--color-border-subtle)] pb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-foreground)]">
+                Index
+              </p>
+              <ul className="mt-3 space-y-2" role="list">
+                {[
+                  ["01 / HOME", "/"],
+                  ["02 / PROJECTS", "/projects"],
+                  ["03 / HACKATHONS", "/hackathons"],
+                  ["04 / JOURNEY", "/journey"],
+                  ["05 / EXPERIENCE", "/experience"],
+                  ["06 / CONTACT", "/contact"],
+                ].map(([label, href]) => (
+                  <li key={label}>
+                    <Link href={href} variant="none" className="font-display text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="border-b border-[var(--color-border-subtle)] pb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-foreground)]">
+                Signals
+              </p>
+              <ul className="mt-3 space-y-2" role="list">
+                {[
+                  ["GitHub", profile.socials.github],
+                  ["LinkedIn", profile.socials.linkedin],
+                  ["LeetCode", profile.socials.leetcode],
+                  ["CodeChef", profile.socials.codechef],
+                  ["HackerRank", profile.socials.hackerRank],
+                ]
+                  .filter(([, href]) => Boolean(href))
+                  .map(([label, href]) => (
+                    <li key={label}>
+                      <Link href={href as string} external variant="none" className="font-display text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]">
+                        {label} ↗
                       </Link>
                     </li>
                   ))}
-                </ul>
-              </div>
-            ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Colophon Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-[11px] text-[var(--color-muted)]">
-          <div className="flex items-center gap-2">
-            <span>© {currentYear} {profile.name}</span>
-            <span>·</span>
-            <span>3RD YEAR AI/ML ENGINEERING</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-[var(--color-foreground)] font-bold">
-              WARM IVORY × DEEP PLUM × ACID LIME
-            </span>
-          </div>
+        <div className="mt-8 flex flex-col gap-2 text-[11px] font-mono text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
+          <div>© {currentYear} {profile.name}</div>
+          <div className="font-bold uppercase text-[var(--color-foreground)]">Warm ivory × deep plum × acid lime</div>
         </div>
       </Container>
     </footer>

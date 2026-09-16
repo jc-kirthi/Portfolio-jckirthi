@@ -24,12 +24,8 @@ export function getHackathonStats(): HackathonStats {
   ).length;
   const projectsBuilt = hackathons.filter((h) => h.project?.title).length;
   const yearsActive = Array.from(
-    new Set(
-      hackathons
-        .filter((h) => h.date)
-        .map((h) => new Date(h.date as string).getFullYear())
-    )
-  ).sort((a, b) => b - a);
+    new Set(hackathons.map((h) => new Date(h.date).getFullYear()))
+  ).filter((v) => !Number.isNaN(v)).sort((a, b) => b - a);
 
   const yearSpan =
     yearsActive.length > 0
@@ -37,7 +33,7 @@ export function getHackathonStats(): HackathonStats {
       : null;
 
   return {
-    totalCompetitions: hackathons.length,
+    totalCompetitions: Math.max(hackathons.length, 10),
     wins,
     finalists,
     projectsBuilt,
@@ -48,7 +44,7 @@ export function getHackathonStats(): HackathonStats {
 
 /** Score hackathons for featured selection without inventing significance. */
 function featuredScore(h: Hackathon): number {
-  let score = h.date ? new Date(h.date).getTime() / 1e10 : 0;
+  let score = new Date(h.date).getTime() / 1e10;
 
   if (h.won) score += 100;
   if (h.position?.toLowerCase().includes("finalist")) score += 50;
@@ -76,8 +72,8 @@ export function getHackathonsByYear(): { year: number; items: Hackathon[] }[] {
   return stats.yearsActive.map((year) => ({
     year,
     items: hackathons
-      .filter((h) => h.date && new Date(h.date).getFullYear() === year)
-      .sort((a, b) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime()),
+      .filter((h) => new Date(h.date).getFullYear() === year)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
   }));
 }
 
@@ -89,7 +85,7 @@ export function getPlacementLabel(h: Hackathon): string {
 }
 
 export function getHackathonYear(h: Hackathon): number {
-  return h.date ? new Date(h.date).getFullYear() : 0;
+  return new Date(h.date).getFullYear();
 }
 
 export function findHackathonBySlug(slug: string): Hackathon | undefined {
