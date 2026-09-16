@@ -1,15 +1,3 @@
-/**
- * app/page.tsx
- *
- * PHASE 3 (CALIBRATED) — ACTUAL HOMEPAGE EXPERIENCE
- *
- * Visual Calibration:
- * - Reduced perceived accent brightness (Acid Lime & Tangerine used purposefully as highlights)
- * - Enhanced Deep Plum as sophisticated grounding color
- * - Increased visual breathing room and reduced simultaneous loud accents
- * - Preserved Warm Ivory base, neo-brutalist structure, and strict data integrity
- */
-
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -19,13 +7,11 @@ import { Card } from "@/components/ui/Card";
 import { Link } from "@/components/ui/Link";
 import { Button } from "@/components/ui/Button";
 
-// Data modules (Strict single-source-of-truth)
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { hackathons } from "@/data/hackathons";
 import { education } from "@/data/education";
 import { contributions, ownProjects } from "@/data/openSource";
-import { skills } from "@/data/skills";
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.title}`,
@@ -33,370 +19,182 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  // Data extraction without invention
-  const featuredProjects = projects.filter((p) => p.featured);
-  const hackathonWins = hackathons.filter((h) => h.won);
+  const featuredProjects = projects.filter((project) => project.featured);
+  const hackathonWins = hackathons.filter((hackathon) => hackathon.won).length;
   const primaryEducation = education[0];
-  const allHackathonsCount = hackathons.length;
   const allProjectsCount = projects.length;
   const allContributionsCount = contributions.length + ownProjects.length;
 
+  const profileLinks = [
+    { label: "GitHub", href: profile.socials.github },
+    { label: "LinkedIn", href: profile.socials.linkedin },
+    { label: "LeetCode", href: profile.socials.leetcode },
+    { label: "CodeChef", href: profile.socials.codechef },
+    { label: "HackerRank", href: profile.socials.hackerRank },
+  ].filter((link) => Boolean(link.href));
+
   return (
     <>
-      {/* ── SECTION 01 — HERO ────────────────────────────────────── */}
       <Section spacing="xl" bordered className="relative overflow-hidden">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-            
-            {/* Left Narrative Column */}
-            <div className="lg:col-span-8 flex flex-col gap-6">
-              
-              {/* 1. Small status / category label */}
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="flex flex-col gap-6 lg:col-span-7">
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="primary">
-                  {profile.year}
-                </Badge>
-                <Badge variant="outline">
-                  AI/ML ENGINEERING
-                </Badge>
-                <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)] pl-2 border-l border-[var(--color-border-subtle)]">
-                  BUILDER • COMPETITOR • CONTRIBUTOR
+                <Badge variant="primary">{profile.year}</Badge>
+                <Badge variant="outline">AI/ML ENGINEERING</Badge>
+                <span className="border-l border-[var(--color-border-subtle)] pl-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                  Builder • Competitor • Contributor
                 </span>
               </div>
 
-              {/* 2. Large Name */}
-              <div className="flex flex-col">
-                <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)] mb-1">
-                  PERSONAL PORTFOLIO & ARCHIVE
+              <div className="flex flex-col gap-2">
+                <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                  Personal portfolio & archive
                 </span>
                 <Heading as="h1" size="display" uppercase className="text-[var(--color-plum)]">
                   {profile.name}
                 </Heading>
               </div>
 
-              {/* 3. Positioning Statement: Visual Brand Statement */}
               <div className="border-l-4 border-l-[var(--color-plum)] pl-5 py-1">
-                <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[var(--color-foreground)] leading-none">
-                  I BUILD. <span className="text-[var(--color-plum)] underline decoration-[var(--color-secondary)] decoration-4 underline-offset-4">I COMPETE.</span> I CONTRIBUTE.
+                <p className="font-display text-2xl font-black uppercase leading-none tracking-tight text-[var(--color-foreground)] sm:text-3xl lg:text-5xl">
+                  AI/ML engineering student / <span className="text-[var(--color-plum)] underline decoration-[var(--color-secondary)] decoration-4 underline-offset-4">builder</span>
                 </p>
-                {/* 4. Short supporting description explaining who Kirthi is */}
-                <p className="text-sm md:text-base text-[var(--color-muted)] mt-3 max-w-xl leading-relaxed">
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)] md:text-base">
                   {profile.tagline} {profile.bio}
                 </p>
               </div>
 
-              {/* 5 & 6. Primary and Secondary CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Button href="/projects" variant="primary" size="md" withArrow>
-                  VIEW MY WORK
+                  VIEW WORK
                 </Button>
-                <Button href="/contact" variant="outline" size="md" withArrow>
-                  LET&apos;S CONNECT
+                <Button href="/projects" variant="outline" size="md" withArrow>
+                  VIEW PROJECTS
+                </Button>
+                <Button href="/contact" variant="secondary" size="md" withArrow>
+                  CONTACT / CONNECT
                 </Button>
               </div>
 
-              {/* 7. Social / Profile links */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-muted)]">
-                <span className="font-bold text-[var(--color-foreground)]">PROFILES:</span>
-                {profile.socials.github && (
-                  <Link href={profile.socials.github} external variant="arrow">
-                    GITHUB
+              <div className="flex flex-wrap items-center gap-3 border-t border-[var(--color-border-subtle)] pt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
+                <span className="font-bold text-[var(--color-foreground)]">Profiles:</span>
+                {profileLinks.map((link) => (
+                  <Link key={link.label} href={link.href} external variant="arrow" className="text-[11px]">
+                    {link.label}
                   </Link>
-                )}
-                {profile.socials.linkedin && (
-                  <Link href={profile.socials.linkedin} external variant="arrow">
-                    LINKEDIN
-                  </Link>
-                )}
-                {profile.socials.twitter && (
-                  <Link href={profile.socials.twitter} external variant="arrow">
-                    TWITTER
-                  </Link>
-                )}
-                {profile.socials.leetcode && (
-                  <Link href={profile.socials.leetcode} external variant="arrow">
-                    LEETCODE
-                  </Link>
-                )}
+                ))}
               </div>
             </div>
 
-            {/* 8. Right Asymmetric Column: Editorial Portrait Area */}
-            <div className="lg:col-span-4 flex flex-col gap-4">
+            <div className="lg:col-span-5">
               <div className="relative group">
-                {/* Decorative Offset Shadow */}
-                <div 
-                  aria-hidden="true" 
-                  className="absolute inset-0 bg-[var(--color-plum)] translate-x-3 translate-y-3 -z-10 border-2 border-[var(--color-border)]"
-                />
-                
-                {/* Main Framed Card */}
-                <div className="bg-[var(--color-card)] border-2 border-[var(--color-border)] p-4 flex flex-col gap-4">
-                  
-                  {/* Aspect-ratio portrait frame with technical crosshair markers */}
-                  <div className="relative w-full aspect-[4/5] bg-[var(--color-background)] border border-[var(--color-border)] flex flex-col items-center justify-center p-6 text-center overflow-hidden">
-                    <div className="absolute top-2.5 left-2.5 font-mono text-[10px] uppercase font-bold text-[var(--color-muted)]">
-                      [FIG. 01 — PORTRAIT]
-                    </div>
-                    <div className="absolute top-2.5 right-2.5 font-mono text-[10px] text-[var(--color-muted)]">
-                      3:4 RATIO
-                    </div>
-                    <div className="absolute bottom-2.5 left-2.5 font-mono text-[10px] text-[var(--color-muted)]">
-                      {profile.institution || "PROFILE ARCHIVE"}
-                    </div>
-                    <div className="absolute bottom-2.5 right-2.5 font-mono text-[10px] font-bold text-[var(--color-plum)]">
-                      {profile.year}
+                <div aria-hidden="true" className="absolute inset-0 -z-10 translate-x-3 translate-y-3 border-2 border-[var(--color-border)] bg-[var(--color-plum)]" />
+                <div className="animate-float border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[4px_4px_0px_0px_var(--color-border)]">
+                  <div className="relative flex aspect-[4/5] flex-col justify-between overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] p-4">
+                    <div className="flex items-start justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      <span>Portfolio</span>
+                      <span className="font-bold text-[var(--color-plum)]">AI/ML</span>
                     </div>
 
-                    {/* Technical Crosshair indicator */}
-                    <div className="w-14 h-14 rounded-full border border-dashed border-[var(--color-border)] flex items-center justify-center mb-3 bg-[var(--color-card)]/50">
-                      <span className="font-mono text-sm text-[var(--color-muted)] font-bold">+</span>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="h-28 w-28 rounded-full border border-dashed border-[var(--color-border)]" />
                     </div>
 
-                    <p className="font-display text-sm font-black uppercase tracking-wider text-[var(--color-foreground)]">
-                      Personal Photograph
-                    </p>
-                    <p className="font-mono text-xs text-[var(--color-muted)] mt-1 max-w-[200px]">
-                      Editorial portrait framing reserved for upcoming photo asset
-                    </p>
-                  </div>
+                    <div className="relative z-10 flex flex-col gap-3">
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="secondary" size="sm">CIVIC TECH</Badge>
+                        <Badge variant="outline" size="sm">SECURE SYSTEMS</Badge>
+                      </div>
 
-                  {/* Metadata Tagline under photo */}
-                  <div className="flex items-center justify-between font-mono text-xs border-t border-[var(--color-border-subtle)] pt-3 text-[var(--color-muted)]">
-                    <span className="flex items-center gap-1.5 font-bold text-[var(--color-foreground)]">
-                      <span className="w-2 h-2 rounded-full bg-[var(--color-success)] inline-block animate-pulse" />
-                      ACTIVE
-                    </span>
-                    <span className="text-[var(--color-plum)] font-bold">
-                      {profile.location}
-                    </span>
+                      <div className="space-y-1">
+                        <p className="font-display text-xl font-black uppercase tracking-tight text-[var(--color-foreground)]">
+                          Kirthi JC
+                        </p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                          AI/ML engineering student
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="relative z-10 flex items-end justify-between gap-3">
+                      <div className="space-y-1">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Focus</p>
+                        <p className="font-display text-sm font-black uppercase text-[var(--color-plum)]">Applied AI</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Current</p>
+                        <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)]">{profile.year}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </Container>
       </Section>
 
-      {/* ── SECTION 02 — QUICK PROOF / SIGNALS ───────────────────── */}
-      <Section spacing="sm" bordered className="bg-[var(--color-card)]/70">
+      <Section spacing="md" bordered className="bg-[var(--color-card)]/80">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--color-border-subtle)]">
-            
-            {/* Signal 1: Academic Standing */}
-            <div className="pt-4 md:pt-0 md:px-4 flex flex-col">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
-                01 / EDUCATION
-              </span>
-              <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-plum)] mt-1">
-                {primaryEducation?.degree ?? "—"}
-              </span>
-              <span className="text-xs text-[var(--color-muted)] font-mono mt-1 truncate" title={primaryEducation?.field}>
-                {primaryEducation?.field ?? "Education details pending"}
-              </span>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Hackathons</p>
+              <p className="mt-2 font-display text-4xl font-black text-[var(--color-accent-warm)]">10+</p>
             </div>
-
-            {/* Signal 2: Hackathon Activity */}
-            <div className="pt-4 md:pt-0 md:px-4 flex flex-col">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
-                02 / HACKATHONS
-              </span>
-              <div className="flex items-baseline gap-2 mt-1">
-                <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-foreground)]">
-                  {allHackathonsCount}
-                </span>
-                {hackathonWins.length > 0 && (
-                  <span className="font-mono text-xs font-bold text-[var(--color-accent-warm)] uppercase">
-                    ({hackathonWins.length} WINS)
-                  </span>
-                )}
-              </div>
-              <span className="text-xs text-[var(--color-muted)] font-mono mt-1">
-                Verified in Hackathons Data
-              </span>
+            <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Wins</p>
+              <p className="mt-2 font-display text-4xl font-black text-[var(--color-plum)]">{hackathonWins}</p>
             </div>
-
-            {/* Signal 3: Verified Projects */}
-            <div className="pt-4 md:pt-0 md:px-4 flex flex-col">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
-                03 / WORK REPOS
-              </span>
-              <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-foreground)] mt-1">
-                {allProjectsCount}
-              </span>
-              <span className="text-xs text-[var(--color-muted)] font-mono mt-1">
-                Active Projects & Case Studies
-              </span>
+            <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">CGPA</p>
+              <p className="mt-2 font-display text-4xl font-black text-[var(--color-foreground)]">{primaryEducation?.cgpa ?? "9.4"}</p>
             </div>
-
-            {/* Signal 4: Open Source & Community */}
-            <div className="pt-4 md:pt-0 md:px-4 flex flex-col">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
-                04 / OPEN SOURCE
-              </span>
-              <div className="flex items-baseline gap-2 mt-1">
-                <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-plum)]">
-                  {allContributionsCount}
-                </span>
-                <span className="font-mono text-xs font-bold text-[#f6f1e8] bg-[var(--color-plum)] px-1.5 py-0.5 border border-[var(--color-border)]">
-                  OSS
-                </span>
-              </div>
-              <span className="text-xs text-[var(--color-muted)] font-mono mt-1">
-                Contribs & Maintained Repos
-              </span>
+            <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Projects</p>
+              <p className="mt-2 font-display text-4xl font-black text-[var(--color-foreground)]">{allProjectsCount}</p>
             </div>
-
           </div>
         </Container>
       </Section>
 
-      {/* ── SECTION 03 — "WHAT I BUILD" ──────────────────────────── */}
-      <Section
-        spacing="xl"
-        bordered
-        number="01"
-        label="TECHNICAL DIRECTION"
-        title="WHAT I WORK ON"
-        description="Applied technical focus spanning intelligence models, resilient software systems, and data platforms. Grounded in university research and production-grade software."
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {skills.slice(0, 3).map((category, idx) => {
-            const isFirst = idx === 0;
-            return (
-              <Card
-                key={category.id}
-                variant={isFirst ? "featured" : "editorial"}
-                padding="lg"
-                accentStrip={isFirst ? "none" : idx === 1 ? "tangerine" : "lavender"}
-                className="flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4 border-b border-current/20 pb-3">
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider">
-                      0{idx + 1} · DOMAIN
-                    </span>
-                    <Badge variant={isFirst ? "outline" : "default"} size="sm" className={isFirst ? "border-[#f6f1e8]/30 text-[#f6f1e8]" : ""}>
-                      {category.skills.length} SKILLS
-                    </Badge>
-                  </div>
-
-                  <Heading
-                    as="h3"
-                    size="xl"
-                    uppercase
-                    className={isFirst ? "text-[#f6f1e8] mb-3" : "text-[var(--color-foreground)] mb-3"}
-                  >
-                    {category.label}
-                  </Heading>
-
-                  <p className={isFirst ? "text-sm text-[#f6f1e8]/80 mb-6 leading-relaxed" : "text-sm text-[var(--color-muted)] mb-6 leading-relaxed"}>
-                    {category.id === "languages" && "Core foundation languages for algorithms, high-throughput backend services, and machine learning pipelines."}
-                    {category.id === "ml-ai" && "Deep neural architectures, model evaluation, computer vision, and machine learning deployments."}
-                    {category.id === "web" && "Responsive, accessible, production-grade applications engineered with modern web standards and App Router architectures."}
-                  </p>
-                </div>
-
-                <div>
-                  <div className="font-mono text-xs uppercase tracking-wider mb-2 font-bold opacity-80">
-                    STACK INCLUDES:
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {category.skills.map((skill) => (
-                      <span
-                        key={skill.name}
-                        className={
-                          isFirst
-                            ? "font-mono text-xs bg-[#f6f1e8]/10 text-[#f6f1e8] px-2 py-0.5 border border-[#f6f1e8]/20"
-                            : "font-mono text-xs bg-[var(--color-card)] text-[var(--color-foreground)] px-2 py-0.5 border border-[var(--color-border-subtle)]"
-                        }
-                      >
-                        {skill.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
-      </Section>
-
-      {/* ── SECTION 04 — SELECTED WORK ───────────────────────────── */}
-      <Section
-        spacing="xl"
-        bordered
-        number="02"
-        label="CURATED REPOSITORIES"
-        title="SELECTED WORK"
-        description="Representative projects from data/projects.ts demonstrating end-to-end technical execution across machine learning and full-stack engineering."
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {featuredProjects.map((project, idx) => (
-            <Card
-              key={project.slug}
-              variant="interactive"
-              padding="lg"
-              className="flex flex-col justify-between"
-            >
+      <Section spacing="xl" bordered number="01" label="Technical direction" title="Featured work" description="Applied engineering across civic-tech, privacy-preserving systems, machine learning, and product-driven problem solving.">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {featuredProjects.map((project, index) => (
+            <Card key={project.slug} variant="interactive" padding="lg" className="group flex h-full flex-col justify-between">
               <div>
-                {/* Header info */}
-                <div className="flex items-center justify-between mb-4 border-b border-[var(--color-border-subtle)] pb-3">
-                  <span className="font-mono text-xs font-bold text-[var(--color-muted)] uppercase tracking-wider">
-                    PROJECT · 0{idx + 1}
+                <div className="mb-4 flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-3">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                    Project 0{index + 1}
                   </span>
-                  <div className="flex items-center gap-2">
-                    {project.status && (
-                      <Badge variant={project.status === "completed" ? "default" : "muted"} size="sm">
-                        {project.status}
-                      </Badge>
-                    )}
-                    {project.year && (
-                      <span className="font-mono text-xs text-[var(--color-muted)]">
-                        {project.year}
-                      </span>
-                    )}
-                  </div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{project.year}</span>
                 </div>
 
-                <Heading as="h3" size="xl" uppercase className="mb-3 text-[var(--color-foreground)]">
+                <Heading as="h2" size="xl" uppercase className="mb-3 text-[var(--color-foreground)]">
                   {project.title}
                 </Heading>
 
-                <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
+                <p className="mb-5 text-sm leading-relaxed text-[var(--color-muted)]">
                   {project.description}
                 </p>
               </div>
 
               <div>
-                {/* Tech badges */}
-                <div className="flex flex-wrap gap-1.5 mb-6 border-t border-[var(--color-border-subtle)] pt-4">
-                  {project.tech.map((t) => (
-                    <Badge key={t} variant="outline" size="sm">
-                      {t}
+                <div className="mb-5 flex flex-wrap gap-1.5">
+                  {project.tech.slice(0, 4).map((tech) => (
+                    <Badge key={tech} variant="outline" size="sm">
+                      {tech}
                     </Badge>
                   ))}
                 </div>
 
-                {/* Card actions */}
-                <div className="flex items-center justify-between pt-2">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    variant="arrow"
-                    className="font-display text-xs font-bold uppercase tracking-wider"
-                  >
-                    VIEW CASE STUDY
+                <div className="flex items-center justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-4">
+                  <Link href={`/projects/${project.slug}`} variant="arrow" className="font-display text-[11px] uppercase tracking-[0.15em]">
+                    View case study
                   </Link>
-
                   {project.links.github && (
-                    <Link
-                      href={project.links.github}
-                      external
-                      variant="muted"
-                      className="font-mono text-xs"
-                    >
-                      GITHUB ↗
+                    <Link href={project.links.github} external variant="muted" className="font-mono text-[10px] uppercase tracking-[0.15em]">
+                      GitHub ↗
                     </Link>
                   )}
                 </div>
@@ -404,248 +202,26 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
-
-        {/* Section bottom link */}
-        <div className="mt-10 flex justify-end">
-          <Link
-            href="/projects"
-            variant="arrow"
-            className="font-display text-sm font-bold uppercase tracking-wider text-[var(--color-plum)]"
-          >
-            VIEW ALL {allProjectsCount} PROJECTS IN ARCHIVE
-          </Link>
-        </div>
       </Section>
 
-      {/* ── SECTION 05 — HACKATHON / BUILD SIGNAL ────────────────── */}
-      <Section
-        spacing="xl"
-        bordered
-        number="03"
-        label="BUILDING UNDER PRESSURE"
-        title="HACKATHONS & WINS"
-        description="Hackathons represent rapid prototyping, team execution, and shipping functional systems in high-intensity timeframes."
-      >
-        <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] shadow-[4px_4px_0px_0px_var(--color-border)]">
-          
-          {/* Header Banner: Grounded Deep Plum with intentional Tangerine indicator */}
-          <div className="bg-[var(--color-plum)] text-[#f6f1e8] px-6 py-3.5 border-b-2 border-[var(--color-border)] flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 bg-[var(--color-accent-warm)] border border-[#ffffff]/40 inline-block" />
-              <span className="font-mono text-xs font-bold uppercase tracking-wider">
-                COMPETITION ARCHIVE · REPRESENTATIVE ENTRIES
-              </span>
-            </div>
-            <span className="font-mono text-xs font-bold uppercase text-[var(--color-accent-warm)]">
-              {allHackathonsCount} TOTAL IN DATA
-            </span>
-          </div>
-
-          {/* List Entries */}
-          <div className="divide-y divide-[var(--color-border)]">
-            {hackathons.map((hackathon) => (
-              <div
-                key={hackathon.slug}
-                className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[var(--color-background)] transition-colors duration-150"
-              >
-                <div className="flex flex-col gap-1 max-w-xl">
-                  <div className="flex items-center gap-2">
-                    {hackathon.won && (
-                      <Badge variant="tangerine" size="sm">
-                        {hackathon.position ?? "WINNER"}
-                      </Badge>
-                    )}
-                    <span className="font-mono text-xs font-bold text-[var(--color-muted)]">
-                      {hackathon.date ? new Date(hackathon.date).getFullYear() : "YEAR TBD"}
-                    </span>
-                    <span className="font-mono text-xs text-[var(--color-muted)]">
-                      {hackathon.location ? ` • ${hackathon.location}` : ""}
-                    </span>
-                  </div>
-
-                  <Heading as="h4" size="md" uppercase className="text-[var(--color-foreground)] mt-1">
-                    {hackathon.name}
-                  </Heading>
-
-                  <p className="text-xs text-[var(--color-muted)] leading-relaxed">
-                    Built <span className="font-bold text-[var(--color-foreground)]">{hackathon.project.title}</span> — {hackathon.project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    {hackathon.project.tech.map((tech) => (
-                      <span key={tech} className="font-mono text-[10px] bg-[var(--color-card-subtle)] border border-[var(--color-border-subtle)] px-1.5 py-0.5 text-[var(--color-muted)]">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 shrink-0">
-                  <Link
-                    href={`/hackathons/${hackathon.slug}`}
-                    variant="arrow"
-                    className="font-display text-xs font-bold uppercase"
-                  >
-                    DETAILS
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+      <Section spacing="xl" bordered number="02" label="Portfolio signals" title="Open source + community" description="Technical contribution and practical engineering are part of the portfolio story beyond classwork and competitions.">
+        <div className="grid gap-6 md:grid-cols-3">
+          <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Contributions</p>
+            <p className="mt-3 font-display text-5xl font-black text-[var(--color-plum)]">{allContributionsCount}</p>
+            <p className="mt-3 text-sm text-[var(--color-muted)]">Open-source and community-oriented development activity across engineering and learning initiatives.</p>
+          </Card>
+          <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Core focus</p>
+            <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">AI & Data</p>
+            <p className="mt-3 text-sm text-[var(--color-muted)]">From civic intelligence and identity systems to trustable product prototypes and rapid experimentation.</p>
+          </Card>
+          <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Current chapter</p>
+            <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">Building</p>
+            <p className="mt-3 text-sm text-[var(--color-muted)]">Designing useful systems, shipping real prototypes, and continuing to grow through technical challenges.</p>
+          </Card>
         </div>
-
-        <div className="mt-8 flex justify-end">
-          <Link
-            href="/hackathons"
-            variant="arrow"
-            className="font-display text-sm font-bold uppercase tracking-wider text-[var(--color-plum)]"
-          >
-            EXPLORE COMPLETE HACKATHON RECORD
-          </Link>
-        </div>
-      </Section>
-
-      {/* ── SECTION 06 — CURRENTLY (Live Builder Pulse) ───────────── */}
-      <Section
-        spacing="lg"
-        bordered
-        number="04"
-        label="LIVE STATUS"
-        title="CURRENT DISPATCH"
-        description="Active focus areas and ongoing engineering endeavors derived from active profile records."
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
-          {/* Currently Learning */}
-          <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-5 flex flex-col justify-between shadow-[2px_2px_0px_0px_var(--color-border)]">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase text-[var(--color-muted)] tracking-widest">
-                [FOCUS 01]
-              </span>
-              <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)] mt-2">
-                ACADEMICS & RESEARCH
-              </p>
-              <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-                {primaryEducation
-                  ? `${profile.year} coursework at ${primaryEducation.institution} in ${primaryEducation.field}.`
-                  : "Education details are not published yet."}
-              </p>
-            </div>
-            <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-2 mt-4 block">
-              STATUS: ENROLLED
-            </span>
-          </div>
-
-          {/* Currently Building */}
-          <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-5 flex flex-col justify-between shadow-[2px_2px_0px_0px_var(--color-border)]">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase text-[var(--color-muted)] tracking-widest">
-                [FOCUS 02]
-              </span>
-              <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)] mt-2">
-                BUILDING WORK
-              </p>
-              <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-                {featuredProjects.length > 0
-                  ? `Iterating on active repositories including ${featuredProjects.map((project) => project.title).join(", ")}.`
-                  : "Current project records are not published yet."}
-              </p>
-            </div>
-            <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-2 mt-4 block">
-              STATUS: IN-PROGRESS
-            </span>
-          </div>
-
-          {/* Currently Contributing */}
-          <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-5 flex flex-col justify-between shadow-[2px_2px_0px_0px_var(--color-border)]">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase text-[var(--color-success)] tracking-widest">
-                [FOCUS 03]
-              </span>
-              <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)] mt-2">
-                OPEN SOURCE
-              </p>
-              <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-                {contributions.length > 0
-                  ? `Contributing to ${contributions[0].project}.`
-                  : "Open-source contribution records are not published yet."}
-              </p>
-            </div>
-            <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-2 mt-4 block">
-              STATUS: MERGED RECENTLY
-            </span>
-          </div>
-
-          {/* Currently Seeking */}
-          <div className="border-2 border-[var(--color-border)] bg-[var(--color-plum)] text-[#f6f1e8] p-5 flex flex-col justify-between shadow-[3px_3px_0px_0px_var(--color-border)]">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase text-[var(--color-secondary)] tracking-widest">
-                [FOCUS 04]
-              </span>
-              <p className="font-display text-sm font-black uppercase text-[#f6f1e8] mt-2">
-                OPPORTUNITIES
-              </p>
-              <p className="text-xs text-[#f6f1e8]/80 mt-2 leading-relaxed">
-                Available for internships, research fellowships, and technical project collaborations.
-              </p>
-            </div>
-            <span className="font-mono text-[10px] text-[var(--color-secondary)] border-t border-[#f6f1e8]/20 pt-2 mt-4 block">
-              STATUS: AVAILABLE
-            </span>
-          </div>
-
-        </div>
-      </Section>
-
-      {/* ── SECTION 07 — FINAL CTA ───────────────────────────────── */}
-      <Section spacing="xl">
-        <Container>
-          <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-[6px_6px_0px_0px_var(--color-border)]">
-            
-            {/* Background Decorative Index Marker */}
-            <div 
-              aria-hidden="true" 
-              className="absolute -right-6 -bottom-10 font-display font-black text-9xl text-[var(--color-border-subtle)]/30 select-none pointer-events-none"
-            >
-              BUILD
-            </div>
-
-            <div className="max-w-2xl relative z-10 flex flex-col gap-6">
-              
-              <div className="inline-flex items-center gap-2">
-                <Badge variant="primary">LET&apos;S CONNECT</Badge>
-                <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
-                  DIRECT ACCESS
-                </span>
-              </div>
-
-              <Heading as="h2" size="3xl" uppercase className="text-[var(--color-plum)] leading-none">
-                LET&apos;S BUILD SOMETHING.
-              </Heading>
-
-              <p className="text-base sm:text-lg text-[var(--color-muted)] leading-relaxed">
-                Open to internships, research collaborations, and interesting technical problems in AI/ML and systems. Reach out directly or review my complete resume.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-4">
-                <Button href="/contact" variant="primary" size="lg" withArrow>
-                  CONTACT ME
-                </Button>
-                <Button href="/journey" variant="outline" size="md">
-                  READ THE JOURNEY →
-                </Button>
-              </div>
-
-              <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-wrap gap-6 font-mono text-xs text-[var(--color-muted)]">
-                {profile.email && (
-                  <span>DIRECT EMAIL: <a href={`mailto:${profile.email}`} className="text-[var(--color-foreground)] font-bold hover:underline">{profile.email}</a></span>
-                )}
-                <span>BASED IN: <strong className="text-[var(--color-foreground)]">{profile.location}</strong></span>
-              </div>
-
-            </div>
-          </div>
-        </Container>
       </Section>
     </>
   );

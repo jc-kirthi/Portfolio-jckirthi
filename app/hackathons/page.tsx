@@ -49,25 +49,6 @@ export default function HackathonsPage() {
 
   return (
     <>
-      {stats.totalCompetitions === 0 && (
-        <Section spacing="xl">
-          <Container>
-            <div className="max-w-3xl space-y-5">
-              <Badge variant="tangerine">COMPETITION LOG</Badge>
-              <Heading as="h1" size="display" uppercase className="leading-[0.9] text-[var(--color-plum)]">
-                BUILDING
-                <br />
-                UNDER
-                <br />
-                <span className="text-[var(--color-foreground)]">PRESSURE.</span>
-              </Heading>
-              <p className="max-w-xl text-sm leading-relaxed text-[var(--color-muted)]">
-                Hackathon records will appear here once they are ready to publish.
-              </p>
-            </div>
-          </Container>
-        </Section>
-      )}
       {/* ── 01 — INTRO ───────────────────────────────────────────── */}
       <Section spacing="xl" bordered className="relative overflow-hidden">
         <Container>

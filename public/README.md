@@ -1,18 +1,11 @@
-# Portfolio — Public Assets
+# Portfolio public assets
 
-This directory contains static assets served at the root URL.
+This directory stores static files that are served from the root of the portfolio, such as images and downloadable assets used across the site.
 
-## Directory Structure
+## Typical usage
 
-```
-public/
-├── images/          # General images (avatar, og-image, etc.)
-├── certificates/    # Certificate images (referenced in data/certifications.ts)
-└── projects/        # Project screenshots (referenced in data/projects.ts)
-```
+- `public/images/` for profile or hero imagery
+- `public/projects/` for project screenshots or visual references
+- `public/certificates/` for certification or achievement assets
 
-## Usage
-
-Files in `public/` are served from the root:
-- `public/images/avatar.jpg` → accessible at `/images/avatar.jpg`
-- `public/certificates/cert.png` → accessible at `/certificates/cert.png`
+Files in this directory are available at URLs such as `/images/example.jpg` or `/certificates/example.pdf`.

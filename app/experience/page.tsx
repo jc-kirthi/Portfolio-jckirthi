@@ -19,13 +19,12 @@ export default function ExperiencePage() {
           Experience
         </Heading>
         <p className="text-[var(--color-muted)] text-sm mb-10">
-          Community, student leadership, and professional work.
+          Internships, roles, and professional work.
         </p>
 
-        {experience.length > 0 ? (
-          <div className="flex flex-col gap-6">
-            {experience.map((exp) => (
-              <div
+        <div className="flex flex-col gap-6">
+          {experience.map((exp) => (
+            <div
               key={exp.id}
               className="border-l-2 border-[var(--color-primary)] pl-6"
             >
@@ -42,9 +41,7 @@ export default function ExperiencePage() {
                 {exp.company}
               </p>
               <p className="text-xs text-[var(--color-muted)] mb-3">
-                {exp.startDate
-                  ? `${formatDateRange(exp.startDate, exp.endDate)}${exp.location ? ` · ${exp.location}` : ""}`
-                  : exp.location || "Dates not published"}
+                {formatDateRange(exp.startDate, exp.endDate)} · {exp.location}
               </p>
 
               <p className="text-sm text-[var(--color-muted)] mb-3">
@@ -70,13 +67,8 @@ export default function ExperiencePage() {
                 ))}
               </div>
             </div>
-            ))}
-          </div>
-        ) : (
-          <div className="border-2 border-dashed border-[var(--color-border-subtle)] p-8 text-sm text-[var(--color-muted)]">
-            Experience records will appear here once they are ready to publish.
-          </div>
-        )}
+          ))}
+        </div>
       </Container>
     </Section>
   );

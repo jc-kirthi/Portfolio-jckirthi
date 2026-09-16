@@ -1,8 +1,7 @@
 /**
  * data/volunteering.ts
  *
- * Volunteer work, community involvement, and student organizations.
- * Replace with real data later.
+ * Community and student-led participation relevant to engineering and learning.
  */
 
 export interface Volunteering {
@@ -10,8 +9,8 @@ export interface Volunteering {
   role: string;
   organization: string;
   organizationUrl?: string;
-  location?: string;
-  startDate?: string;    // ISO date string
+  location: string;
+  startDate: string;     // ISO date string
   endDate?: string;      // ISO date string, omit if ongoing
   current: boolean;
   description: string;
@@ -20,27 +19,31 @@ export interface Volunteering {
 
 export const volunteering: Volunteering[] = [
   {
-    id: "oscode-cit-technical-team",
-    role: "Technical Team Member",
-    organization: "OSCode CIT Chapter",
+    id: "girlscript-summer-of-code",
+    role: "Contributor",
+    organization: "GirlScript Summer of Code",
+    organizationUrl: "https://gssoc.girlscript.tech/",
+    location: "Remote",
+    startDate: "2025-05-01",
     current: true,
-    description: "Technical team involvement with the OSCode CIT Chapter.",
-    highlights: [],
+    description: "Participated in a community-centered open-source learning program focused on building projects, strengthening collaboration, and learning through practical contribution.",
+    highlights: [
+      "Worked in a collaborative development environment with peer contributors.",
+      "Strengthened practical engineering habits through project work and documentation.",
+    ],
   },
   {
-    id: "mlsa-cit-chapter",
-    role: "Member",
-    organization: "MLSA CIT Chapter",
+    id: "oscode-cit",
+    role: "Student Contributor",
+    organization: "OSCode CIT",
+    organizationUrl: "https://www.oscode.org/",
+    location: "Coimbatore, India",
+    startDate: "2024-08-01",
     current: true,
-    description: "Community involvement with the MLSA CIT Chapter.",
-    highlights: [],
-  },
-  {
-    id: "microsoft-student-learn-ambassador-2026",
-    role: "Microsoft Student Learn Ambassador",
-    organization: "Microsoft",
-    current: true,
-    description: "Microsoft Student Learn Ambassador for 2026.",
-    highlights: [],
+    description: "Engaged with a student developer community for learning, peer collaboration, and hands-on technical exploration.",
+    highlights: [
+      "Built and discussed small technical projects with peers.",
+      "Contributed to a learning-oriented community focused on coding skills and project execution.",
+    ],
   },
 ];
