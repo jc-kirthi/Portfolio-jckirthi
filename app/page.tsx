@@ -93,9 +93,6 @@ export default function HomePage() {
                 <Button href="/contact" variant="outline" size="md" withArrow>
                   LET&apos;S CONNECT
                 </Button>
-                <Button href={profile.resumeUrl} external variant="ghost" size="md">
-                  RESUME ↗
-                </Button>
               </div>
 
               {/* 7. Social / Profile links */}
@@ -136,7 +133,7 @@ export default function HomePage() {
                 {/* Main Framed Card */}
                 <div className="bg-[var(--color-card)] border-2 border-[var(--color-border)] p-4 flex flex-col gap-4">
                   
-                  {/* Aspect-ratio photo placeholder box with technical crosshair markers */}
+                  {/* Aspect-ratio portrait frame with technical crosshair markers */}
                   <div className="relative w-full aspect-[4/5] bg-[var(--color-background)] border border-[var(--color-border)] flex flex-col items-center justify-center p-6 text-center overflow-hidden">
                     <div className="absolute top-2.5 left-2.5 font-mono text-[10px] uppercase font-bold text-[var(--color-muted)]">
                       [FIG. 01 — PORTRAIT]
@@ -145,7 +142,7 @@ export default function HomePage() {
                       3:4 RATIO
                     </div>
                     <div className="absolute bottom-2.5 left-2.5 font-mono text-[10px] text-[var(--color-muted)]">
-                      {profile.institution}
+                      {profile.institution || "PROFILE ARCHIVE"}
                     </div>
                     <div className="absolute bottom-2.5 right-2.5 font-mono text-[10px] font-bold text-[var(--color-plum)]">
                       {profile.year}
@@ -193,10 +190,10 @@ export default function HomePage() {
                 01 / EDUCATION
               </span>
               <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[var(--color-plum)] mt-1">
-                {primaryEducation?.degree ?? "B.Tech"}
+                {primaryEducation?.degree ?? "—"}
               </span>
               <span className="text-xs text-[var(--color-muted)] font-mono mt-1 truncate" title={primaryEducation?.field}>
-                {primaryEducation?.field ?? "AI & Machine Learning"}
+                {primaryEducation?.field ?? "Education details pending"}
               </span>
             </div>
 
@@ -350,12 +347,16 @@ export default function HomePage() {
                     PROJECT · 0{idx + 1}
                   </span>
                   <div className="flex items-center gap-2">
-                    <Badge variant={project.status === "completed" ? "default" : "muted"} size="sm">
-                      {project.status}
-                    </Badge>
-                    <span className="font-mono text-xs text-[var(--color-muted)]">
-                      {project.year}
-                    </span>
+                    {project.status && (
+                      <Badge variant={project.status === "completed" ? "default" : "muted"} size="sm">
+                        {project.status}
+                      </Badge>
+                    )}
+                    {project.year && (
+                      <span className="font-mono text-xs text-[var(--color-muted)]">
+                        {project.year}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -455,10 +456,10 @@ export default function HomePage() {
                       </Badge>
                     )}
                     <span className="font-mono text-xs font-bold text-[var(--color-muted)]">
-                      {new Date(hackathon.date).getFullYear()}
+                      {hackathon.date ? new Date(hackathon.date).getFullYear() : "YEAR TBD"}
                     </span>
                     <span className="font-mono text-xs text-[var(--color-muted)]">
-                      • {hackathon.location}
+                      {hackathon.location ? ` • ${hackathon.location}` : ""}
                     </span>
                   </div>
 
@@ -525,7 +526,9 @@ export default function HomePage() {
                 ACADEMICS & RESEARCH
               </p>
               <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-                {profile.year} coursework at {profile.institution} in {primaryEducation?.field ?? "AI/ML"}.
+                {primaryEducation
+                  ? `${profile.year} coursework at ${primaryEducation.institution} in ${primaryEducation.field}.`
+                  : "Education details are not published yet."}
               </p>
             </div>
             <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-2 mt-4 block">
@@ -543,7 +546,9 @@ export default function HomePage() {
                 BUILDING WORK
               </p>
               <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-                Iterating on active repositories including {featuredProjects[1]?.title ?? "Project Beta"}.
+                {featuredProjects.length > 0
+                  ? `Iterating on active repositories including ${featuredProjects.map((project) => project.title).join(", ")}.`
+                  : "Current project records are not published yet."}
               </p>
             </div>
             <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-2 mt-4 block">
@@ -561,7 +566,9 @@ export default function HomePage() {
                 OPEN SOURCE
               </p>
               <p className="text-xs text-[var(--color-muted)] mt-2 leading-relaxed">
-                Contributing to {contributions[0]?.project ?? "open source libraries"} in Python and ML tooling.
+                {contributions.length > 0
+                  ? `Contributing to ${contributions[0].project}.`
+                  : "Open-source contribution records are not published yet."}
               </p>
             </div>
             <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-2 mt-4 block">
@@ -624,16 +631,15 @@ export default function HomePage() {
                 <Button href="/contact" variant="primary" size="lg" withArrow>
                   CONTACT ME
                 </Button>
-                <Button href={profile.resumeUrl} external variant="outline" size="lg">
-                  VIEW RESUME ↗
-                </Button>
-                <Button href="/journey" variant="ghost" size="md">
+                <Button href="/journey" variant="outline" size="md">
                   READ THE JOURNEY →
                 </Button>
               </div>
 
               <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-wrap gap-6 font-mono text-xs text-[var(--color-muted)]">
-                <span>DIRECT EMAIL: <a href={`mailto:${profile.email}`} className="text-[var(--color-foreground)] font-bold hover:underline">{profile.email}</a></span>
+                {profile.email && (
+                  <span>DIRECT EMAIL: <a href={`mailto:${profile.email}`} className="text-[var(--color-foreground)] font-bold hover:underline">{profile.email}</a></span>
+                )}
                 <span>BASED IN: <strong className="text-[var(--color-foreground)]">{profile.location}</strong></span>
               </div>
 

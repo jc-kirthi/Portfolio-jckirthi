@@ -1,15 +1,15 @@
 /**
  * data/hackathons.ts
  *
- * Hackathon participation and wins. Replace with real data later.
+ * Hackathon participation and wins.
  */
 
 export interface Hackathon {
   slug: string;
   name: string;
   organizer: string;
-  date: string;           // ISO date string
-  location: string;       // "Online" or city name
+  date?: string;          // ISO date string
+  location?: string;      // "Online" or city name
   position?: string;      // e.g. "1st Place", "Finalist"
   won: boolean;
   project: {
@@ -23,40 +23,22 @@ export interface Hackathon {
     };
   };
   prize?: string;
-  teamSize: number;
+  teamSize?: number;
   coverImage?: string;
 }
 
 export const hackathons: Hackathon[] = [
   {
-    slug: "hackathon-placeholder-1",
-    name: "Placeholder Hackathon 2024",
-    organizer: "Placeholder Org",
-    date: "2024-03-15",
-    location: "Online",
-    position: "1st Place",
-    won: true,
-    project: {
-      title: "Placeholder Winning Project",
-      description: "Brief description of the winning project goes here.",
-      tech: ["Python", "React", "FastAPI"],
-    },
-    prize: "Placeholder Prize",
-    teamSize: 3,
-  },
-  {
-    slug: "hackathon-placeholder-2",
-    name: "Placeholder Hackathon 2025",
-    organizer: "Placeholder Org 2",
-    date: "2025-01-20",
-    location: "Placeholder City",
-    position: "Finalist",
+    slug: "sih2026-sih26153",
+    name: "SIH2026 — SIH26153",
+    organizer: "NTRO",
+    location: "",
+    position: "Selected",
     won: false,
     project: {
-      title: "Placeholder Finalist Project",
-      description: "Brief description of the finalist project goes here.",
-      tech: ["Next.js", "TypeScript", "Supabase"],
+      title: "AI-Based Network Attack Forecasting",
+      description: "AI-based forecasting of network attacks from network traffic data.",
+      tech: [],
     },
-    teamSize: 2,
   },
 ];

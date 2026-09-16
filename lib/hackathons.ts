@@ -24,7 +24,11 @@ export function getHackathonStats(): HackathonStats {
   ).length;
   const projectsBuilt = hackathons.filter((h) => h.project?.title).length;
   const yearsActive = Array.from(
-    new Set(hackathons.map((h) => new Date(h.date).getFullYear()))
+    new Set(
+      hackathons
+        .filter((h) => h.date)
+        .map((h) => new Date(h.date as string).getFullYear())
+    )
   ).sort((a, b) => b - a);
 
   const yearSpan =
@@ -44,7 +48,7 @@ export function getHackathonStats(): HackathonStats {
 
 /** Score hackathons for featured selection without inventing significance. */
 function featuredScore(h: Hackathon): number {
-  let score = new Date(h.date).getTime() / 1e10;
+  let score = h.date ? new Date(h.date).getTime() / 1e10 : 0;
 
   if (h.won) score += 100;
   if (h.position?.toLowerCase().includes("finalist")) score += 50;
@@ -72,8 +76,8 @@ export function getHackathonsByYear(): { year: number; items: Hackathon[] }[] {
   return stats.yearsActive.map((year) => ({
     year,
     items: hackathons
-      .filter((h) => new Date(h.date).getFullYear() === year)
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+      .filter((h) => h.date && new Date(h.date).getFullYear() === year)
+      .sort((a, b) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime()),
   }));
 }
 
@@ -85,7 +89,7 @@ export function getPlacementLabel(h: Hackathon): string {
 }
 
 export function getHackathonYear(h: Hackathon): number {
-  return new Date(h.date).getFullYear();
+  return h.date ? new Date(h.date).getFullYear() : 0;
 }
 
 export function findHackathonBySlug(slug: string): Hackathon | undefined {

@@ -1,7 +1,7 @@
 /**
  * data/certifications.ts
  *
- * Professional certifications and course completions. Replace with real data later.
+ * Professional certifications and course completions.
  */
 
 export interface Certification {
@@ -9,7 +9,7 @@ export interface Certification {
   title: string;
   issuer: string;
   issuerUrl?: string;
-  date: string;          // ISO date string
+  date?: string;         // ISO date string
   credentialId?: string;
   credentialUrl?: string;
   expires?: string;      // ISO date string, omit if no expiry
@@ -19,18 +19,33 @@ export interface Certification {
 
 export const certifications: Certification[] = [
   {
-    id: "cert-1",
-    title: "Placeholder Certification",
-    issuer: "Placeholder Issuer",
-    date: "2024-04-15",
-    skills: ["Skill A", "Skill B"],
-    image: "/certificates/placeholder-cert.png",
+    id: "microsoft-applied-skills-ai-research-agents",
+    title: "Generate Reports with AI Research Agents",
+    issuer: "Microsoft Applied Skills",
+    skills: ["AI Research Agents", "Generative AI"],
   },
   {
-    id: "cert-2",
-    title: "Another Placeholder Certificate",
-    issuer: "Another Issuer",
-    date: "2024-10-01",
-    skills: ["Skill C", "Skill D"],
+    id: "deloitte-forage",
+    title: "Deloitte Forage",
+    issuer: "Deloitte",
+    skills: [],
+  },
+  {
+    id: "postman-api-fundamentals",
+    title: "API Fundamentals",
+    issuer: "Postman",
+    skills: ["APIs"],
+  },
+  {
+    id: "google-ai-study-jam",
+    title: "Google AI Study Jam",
+    issuer: "Google",
+    skills: ["Artificial Intelligence"],
+  },
+  {
+    id: "cloud-skills-boost",
+    title: "Cloud Skills Boost Badge",
+    issuer: "Google Cloud",
+    skills: ["Cloud"],
   },
 ];

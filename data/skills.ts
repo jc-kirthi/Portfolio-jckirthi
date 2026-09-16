@@ -2,7 +2,6 @@
  * data/skills.ts
  *
  * Technical and soft skills. No percentage bars — qualitative groupings only.
- * Replace with real data later.
  */
 
 export type SkillLevel = "familiar" | "proficient" | "expert";
@@ -23,20 +22,32 @@ export const skills: SkillCategory[] = [
     id: "languages",
     label: "Languages",
     skills: [
-      { name: "Python", level: "expert" },
-      { name: "TypeScript", level: "proficient" },
-      { name: "C++", level: "proficient" },
-      { name: "SQL", level: "proficient" },
+      { name: "C" },
+      { name: "Java" },
+      { name: "Python" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "SQL" },
     ],
   },
   {
     id: "ml-ai",
     label: "ML / AI",
     skills: [
-      { name: "PyTorch" },
-      { name: "TensorFlow" },
-      { name: "scikit-learn" },
+      { name: "Machine Learning" },
+      { name: "Deep Learning" },
+      { name: "NLP" },
+      { name: "Generative AI" },
+      { name: "LLMs" },
+      { name: "RAG" },
+      { name: "Agents" },
+      { name: "MCP" },
+      { name: "XGBoost" },
+      { name: "SHAP" },
       { name: "Hugging Face" },
+      { name: "Transformers" },
       { name: "OpenCV" },
     ],
   },
@@ -44,21 +55,24 @@ export const skills: SkillCategory[] = [
     id: "web",
     label: "Web",
     skills: [
-      { name: "Next.js" },
       { name: "React" },
+      { name: "Next.js" },
       { name: "Node.js" },
+      { name: "Express" },
       { name: "FastAPI" },
       { name: "Tailwind CSS" },
+      { name: "MongoDB / MERN" },
+      { name: "MySQL" },
     ],
   },
   {
     id: "tools",
     label: "Tools & Platforms",
     skills: [
-      { name: "Git" },
-      { name: "Docker" },
-      { name: "Linux" },
-      { name: "Placeholder Cloud" },
+      { name: "Git / GitHub" },
+      { name: "Firebase" },
+      { name: "Vercel" },
+      { name: "Google Cloud AI APIs" },
     ],
   },
 ];

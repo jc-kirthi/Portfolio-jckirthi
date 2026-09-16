@@ -22,13 +22,14 @@ export default function AchievementsPage() {
           Awards, recognitions, and milestones.
         </p>
 
-        <div className="flex flex-col divide-y divide-[var(--color-border)] border border-[var(--color-border)]">
-          {achievements.map((a) => (
+        {achievements.length > 0 ? (
+          <div className="flex flex-col divide-y divide-[var(--color-border)] border border-[var(--color-border)]">
+            {achievements.map((a) => (
             <div key={a.id} className="p-5 flex flex-col sm:flex-row sm:items-start gap-4">
               <div className="flex-1">
                 <p className="text-sm font-medium mb-1">{a.title}</p>
                 <p className="text-xs text-[var(--color-muted)] mb-2">
-                  {a.issuer} · {formatDate(a.date)}
+                  {a.issuer}{a.date ? ` · ${formatDate(a.date)}` : ""}
                 </p>
                 <p className="text-xs text-[var(--color-muted)]">{a.description}</p>
               </div>
@@ -36,8 +37,13 @@ export default function AchievementsPage() {
                 {a.category}
               </Badge>
             </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="border-2 border-dashed border-[var(--color-border-subtle)] p-8 text-sm text-[var(--color-muted)]">
+            Recognition records will appear here once they are ready to publish.
+          </div>
+        )}
       </Container>
     </Section>
   );

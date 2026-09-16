@@ -1,7 +1,7 @@
 /**
  * data/education.ts
  *
- * Academic education history. Replace with real data later.
+ * Academic education history.
  */
 
 export interface Education {
@@ -11,7 +11,7 @@ export interface Education {
   institution: string;
   institutionUrl?: string;
   location: string;
-  startYear: number;
+  startYear?: number;
   endYear?: number;      // Omit if currently enrolled
   current: boolean;
   cgpa?: string;
@@ -21,16 +21,13 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    id: "edu-1",
+    id: "cambridge-institute-of-technology-aiml",
     degree: "B.Tech",
     field: "Artificial Intelligence & Machine Learning",
-    institution: "Placeholder University",
-    location: "Placeholder City, India",
-    startYear: 2023,
+    institution: "Cambridge Institute of Technology",
+    location: "Bengaluru",
     current: true,
-    highlights: [
-      "Placeholder academic highlight or relevant coursework.",
-      "Placeholder achievement or leadership role.",
-    ],
+    cgpa: "9.65 (1st year)",
+    highlights: ["10th: 92%", "12th: 85%"],
   },
 ];

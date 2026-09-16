@@ -1,7 +1,7 @@
 /**
  * data/experience.ts
  *
- * Work experience, internships, and roles. Replace with real data later.
+ * Work experience, internships, and verified student/community roles.
  */
 
 export interface Experience {
@@ -9,9 +9,9 @@ export interface Experience {
   role: string;
   company: string;
   companyUrl?: string;
-  location: string;
+  location?: string;
   type: "full-time" | "part-time" | "internship" | "contract" | "volunteer";
-  startDate: string;    // ISO date string
+  startDate?: string;   // ISO date string
   endDate?: string;     // ISO date string, omit if current
   current: boolean;
   description: string;
@@ -22,19 +22,33 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    id: "exp-1",
-    role: "Placeholder Intern",
-    company: "Placeholder Company",
-    location: "Remote",
-    type: "internship",
-    startDate: "2024-05-01",
-    endDate: "2024-07-31",
-    current: false,
-    description: "Brief description of responsibilities and impact.",
-    highlights: [
-      "Placeholder highlight demonstrating measurable impact.",
-      "Another placeholder highlight with technical depth.",
-    ],
-    tech: ["Python", "ML framework", "Cloud platform"],
+    id: "oscode-cit-technical-team",
+    role: "Technical Team Member",
+    company: "OSCode CIT Chapter",
+    type: "volunteer",
+    current: true,
+    description: "Technical team involvement with the OSCode CIT Chapter.",
+    highlights: [],
+    tech: [],
+  },
+  {
+    id: "mlsa-cit-chapter",
+    role: "Member",
+    company: "MLSA CIT Chapter",
+    type: "volunteer",
+    current: true,
+    description: "Community involvement with the MLSA CIT Chapter.",
+    highlights: [],
+    tech: [],
+  },
+  {
+    id: "microsoft-student-learn-ambassador-2026",
+    role: "Microsoft Student Learn Ambassador",
+    company: "Microsoft",
+    type: "volunteer",
+    current: true,
+    description: "Microsoft Student Learn Ambassador for 2026.",
+    highlights: [],
+    tech: [],
   },
 ];

@@ -1,19 +1,19 @@
 /**
  * data/openSource.ts
  *
- * Open source contributions. Replace with real data later.
+ * Open source contributions.
  */
 
 export interface OpenSourceContribution {
   id: string;
   project: string;
-  projectUrl: string;
+  projectUrl?: string;
   description: string;
   type: "feature" | "bugfix" | "documentation" | "refactor" | "other";
   prUrl?: string;
   issueUrl?: string;
   mergedDate?: string;   // ISO date string
-  status: "merged" | "open" | "closed";
+  status?: "merged" | "open" | "closed";
   language?: string;
 }
 
@@ -30,24 +30,17 @@ export interface OpenSourceProject {
 
 export const contributions: OpenSourceContribution[] = [
   {
-    id: "contrib-1",
-    project: "Placeholder OSS Project",
-    projectUrl: "https://github.com/placeholder/project",
-    description: "Placeholder description of the contribution and its impact.",
-    type: "feature",
-    status: "merged",
-    language: "Python",
+    id: "girlscript-summer-of-code-2025",
+    project: "GirlScript Summer of Code 2025",
+    description: "Contributor to GirlScript Summer of Code 2025.",
+    type: "other",
+  },
+  {
+    id: "hacktoberfest",
+    project: "Hacktoberfest",
+    description: "Contributor to Hacktoberfest.",
+    type: "other",
   },
 ];
 
-export const ownProjects: OpenSourceProject[] = [
-  {
-    id: "oss-1",
-    name: "placeholder-repo",
-    description: "Brief description of an open-source project I maintain.",
-    url: "https://github.com/placeholder/placeholder-repo",
-    language: "Python",
-    topics: ["machine-learning", "placeholder"],
-    isOwner: true,
-  },
-];
+export const ownProjects: OpenSourceProject[] = [];

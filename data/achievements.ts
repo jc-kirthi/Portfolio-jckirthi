@@ -1,14 +1,14 @@
 /**
  * data/achievements.ts
  *
- * Awards, recognitions, and notable achievements. Replace with real data later.
+ * Awards, recognitions, and notable achievements.
  */
 
 export interface Achievement {
   id: string;
   title: string;
   issuer: string;
-  date: string;       // ISO date string
+  date?: string;      // ISO date string
   description: string;
   category: "award" | "recognition" | "competition" | "scholarship" | "other";
   link?: string;
@@ -16,19 +16,32 @@ export interface Achievement {
 
 export const achievements: Achievement[] = [
   {
-    id: "achievement-1",
-    title: "Placeholder Achievement",
-    issuer: "Placeholder Issuing Body",
-    date: "2024-06-01",
-    description: "Brief description of this achievement and what it recognizes.",
-    category: "award",
+    id: "isme-hackathon-first-prize",
+    title: "First Prize — ISME Hackathon",
+    issuer: "ISME Hackathon",
+    date: "2026-03",
+    description: "First-prize result in the ISME Hackathon.",
+    category: "competition",
   },
   {
-    id: "achievement-2",
-    title: "Another Placeholder Achievement",
-    issuer: "Placeholder Organization",
-    date: "2025-02-10",
-    description: "Brief description of this recognition and its significance.",
+    id: "mlsa-2026",
+    title: "Microsoft Student Learn Ambassador",
+    issuer: "Microsoft",
+    description: "Microsoft Student Learn Ambassador recognition for 2026.",
+    category: "recognition",
+  },
+  {
+    id: "girlscript-summer-of-code-2025",
+    title: "GirlScript Summer of Code Contributor",
+    issuer: "GirlScript Summer of Code",
+    description: "Contributor to GirlScript Summer of Code 2025.",
+    category: "recognition",
+  },
+  {
+    id: "hacktoberfest-contributor",
+    title: "Hacktoberfest Contributor",
+    issuer: "Hacktoberfest",
+    description: "Contributor to Hacktoberfest.",
     category: "recognition",
   },
 ];
