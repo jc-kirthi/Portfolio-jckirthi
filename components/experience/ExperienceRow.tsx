@@ -16,7 +16,7 @@ interface ExperienceRowProps {
 
 export function ExperienceRow({ item, index }: ExperienceRowProps) {
   return (
-    <article className="group grid grid-cols-1 lg:grid-cols-12 gap-5 border-t-2 border-[var(--color-border)] py-6 first:border-t-0 first:pt-0">
+    <article data-scroll-reveal="" className="group grid grid-cols-1 lg:grid-cols-12 gap-5 border-t-2 border-[var(--color-border)] py-6 first:border-t-0 first:pt-0">
       <div className="lg:col-span-2 flex lg:flex-col items-center lg:items-start justify-between gap-3">
         <span className="font-display text-4xl sm:text-5xl font-black text-[var(--color-plum)] leading-none">
           {String(index + 1).padStart(2, "0")}

@@ -43,13 +43,13 @@ export function ProjectLinks({ project, variant = "buttons" }: ProjectLinksProps
   return (
     <div className="flex flex-wrap items-center gap-3">
       {github && (
-        <Button href={github} external variant="primary" size="sm" withArrow>
+        <Button href={github} external variant="outline" size="sm" withArrow>
           GITHUB
         </Button>
       )}
       {live && (
         <Button href={live} external variant="accent" size="sm" withArrow>
-          LIVE DEMO
+          VIEW LIVE
         </Button>
       )}
       {demo && (

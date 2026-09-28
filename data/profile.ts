@@ -7,7 +7,7 @@
 export const profile = {
   name: "Kirthi JC",
   title: "AI/ML Engineering Student / Builder",
-  year: "2nd Year",
+  year: "3rd Year",
   institution: "AI/ML Engineering Student",
   location: "India",
   tagline: "Building practical AI systems, civic-tech products, and secure web experiences.",

@@ -16,7 +16,7 @@ interface CommunityCardProps {
 
 export function CommunityCard({ item, index }: CommunityCardProps) {
   return (
-    <article className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-6 sm:p-8 shadow-[3px_3px_0px_0px_var(--color-border)] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_var(--color-border)]">
+    <article data-scroll-reveal="" className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-6 sm:p-8 shadow-[3px_3px_0px_0px_var(--color-border)] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_var(--color-border)]">
       <div className="flex items-start justify-between gap-4 border-b border-[var(--color-border-subtle)] pb-4 mb-5">
         <div>
           <span className="font-mono text-xs text-[var(--color-muted)] uppercase tracking-widest">

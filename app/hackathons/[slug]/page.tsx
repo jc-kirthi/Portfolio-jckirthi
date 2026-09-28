@@ -55,6 +55,7 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
   const year = getHackathonYear(hackathon);
   const placement = getPlacementLabel(hackathon);
   const showLinks = hasProjectLinks(hackathon);
+  const hasExactDate = /^\d{4}-\d{2}-\d{2}$/.test(hackathon.date);
 
   return (
     <div className="py-8 md:py-12">
@@ -106,13 +107,13 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
             <Badge variant="outline" size="md">
               {hackathon.location}
             </Badge>
-            <span className="font-mono text-xs text-[var(--color-muted)] pl-2 border-l border-[var(--color-border-subtle)]">
+            {hasExactDate && <span className="font-mono text-xs text-[var(--color-muted)] pl-2 border-l border-[var(--color-border-subtle)]">
               {new Date(hackathon.date).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
               })}
-            </span>
+            </span>}
           </div>
 
           <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)] block mb-1">
@@ -251,7 +252,7 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
                   <dd className="font-bold text-[var(--color-foreground)] mt-0.5">{year}</dd>
                 </div>
 
-                <div>
+                {hasExactDate && <div>
                   <dt className="text-[var(--color-muted)] uppercase">Date</dt>
                   <dd className="font-bold text-[var(--color-foreground)] mt-0.5">
                     {new Date(hackathon.date).toLocaleDateString("en-US", {
@@ -260,7 +261,7 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
                       year: "numeric",
                     })}
                   </dd>
-                </div>
+                </div>}
 
                 <div>
                   <dt className="text-[var(--color-muted)] uppercase">Team Size</dt>

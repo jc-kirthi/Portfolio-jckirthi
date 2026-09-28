@@ -54,6 +54,7 @@ export function Section({
   return (
     <Tag
       id={id}
+      data-scroll-reveal=""
       className={cn(
         spacingMap[spacing],
         bordered && "border-b border-[var(--color-border)]",

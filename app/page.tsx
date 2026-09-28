@@ -39,7 +39,7 @@ export default function HomePage() {
         <Container>
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-8">
             <div className="flex flex-col gap-6 lg:col-span-7">
-              <div className="flex flex-wrap items-center gap-2">
+              <div data-entrance="" className="flex flex-wrap items-center gap-2">
                 <Badge variant="primary">{profile.year}</Badge>
                 <Badge variant="outline">AI/ML ENGINEERING</Badge>
                 <span className="border-l border-[var(--color-border-subtle)] pl-2 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
@@ -48,25 +48,27 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                <span data-entrance="" className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--color-muted)]">
                   Personal portfolio & archive
                 </span>
-                <Heading as="h1" size="display" uppercase className="text-[var(--color-plum)]">
-                  {profile.name}
-                </Heading>
+                <div data-entrance="">
+                  <Heading as="h1" size="display" uppercase className="text-[var(--color-plum)]">
+                    {profile.name}
+                  </Heading>
+                </div>
               </div>
 
               <div className="border-l-4 border-l-[var(--color-plum)] pl-5 py-1">
-                <p className="font-display text-2xl font-black uppercase leading-none tracking-tight text-[var(--color-foreground)] sm:text-3xl lg:text-5xl">
+                <p data-entrance="" className="font-display text-2xl font-black uppercase leading-none tracking-tight text-[var(--color-foreground)] sm:text-3xl lg:text-5xl">
                   AI/ML engineering student / <span className="text-[var(--color-plum)] underline decoration-[var(--color-secondary)] decoration-4 underline-offset-4">builder</span>
                 </p>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)] md:text-base">
+                <p data-entrance="" className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)] md:text-base">
                   {profile.tagline} {profile.bio}
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Button href="/projects" variant="primary" size="md" withArrow>
+              <div data-entrance="" className="flex flex-wrap items-center gap-3 pt-2">
+                <Button href="/experience" variant="primary" size="md" withArrow magnetic>
                   VIEW WORK
                 </Button>
                 <Button href="/projects" variant="outline" size="md" withArrow>
@@ -87,10 +89,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5">
+            <div data-entrance="" className="lg:col-span-5">
               <div className="relative group">
                 <div aria-hidden="true" className="absolute inset-0 -z-10 translate-x-3 translate-y-3 border-2 border-[var(--color-border)] bg-[var(--color-plum)]" />
-                <div className="animate-float border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[4px_4px_0px_0px_var(--color-border)]">
+                <div data-tilt="" className="portfolio-card-motion animate-float border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[4px_4px_0px_0px_var(--color-border)]">
                   <div className="relative flex aspect-[4/5] flex-col justify-between overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] p-4">
                     <div className="flex items-start justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
                       <span>Portfolio</span>
@@ -98,7 +100,7 @@ export default function HomePage() {
                     </div>
 
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-28 w-28 rounded-full border border-dashed border-[var(--color-border)]" />
+                      <div className="portfolio-orbit h-28 w-28 rounded-full border border-dashed border-[var(--color-border)]" />
                     </div>
 
                     <div className="relative z-10 flex flex-col gap-3">

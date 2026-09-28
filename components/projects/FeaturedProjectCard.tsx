@@ -29,7 +29,7 @@ export function FeaturedProjectCard({ project: p, index }: FeaturedProjectCardPr
         <span className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)]">
           PROJECT · {String(index + 1).padStart(2, "0")}
         </span>
-        <span className="font-display text-2xl font-black text-[var(--color-plum)] opacity-80">
+        <span className={`font-display text-2xl font-black ${layout === 0 && isCompleted ? "text-[#f6f1e8]/80" : "text-[var(--color-plum)] opacity-80"}`}>
           {p.year}
         </span>
       </div>

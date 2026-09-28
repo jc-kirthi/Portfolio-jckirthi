@@ -44,6 +44,7 @@ export function JourneyTimeline({ items }: JourneyTimelineProps) {
       {groups.map((group) => (
         <section
           key={group.year}
+          data-scroll-reveal=""
           aria-labelledby={`journey-year-${group.year}`}
           className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8"
         >
@@ -65,6 +66,7 @@ export function JourneyTimeline({ items }: JourneyTimelineProps) {
             {group.items.map((item, index) => (
               <article
                 key={item.id}
+                data-scroll-reveal=""
                 className={`group border-2 border-[var(--color-border)] border-l-4 ${categoryAccent[item.category]} bg-[var(--color-card)] p-5 sm:p-6 shadow-[3px_3px_0px_0px_var(--color-border)] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_var(--color-border)]`}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">

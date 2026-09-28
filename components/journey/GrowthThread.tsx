@@ -12,7 +12,7 @@ interface GrowthThreadProps {
 
 export function GrowthThread({ stages }: GrowthThreadProps) {
   return (
-    <div className="border-2 border-[var(--color-border)] bg-[var(--color-plum)] text-[#f6f1e8] shadow-[4px_4px_0px_0px_var(--color-border)]">
+    <div className="dark-surface border-2 border-[var(--color-border)] bg-[var(--color-plum)] text-[#f6f1e8] shadow-[4px_4px_0px_0px_var(--color-border)]">
       <div className="grid grid-cols-1 md:grid-cols-5">
         {stages.map((stage, index) => (
           <div

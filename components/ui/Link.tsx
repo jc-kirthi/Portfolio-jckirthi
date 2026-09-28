@@ -27,6 +27,7 @@ interface LinkProps {
    */
   external?: boolean;
   "aria-label"?: string;
+  "aria-current"?: React.AriaAttributes["aria-current"];
 }
 
 const variantMap: Record<NonNullable<LinkProps["variant"]>, string> = {
@@ -50,6 +51,7 @@ export function Link({
   variant = "default",
   external = false,
   "aria-label": ariaLabel,
+  "aria-current": ariaCurrent,
 }: LinkProps) {
   const externalProps = external
     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -62,6 +64,7 @@ export function Link({
       href={href}
       className={cn(variantMap[variant], className)}
       aria-label={ariaLabel}
+      aria-current={ariaCurrent}
       {...externalProps}
     >
       <span>{children}</span>

@@ -27,6 +27,7 @@ export default function CertificationsPage() {
           {certifications.map((cert) => (
             <div
               key={cert.id}
+              data-scroll-reveal=""
               className="border border-[var(--color-border)] p-5 flex flex-col gap-3"
             >
               <div>

@@ -20,6 +20,10 @@
 # production
 /build
 
+# local snapshots and worktree copies
+/port-backup/
+/port.worktrees/
+
 # misc
 .DS_Store
 *.pem

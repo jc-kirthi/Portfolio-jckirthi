@@ -44,7 +44,7 @@ const variantMap: Record<NonNullable<CardProps["variant"]>, string> = {
   flat:
     "bg-[var(--color-card-subtle)] border border-[var(--color-border-subtle)]",
   featured:
-    "bg-[var(--color-plum)] text-[#f6f1e8] border-2 border-[var(--color-border)] shadow-[4px_4px_0px_0px_var(--color-border)]",
+    "dark-surface bg-[var(--color-plum)] text-[#f6f1e8] border-2 border-[var(--color-border)] shadow-[4px_4px_0px_0px_var(--color-border)]",
   archive:
     "bg-[var(--color-background)] border-2 border-dashed border-[var(--color-border)]",
   interactive:
@@ -79,6 +79,7 @@ export function Card({
 }: CardProps) {
   return (
     <Tag
+      data-scroll-reveal=""
       className={cn(
         "rounded-none relative overflow-hidden",
         variantMap[variant],

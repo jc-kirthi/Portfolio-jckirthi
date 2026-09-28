@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function JourneyPage() {
-  const currentEducation = education[0];
+  const currentEducation = education.find((item) => item.current);
 
   return (
     <Section spacing="lg">
@@ -27,35 +27,55 @@ export default function JourneyPage() {
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Academic milestone</p>
           <div className="mt-4 flex flex-wrap items-end gap-3">
             <span className="font-display text-5xl font-black uppercase leading-none text-[var(--color-foreground)]">{currentEducation?.cgpa ?? "9.4"}</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">CGPA</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{currentEducation?.gradeLabel ?? "CGPA"}</span>
           </div>
-          <p className="mt-2 font-display text-xl uppercase tracking-tight text-[var(--color-plum)]">Through 2nd year</p>
+          <p className="mt-2 font-display text-xl uppercase tracking-tight text-[var(--color-plum)]">{currentEducation?.institution}</p>
         </div>
 
         <div className="space-y-6">
           {education.map((item) => (
-            <div key={item.id} className="border-l-4 border-l-[var(--color-plum)] pl-5">
+            <div key={item.id} data-scroll-reveal="" className="border-l-4 border-l-[var(--color-plum)] pl-5">
               <div className="mb-2 flex flex-wrap items-center gap-2">
                 <Badge variant="secondary">{item.degree}</Badge>
-                <Badge variant="outline">{item.current ? "Current" : `${item.startYear} – ${item.endYear ?? "Present"}`}</Badge>
+                <Badge variant="outline">{item.current ? "Current" : item.endYear && item.startYear !== item.endYear ? `${item.startYear} – ${item.endYear}` : item.startYear}</Badge>
               </div>
 
               <Heading as="h2" size="lg" className="text-[var(--color-foreground)]">
-                {item.field}
+                {item.field || item.degree}
               </Heading>
 
-              <p className="mt-2 text-sm text-[var(--color-muted)]">
-                {item.institution} · {item.location}
+              <p className="mt-2 text-sm text-[var(--color-muted)] break-words">
+                {item.institution}{item.location ? ` · ${item.location}` : ""}
               </p>
 
-              <ul className="mt-4 space-y-2">
+              {item.cgpa && <p className="mt-2 font-mono text-xs uppercase text-[var(--color-muted)]">{item.gradeLabel ?? "CGPA"}: {item.cgpa}</p>}
+
+              {item.highlights.length > 0 && <ul className="mt-4 space-y-2">
                 {item.highlights.map((highlight) => (
                   <li key={highlight} className="flex gap-2 text-sm text-[var(--color-muted)]">
                     <span className="font-mono text-[var(--color-plum)]">→</span>
                     <span>{highlight}</span>
                   </li>
                 ))}
-              </ul>
+              </ul>}
+
+              {item.skills && item.skills.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Skills</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.skills.map((skill) => <Badge key={skill} variant="outline">{skill}</Badge>)}
+                  </div>
+                </div>
+              )}
+
+              {item.activities && item.activities.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Activities and societies</p>
+                  <ul className="space-y-1">
+                    {item.activities.map((activity) => <li key={activity} className="text-sm text-[var(--color-muted)]">{activity}</li>)}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>

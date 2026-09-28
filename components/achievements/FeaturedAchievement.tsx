@@ -14,7 +14,7 @@ export function FeaturedAchievement({ achievement, index }: FeaturedAchievementP
   const accent = achievement.category === "competition" || placement;
 
   return (
-    <article className={`border-2 border-[var(--color-border)] shadow-[4px_4px_0px_0px_var(--color-border)] ${accent ? "bg-[var(--color-plum-dark)] text-[#f6f1e8]" : "bg-[var(--color-card)]"}`}>
+    <article className={`${accent ? "dark-surface " : ""}border-2 border-[var(--color-border)] shadow-[4px_4px_0px_0px_var(--color-border)] ${accent ? "bg-[var(--color-plum-dark)] text-[#f6f1e8]" : "bg-[var(--color-card)]"}`}>
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className={`md:col-span-2 p-6 sm:p-8 border-b-2 md:border-b-0 md:border-r-2 ${accent ? "border-[#f6f1e8]/20" : "border-[var(--color-border-subtle)]"} flex md:flex-col justify-between gap-5`}>
           <span className={`font-display text-5xl sm:text-6xl font-black leading-none ${accent ? "text-[var(--color-accent-warm)]" : "text-[var(--color-plum)]"}`}>

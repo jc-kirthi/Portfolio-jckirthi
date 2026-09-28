@@ -52,15 +52,15 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
-                <div className="flex gap-3 mt-auto pt-2">
+                <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
                   {project.links.github && (
-                    <Link href={project.links.github} external variant="muted" className="text-xs">
+                    <Link href={project.links.github} external variant="muted" className="text-xs uppercase tracking-[0.12em]">
                       GitHub →
                     </Link>
                   )}
                   {project.links.live && (
-                    <Link href={project.links.live} external variant="muted" className="text-xs">
-                      Live →
+                    <Link href={project.links.live} external variant="muted" className="text-xs uppercase tracking-[0.12em] text-[var(--color-plum)]">
+                      Live demo ↗
                     </Link>
                   )}
                 </div>

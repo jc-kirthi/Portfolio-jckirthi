@@ -87,12 +87,16 @@ export function getJourneyTimeline(): JourneyTimelineItem[] {
           : String(item.startYear),
       category: "education" as const,
       label: "LEARN",
-      title: `${item.degree} in ${item.field}`,
+      title: item.field ? `${item.degree} in ${item.field}` : item.degree,
       context: context(item.institution, item.location),
-      description: item.highlights[0] ?? `${item.degree} program at ${item.institution}.`,
+      description: item.highlights[0] ?? item.activities?.join(" · ") ?? item.skills?.join(" · ") ?? "",
       href: item.institutionUrl,
       linkLabel: item.institutionUrl ? "VIEW INSTITUTION" : undefined,
-      meta: unique([item.current ? "Current" : undefined, item.cgpa ? `CGPA ${item.cgpa}` : undefined]),
+      meta: unique([
+        item.current ? "Current" : undefined,
+        item.cgpa ? `${item.gradeLabel ?? "CGPA"} ${item.cgpa}` : undefined,
+        ...(item.skills ?? []),
+      ]),
       }];
     }),
     ...experience.flatMap((item) => {

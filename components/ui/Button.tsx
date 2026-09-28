@@ -27,6 +27,7 @@ type ButtonBaseProps = {
    * withArrow: appends an editorial arrow icon (→) with hover shift.
    */
   withArrow?: boolean;
+  magnetic?: boolean;
   className?: string;
   children: React.ReactNode;
 };
@@ -62,10 +63,12 @@ export function Button({
   variant = "primary",
   size = "md",
   withArrow = false,
+  magnetic = false,
   ...props
 }: ButtonProps) {
   const commonClasses = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-none transition-all duration-150 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed font-display text-center",
+    "button-interaction group inline-flex items-center justify-center gap-2 rounded-none transition-all duration-150 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed font-display text-center",
+    magnetic && "magnetic-cta",
     variantMap[variant],
     sizeMap[size],
     className
@@ -92,6 +95,7 @@ export function Button({
         <a
           href={href}
           className={commonClasses}
+          data-magnetic={magnetic ? "" : undefined}
           target="_blank"
           rel="noopener noreferrer"
           {...anchorProps}
@@ -101,14 +105,14 @@ export function Button({
       );
     }
     return (
-      <NextLink href={href} className={commonClasses} {...anchorProps}>
+      <NextLink href={href} className={commonClasses} data-magnetic={magnetic ? "" : undefined} {...anchorProps}>
         {inner}
       </NextLink>
     );
   }
 
   return (
-    <button className={commonClasses} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
+    <button className={commonClasses} data-magnetic={magnetic ? "" : undefined} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {inner}
     </button>
   );
