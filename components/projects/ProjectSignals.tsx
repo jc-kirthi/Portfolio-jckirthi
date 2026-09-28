@@ -65,7 +65,7 @@ export function ProjectSignals({ stats }: ProjectSignalsProps) {
               : "p-5 sm:p-6 flex flex-col gap-1"
           }
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-muted)]">
             {signal.index} / {signal.label}
           </span>
           <span
@@ -77,7 +77,7 @@ export function ProjectSignals({ stats }: ProjectSignalsProps) {
           >
             {signal.value}
           </span>
-          <span className="text-[10px] text-[var(--color-muted)] font-mono mt-0.5">
+          <span className="text-[11px] text-[var(--color-muted)] font-mono mt-0.5">
             {signal.note}
           </span>
         </div>

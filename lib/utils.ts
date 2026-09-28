@@ -24,6 +24,10 @@ export function formatDate(
     return dateString;
   }
 
+  if (/^\d{4}$/.test(dateString)) {
+    return dateString;
+  }
+
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) {
     return dateString;

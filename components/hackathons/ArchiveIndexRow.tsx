@@ -60,7 +60,7 @@ export function ArchiveIndexRow({ hackathon: h, globalIndex }: ArchiveIndexRowPr
             {h.project.tech.slice(0, 3).map((t) => (
               <span
                 key={t}
-                className="font-mono text-[10px] bg-[var(--color-card-subtle)] px-1.5 py-0.5 border border-[var(--color-border-subtle)] text-[var(--color-muted)] truncate"
+                className="font-mono text-[11px] bg-[var(--color-card-subtle)] px-1.5 py-1 border border-[var(--color-border-subtle)] text-[var(--color-muted)] truncate"
               >
                 {t}
               </span>

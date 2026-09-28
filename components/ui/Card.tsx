@@ -48,7 +48,7 @@ const variantMap: Record<NonNullable<CardProps["variant"]>, string> = {
   archive:
     "bg-[var(--color-background)] border-2 border-dashed border-[var(--color-border)]",
   interactive:
-    "bg-[var(--color-card)] border-2 border-[var(--color-border)] shadow-[3px_3px_0px_0px_var(--color-border)] transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_var(--color-border)] hover:border-[var(--color-foreground)]",
+    "bg-[var(--color-card)] border-2 border-[var(--color-border)] shadow-[3px_3px_0px_0px_var(--color-border)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_6px_0px_0px_var(--color-border)] hover:border-[var(--color-foreground)] motion-reduce:transition-none motion-reduce:hover:translate-y-0",
   outlined:
     "bg-transparent border-2 border-[var(--color-border)]",
 };

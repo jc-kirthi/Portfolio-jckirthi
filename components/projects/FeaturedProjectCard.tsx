@@ -44,7 +44,7 @@ export function FeaturedProjectCard({ project: p, index }: FeaturedProjectCardPr
       </div>
 
       <div>
-        <span className="font-mono text-[10px] uppercase tracking-wider block text-[var(--color-muted)]">
+        <span className="font-mono text-[11px] uppercase tracking-wider block text-[var(--color-muted)]">
           POSITIONING
         </span>
         <p className="text-sm text-[var(--color-muted)] leading-relaxed mt-1">
@@ -53,7 +53,7 @@ export function FeaturedProjectCard({ project: p, index }: FeaturedProjectCardPr
       </div>
 
       <div className="border-t border-[var(--color-border-subtle)] pt-3">
-        <span className="font-mono text-[10px] uppercase tracking-wider block mb-2 text-[var(--color-muted)] font-bold">
+        <span className="font-mono text-[11px] uppercase tracking-wider block mb-2 text-[var(--color-muted)] font-bold">
           TECH STACK
         </span>
         <div className="flex flex-wrap gap-1.5">
@@ -108,7 +108,7 @@ export function FeaturedProjectCard({ project: p, index }: FeaturedProjectCardPr
         >
           VIEW CASE STUDY
         </Button>
-        <ProjectLinks project={p} variant="inline" />
+        <ProjectLinks project={p} variant="inline" tone={layout === 0 && isCompleted ? "inverse" : "default"} />
       </div>
     </div>
   );

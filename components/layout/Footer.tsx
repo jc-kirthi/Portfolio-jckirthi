@@ -11,7 +11,7 @@ export function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="mt-auto border-t-2 border-[var(--color-border)] bg-[var(--color-card)]/70 pt-12 pb-10" role="contentinfo">
+    <footer className="mt-auto border-t-4 border-[var(--color-secondary)] bg-[var(--color-card)]/70 pt-12 pb-8" role="contentinfo">
       <Container>
         <div className="grid gap-10 border-b border-[var(--color-border-subtle)] pb-8 lg:grid-cols-12">
           <div className="lg:col-span-6">
@@ -22,14 +22,12 @@ export function Footer() {
               <span className="font-mono text-[11px] font-bold uppercase text-[var(--color-accent-warm)]">®</span>
             </div>
             <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--color-muted)]">{profile.tagline}</p>
-            <div className="mt-4 inline-block border-2 border-[var(--color-border)] bg-[var(--color-plum)] px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#f6f1e8]">
-              Build • Compete • Contribute
-            </div>
+            <p className="mt-3 font-display text-sm font-bold text-[var(--color-plum)]">{profile.title}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 lg:col-span-6">
             <div>
-              <p className="border-b border-[var(--color-border-subtle)] pb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-foreground)]">
+              <p className="border-b border-[var(--color-border-subtle)] pb-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-foreground)]">
                 Index
               </p>
               <ul className="mt-3 space-y-2" role="list">
@@ -51,47 +49,33 @@ export function Footer() {
             </div>
 
             <div>
-              <p className="border-b border-[var(--color-border-subtle)] pb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-foreground)]">
+              <p className="border-b border-[var(--color-border-subtle)] pb-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-foreground)]">
                 Signals
               </p>
               <ul className="mt-3 space-y-2" role="list">
                 {[
                   ["GitHub", profile.socials.github],
                   ["LinkedIn", profile.socials.linkedin],
-                  ["LeetCode", profile.socials.leetcode],
-                  ["CodeChef", profile.socials.codechef],
-                  ["HackerRank", profile.socials.hackerRank],
-                ]
-                  .filter(([, href]) => Boolean(href))
-                  .map(([label, href]) => (
-                    <li key={label}>
-                      <Link href={href as string} external variant="none" className="font-display text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]">
-                        {label} ↗
-                      </Link>
-                    </li>
-                  ))}
+                ].map(([label, href]) => (
+                  <li key={label}>
+                    <Link href={href} external variant="none" className="font-display text-sm font-medium uppercase tracking-[0.12em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]">
+                      {label} ↗
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href={`mailto:${profile.email}`} variant="none" className="font-display text-sm font-medium uppercase tracking-[0.12em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]">
+                    Email ↗
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 text-[11px] font-mono text-[var(--color-muted)]">
-          <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-            <div className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-[var(--color-foreground)]">
-              © {currentYear} {profile.name}
-            </div>
-            <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-foreground)]">
-              AI/ML Engineering Student • Builder • Contributor
-            </div>
-          </div>
-          <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-            <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-muted)]">
-              Built with Next.js + React + TypeScript
-            </div>
-            <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-muted)]">
-              Available on GitHub / LinkedIn
-            </div>
-          </div>
+        <div className="mt-6 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-5 text-xs text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} {profile.name}. All rights reserved.</p>
+          <p>Built with Next.js, React &amp; TypeScript.</p>
         </div>
       </Container>
     </footer>

@@ -16,7 +16,7 @@ export function ProjectCategoryIndex({ categories }: ProjectCategoryIndexProps) 
 
   return (
     <div className="flex flex-col gap-3">
-      <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+      <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-muted)]">
         CLASSIFICATION INDEX
       </span>
       <div className="flex flex-wrap gap-2">
@@ -31,7 +31,7 @@ export function ProjectCategoryIndex({ categories }: ProjectCategoryIndexProps) 
               <Badge variant="outline" size="md" className="group-hover:bg-[var(--color-plum)] group-hover:text-[#f6f1e8] transition-colors duration-150">
                 {cat}
               </Badge>
-              <span className="font-mono text-[10px] text-[var(--color-muted)] group-hover:text-[var(--color-foreground)] transition-colors">
+              <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-foreground)] transition-colors">
                 ({count})
               </span>
             </a>

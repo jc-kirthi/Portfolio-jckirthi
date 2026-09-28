@@ -24,7 +24,7 @@ export function GrowthThread({ stages }: GrowthThreadProps) {
             }
           >
             <div className="flex items-center justify-between gap-3 mb-5">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent-cool)]">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-accent-cool)]">
                 0{index + 1}
               </span>
               {index < stages.length - 1 && (
@@ -40,7 +40,7 @@ export function GrowthThread({ stages }: GrowthThreadProps) {
             <p className="text-xs text-[#f6f1e8]/75 leading-relaxed mt-3">
               {stage.description}
             </p>
-            <span className="font-mono text-[10px] uppercase text-[var(--color-secondary)] mt-5 block">
+            <span className="font-mono text-[11px] uppercase text-[var(--color-secondary)] mt-5 block">
               {stage.count} {stage.count === 1 ? "record" : "records"}
             </span>
           </div>

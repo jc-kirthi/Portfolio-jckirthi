@@ -80,7 +80,7 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <span className="font-mono text-[10px] uppercase tracking-widest opacity-80 block">
+              <span className="font-mono text-[11px] uppercase tracking-wider opacity-80 block">
                 RESULT / PLACEMENT
               </span>
               <span className="font-display text-2xl sm:text-3xl font-black uppercase">
@@ -89,7 +89,7 @@ export default async function HackathonDetailPage({ params }: HackathonPageProps
             </div>
             {hackathon.prize && (
               <div className="text-right">
-                <span className="font-mono text-[10px] uppercase tracking-widest opacity-80 block">
+                <span className="font-mono text-[11px] uppercase tracking-wider opacity-80 block">
                   PRIZE
                 </span>
                 <span className="font-display text-sm font-bold">{hackathon.prize}</span>

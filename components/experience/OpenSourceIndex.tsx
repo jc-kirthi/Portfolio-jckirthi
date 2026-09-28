@@ -44,7 +44,7 @@ export function OpenSourceIndex({ contributions, projects }: OpenSourceIndexProp
           </div>
           <div className="md:col-span-3 flex md:flex-col md:items-end gap-3">
             {item.language && (
-              <span className="font-mono text-[10px] uppercase text-[var(--color-muted)]">
+              <span className="font-mono text-[11px] uppercase text-[var(--color-muted)]">
                 {item.language}
               </span>
             )}
@@ -97,7 +97,7 @@ export function OpenSourceIndex({ contributions, projects }: OpenSourceIndexProp
                 {item.topics.map((topic) => (
                   <span
                     key={topic}
-                    className="font-mono text-[10px] uppercase text-[var(--color-muted)] bg-[var(--color-card-subtle)] px-2 py-0.5 border border-[var(--color-border-subtle)]"
+                    className="font-mono text-[11px] uppercase text-[var(--color-muted)] bg-[var(--color-card-subtle)] px-2 py-1 border border-[var(--color-border-subtle)]"
                   >
                     {topic}
                   </span>
@@ -107,7 +107,7 @@ export function OpenSourceIndex({ contributions, projects }: OpenSourceIndexProp
           </div>
           <div className="md:col-span-3 flex md:flex-col md:items-end gap-3">
             {typeof item.stars === "number" && (
-              <span className="font-mono text-[10px] uppercase text-[var(--color-muted)]">
+              <span className="font-mono text-[11px] uppercase text-[var(--color-muted)]">
                 {item.stars} stars
               </span>
             )}

@@ -56,7 +56,7 @@ export function JourneyTimeline({ items }: JourneyTimelineProps) {
               >
                 {group.year}
               </h3>
-              <p className="font-mono text-xs text-[var(--color-muted)] uppercase tracking-widest mt-2">
+              <p className="font-mono text-[13px] text-[var(--color-muted)] uppercase tracking-widest mt-2">
                 {group.items.length} {group.items.length === 1 ? "entry" : "entries"}
               </p>
             </div>
@@ -72,7 +72,7 @@ export function JourneyTimeline({ items }: JourneyTimelineProps) {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-3">
-                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)]">
+                      <span className="font-mono text-[13px] font-bold uppercase tracking-wider text-[var(--color-muted)]">
                         {String(index + 1).padStart(2, "0")} / {item.label}
                       </span>
                       <Badge variant="lavender" size="sm">
@@ -83,7 +83,7 @@ export function JourneyTimeline({ items }: JourneyTimelineProps) {
                     <h4 className="font-display text-xl sm:text-2xl font-black uppercase text-[var(--color-foreground)] leading-tight">
                       {item.title}
                     </h4>
-                    <p className="font-mono text-xs text-[var(--color-muted)] uppercase tracking-wider mt-1">
+                    <p className="font-mono text-[13px] text-[var(--color-muted)] uppercase tracking-wider mt-1 break-words">
                       {item.context}
                     </p>
                     <p className="text-sm text-[var(--color-muted)] leading-relaxed mt-4">
@@ -110,7 +110,7 @@ export function JourneyTimeline({ items }: JourneyTimelineProps) {
                     {item.meta.map((meta) => (
                       <span
                         key={meta}
-                        className="font-mono text-[10px] uppercase text-[var(--color-muted)] bg-[var(--color-background)] px-2 py-0.5 border border-[var(--color-border-subtle)]"
+                        className="font-mono text-[11px] uppercase text-[var(--color-muted)] bg-[var(--color-background)] px-2 py-1 border border-[var(--color-border-subtle)]"
                       >
                         {meta}
                       </span>

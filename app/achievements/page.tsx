@@ -18,24 +18,24 @@ export default function AchievementsPage() {
         <Heading as="h1" size="2xl" className="mb-2">
           Achievements
         </Heading>
-        <p className="text-[var(--color-muted)] text-sm mb-8">
+        <p className="text-[var(--color-muted)] text-base mb-8">
           Awards, recognitions, and milestones.
         </p>
 
-        <div className="flex flex-col divide-y divide-[var(--color-border)] border border-[var(--color-border)]">
+        <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] shadow-[3px_3px_0px_0px_var(--color-border)]">
           {achievements.map((a) => (
-            <div key={a.id} className="p-5 flex flex-col sm:flex-row sm:items-start gap-4">
-              <div className="flex-1">
-                <p className="text-sm font-medium mb-1">{a.title}</p>
-                <p className="text-xs text-[var(--color-muted)] mb-2">
+            <article key={a.id} className="grid gap-4 border-b border-[var(--color-border-subtle)] p-5 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:p-6 transition-colors duration-200 hover:bg-[var(--color-background)]">
+              <div className="min-w-0">
+                <p className="font-display text-lg font-bold uppercase leading-snug text-[var(--color-foreground)]">{a.title}</p>
+                <p className="mt-1 font-mono text-xs font-medium text-[var(--color-muted)]">
                   {a.issuer} · {formatDate(a.date)}
                 </p>
-                <p className="text-xs text-[var(--color-muted)]">{a.description}</p>
+                <p className="mt-3 text-base leading-relaxed text-[var(--color-muted)]">{a.description}</p>
               </div>
-              <Badge variant="muted" className="self-start shrink-0">
+              <Badge variant={a.category === "competition" ? "tangerine" : "lavender"} className="self-start shrink-0">
                 {a.category}
               </Badge>
-            </div>
+            </article>
           ))}
         </div>
       </Container>

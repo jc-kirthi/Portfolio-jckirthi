@@ -23,7 +23,7 @@ export function ProjectVisual({ project, priority = false, className = "" }: Pro
           src={project.coverImage}
           alt={`${project.title} preview`}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           sizes="(max-width: 768px) 100vw, 960px"
           priority={priority}
         />
@@ -39,7 +39,7 @@ export function ProjectVisual({ project, priority = false, className = "" }: Pro
       <span className="font-display text-4xl sm:text-5xl font-black text-[var(--color-plum)]/20 uppercase leading-none">
         {String(project.year).slice(-2)}
       </span>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] text-center">
+      <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-muted)] text-center">
         PROJECT VISUAL
         <br />
         <span className="opacity-70">PREVIEW PENDING</span>
@@ -48,7 +48,7 @@ export function ProjectVisual({ project, priority = false, className = "" }: Pro
         {project.tech.slice(0, 4).map((t) => (
           <span
             key={t}
-            className="font-mono text-[10px] px-2 py-0.5 border border-[var(--color-border-subtle)] text-[var(--color-muted)]"
+            className="font-mono text-[11px] px-2 py-1 border border-[var(--color-border-subtle)] text-[var(--color-muted)]"
           >
             {t}
           </span>

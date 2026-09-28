@@ -52,7 +52,7 @@ export function ProjectArchiveRow({ project: p, globalIndex }: ProjectArchiveRow
             {p.tags.map((t) => (
               <span
                 key={t}
-                className="font-mono text-[10px] bg-[var(--color-card-subtle)] px-1.5 py-0.5 border border-[var(--color-border-subtle)] text-[var(--color-muted)]"
+                className="font-mono text-[11px] bg-[var(--color-card-subtle)] px-1.5 py-1 border border-[var(--color-border-subtle)] text-[var(--color-muted)]"
               >
                 {t.toUpperCase()}
               </span>

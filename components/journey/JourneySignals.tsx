@@ -22,13 +22,13 @@ export function JourneySignals({ signals }: JourneySignalsProps) {
               : "p-5 sm:p-6 flex flex-col gap-1"
           }
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-muted)]">
             {signal.index} / {signal.label}
           </span>
           <span className="font-display text-2xl sm:text-3xl font-black text-[var(--color-plum)] mt-1 uppercase leading-none">
             {signal.value}
           </span>
-          <span className="text-[10px] text-[var(--color-muted)] font-mono mt-0.5">
+          <span className="text-[11px] text-[var(--color-muted)] font-mono mt-0.5">
             {signal.note}
           </span>
         </div>

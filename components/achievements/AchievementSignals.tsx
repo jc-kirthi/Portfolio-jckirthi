@@ -24,13 +24,13 @@ export function AchievementSignals({ stats }: AchievementSignalsProps) {
           key={signal.label}
           className={`${index > 0 ? "border-t-2 lg:border-t-0 lg:border-l-2 border-[var(--color-border-subtle)]" : ""} p-5 sm:p-6 flex flex-col gap-1`}
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-muted)]">
             {String(index + 1).padStart(2, "0")} / {signal.label}
           </span>
           <span className="font-display text-3xl sm:text-4xl font-black text-[var(--color-plum)] mt-1">
             {signal.value}
           </span>
-          <span className="font-mono text-[10px] text-[var(--color-muted)]">{signal.note}</span>
+          <span className="font-mono text-[11px] text-[var(--color-muted)]">{signal.note}</span>
         </div>
       ))}
     </div>

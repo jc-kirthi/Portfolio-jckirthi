@@ -29,7 +29,7 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
         <span className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-muted)]">
           CASE · {String(index + 1).padStart(2, "0")}
         </span>
-        <span className="font-display text-2xl font-black text-[var(--color-accent-warm)] opacity-80">
+        <span className={`font-display text-2xl font-black opacity-90 ${isWinner ? "text-[var(--color-secondary)]" : "text-[var(--color-accent-warm)]"}`}>
           {year}
         </span>
       </div>
@@ -39,7 +39,7 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
       </Badge>
 
       <div>
-        <span className="font-mono text-[10px] uppercase tracking-wider block text-[var(--color-muted)]">
+        <span className="font-mono text-[11px] uppercase tracking-wider block text-[var(--color-muted)]">
           EVENT
         </span>
         <p className="font-display text-sm sm:text-base font-bold uppercase mt-0.5 leading-tight">
@@ -52,14 +52,14 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
 
       {h.prize && (
         <div className="border-t border-[var(--color-border-subtle)] pt-3">
-          <span className="font-mono text-[10px] uppercase tracking-wider block text-[var(--color-accent-warm)] font-bold">
+          <span className={`font-mono text-[11px] uppercase tracking-wider block font-bold ${isWinner ? "text-[var(--color-secondary)]" : "text-[var(--color-accent-warm)]"}`}>
             PRIZE
           </span>
           <p className="font-display text-xs font-bold mt-0.5">{h.prize}</p>
         </div>
       )}
 
-      <span className="font-mono text-[10px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-3">
+      <span className="font-mono text-[11px] text-[var(--color-muted)] border-t border-[var(--color-border-subtle)] pt-3">
         TEAM · {h.teamSize} {h.teamSize === 1 ? "ENGINEER" : "ENGINEERS"}
       </span>
     </div>
@@ -68,7 +68,7 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
   const projectBlock = (
     <div className="flex flex-col justify-between gap-6 h-full">
       <div className="flex flex-col gap-4">
-        <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent-warm)] font-bold">
+        <span className={`font-mono text-xs uppercase tracking-widest font-bold ${isWinner ? "text-[var(--color-secondary)]" : "text-[var(--color-accent-warm)]"}`}>
           PROJECT
         </span>
 
@@ -92,7 +92,7 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
         </p>
 
         <div className="pt-1">
-          <span className="font-mono text-[10px] uppercase tracking-wider block mb-2 text-[var(--color-muted)] font-bold">
+          <span className="font-mono text-[11px] uppercase tracking-wider block mb-2 text-[var(--color-muted)] font-bold">
             TECH STACK
           </span>
           <div className="flex flex-wrap gap-1.5">
@@ -122,19 +122,19 @@ export function FeaturedHackathonCard({ hackathon: h, index }: FeaturedHackathon
           VIEW CASE STUDY
         </Button>
 
-        <div className="flex items-center gap-4 font-mono text-xs">
+        <div className="flex flex-wrap items-center gap-4 font-mono text-xs">
           {h.project.links?.github && (
-            <Link href={h.project.links.github} external variant="arrow">
+            <Link href={h.project.links.github} external variant="arrow" className={isWinner ? "text-[#f6f1e8] hover:text-[var(--color-secondary)]" : undefined}>
               GITHUB
             </Link>
           )}
           {h.project.links?.devpost && (
-            <Link href={h.project.links.devpost} external variant="arrow">
+            <Link href={h.project.links.devpost} external variant="arrow" className={isWinner ? "text-[#f6f1e8] hover:text-[var(--color-secondary)]" : undefined}>
               DEVPOST
             </Link>
           )}
           {h.project.links?.live && (
-            <Link href={h.project.links.live} external variant="arrow">
+            <Link href={h.project.links.live} external variant="arrow" className={isWinner ? "text-[#f6f1e8] hover:text-[var(--color-secondary)]" : undefined}>
               LIVE DEMO
             </Link>
           )}

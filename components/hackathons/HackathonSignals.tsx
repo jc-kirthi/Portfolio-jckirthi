@@ -67,7 +67,7 @@ export function HackathonSignals({ stats }: HackathonSignalsProps) {
               : "p-5 sm:p-6 flex flex-col gap-1"
           }
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+          <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-muted)]">
             {signal.index} / {signal.label}
           </span>
           <div className="flex items-baseline gap-2 mt-1">
@@ -81,12 +81,12 @@ export function HackathonSignals({ stats }: HackathonSignalsProps) {
               {signal.value}
             </span>
             {signal.accent && (
-              <span className="font-mono text-[10px] font-bold text-white bg-[var(--color-accent-warm)] px-1.5 py-0.5 border border-[var(--color-border)]">
+              <span className="font-mono text-[11px] font-bold text-white bg-[var(--color-accent-warm)] px-1.5 py-1 border border-[var(--color-border)]">
                 WINNER
               </span>
             )}
           </div>
-          <span className="text-[10px] text-[var(--color-muted)] font-mono mt-0.5">
+          <span className="text-[11px] text-[var(--color-muted)] font-mono mt-0.5">
             {signal.note}
           </span>
         </div>

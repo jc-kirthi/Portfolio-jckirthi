@@ -160,7 +160,7 @@ export default function HackathonsPage() {
                       · {items.length} {items.length === 1 ? "EVENT" : "EVENTS"}
                     </span>
                   </div>
-                  <span className="font-mono text-[10px] text-[var(--color-muted)] uppercase hidden sm:inline">
+                  <span className="font-mono text-[11px] text-[var(--color-muted)] uppercase hidden sm:inline">
                     RESULT / PROJECT
                   </span>
                 </div>

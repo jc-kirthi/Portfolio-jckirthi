@@ -7,8 +7,8 @@
    CALIBRATED PALETTE:
    Primary: Warm Ivory (#F6F1E8) + Deep Plum (#24152F) + Near Black (#17131A)
    Accents (Strategic Highlights):
-   Acid Lime (#CBE836) — Focused actions / key status
-   Tangerine (#E85D26) — Hackathons / energetic badges
+  Acid Lime (#CBE836) — Focused actions / key status
+  Tangerine (#A63E12) — Hackathons / energetic badges
    Soft Lavender (#C2B2E8) — Secondary technical notes
    ============================================================ */
 
@@ -29,7 +29,7 @@
   /* Accents — Calibrated for sophisticated editorial contrast */
   --color-primary: #24152f;           /* Deep Plum (Primary Brand Element) */
   --color-secondary: #cbe836;         /* Refined Acid Lime (High-priority action / highlight) */
-  --color-accent-warm: #e85d26;       /* Refined Tangerine (Hackathon / Win highlight) */
+  --color-accent-warm: #a63e12;       /* Accessible Tangerine (Hackathon / Win highlight) */
   --color-accent-cool: #c2b2e8;       /* Refined Soft Lavender (Secondary accent / subtle tags) */
 
   /* Semantic */
@@ -259,6 +259,13 @@ body::after {
   box-shadow: 0 0 0 3px rgba(203, 232, 54, 0.2);
 }
 
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body,
+  body * {
+    cursor: none;
+  }
+}
+
 @media (pointer: coarse) {
   .custom-cursor {
     display: none;
@@ -293,6 +300,11 @@ body::after {
 
   .custom-cursor {
     display: none;
+  }
+
+  body,
+  body * {
+    cursor: auto;
   }
 }
 

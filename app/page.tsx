@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/components/ui/Link";
 import { Button } from "@/components/ui/Button";
+import { ProjectLinks } from "@/components/projects/ProjectLinks";
 
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
@@ -94,7 +95,7 @@ export default function HomePage() {
                 <div aria-hidden="true" className="absolute inset-0 -z-10 translate-x-3 translate-y-3 border-2 border-[var(--color-border)] bg-[var(--color-plum)]" />
                 <div data-tilt="" className="portfolio-card-motion animate-float border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[4px_4px_0px_0px_var(--color-border)]">
                   <div className="relative flex aspect-[4/5] flex-col justify-between overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] p-4">
-                    <div className="flex items-start justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                    <div className="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
                       <span>Portfolio</span>
                       <span className="font-bold text-[var(--color-plum)]">AI/ML</span>
                     </div>
@@ -113,7 +114,7 @@ export default function HomePage() {
                         <p className="font-display text-xl font-black uppercase tracking-tight text-[var(--color-foreground)]">
                           Kirthi JC
                         </p>
-                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
                           AI/ML engineering student
                         </p>
                       </div>
@@ -121,11 +122,11 @@ export default function HomePage() {
 
                     <div className="relative z-10 flex items-end justify-between gap-3">
                       <div className="space-y-1">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Focus</p>
+                        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Focus</p>
                         <p className="font-display text-sm font-black uppercase text-[var(--color-plum)]">Applied AI</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Current</p>
+                        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Current</p>
                         <p className="font-display text-sm font-black uppercase text-[var(--color-foreground)]">{profile.year}</p>
                       </div>
                     </div>
@@ -141,19 +142,19 @@ export default function HomePage() {
         <Container>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Hackathons</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Hackathons</p>
               <p className="mt-2 font-display text-4xl font-black text-[var(--color-accent-warm)]">10+</p>
             </div>
             <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Wins</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Wins</p>
               <p className="mt-2 font-display text-4xl font-black text-[var(--color-plum)]">{hackathonWins}</p>
             </div>
             <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">CGPA</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">CGPA · 2ND YEAR</p>
               <p className="mt-2 font-display text-4xl font-black text-[var(--color-foreground)]">{primaryEducation?.cgpa ?? "9.4"}</p>
             </div>
             <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Projects</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Projects</p>
               <p className="mt-2 font-display text-4xl font-black text-[var(--color-foreground)]">{allProjectsCount}</p>
             </div>
           </div>
@@ -166,10 +167,10 @@ export default function HomePage() {
             <Card key={project.slug} variant="interactive" padding="lg" className="group flex h-full flex-col justify-between">
               <div>
                 <div className="mb-4 flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-3">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
                     Project 0{index + 1}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{project.year}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">{project.year}</span>
                 </div>
 
                 <Heading as="h2" size="xl" uppercase className="mb-3 text-[var(--color-foreground)]">
@@ -190,15 +191,11 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-4">
-                  <Link href={`/projects/${project.slug}`} variant="arrow" className="font-display text-[11px] uppercase tracking-[0.15em]">
-                    View case study
+                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-4">
+                  <Link href={`/projects/${project.slug}`} variant="arrow" className="font-display text-xs font-bold uppercase tracking-[0.12em]">
+                    Case study
                   </Link>
-                  {project.links.github && (
-                    <Link href={project.links.github} external variant="muted" className="font-mono text-[10px] uppercase tracking-[0.15em]">
-                      GitHub ↗
-                    </Link>
-                  )}
+                  <ProjectLinks project={project} variant="inline" />
                 </div>
               </div>
             </Card>
@@ -209,17 +206,17 @@ export default function HomePage() {
       <Section spacing="xl" bordered number="02" label="Portfolio signals" title="Open source + community" description="Technical contribution and practical engineering are part of the portfolio story beyond classwork and competitions.">
         <div className="grid gap-6 md:grid-cols-3">
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Contributions</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Contributions</p>
             <p className="mt-3 font-display text-5xl font-black text-[var(--color-plum)]">{allContributionsCount}</p>
             <p className="mt-3 text-sm text-[var(--color-muted)]">Open-source and community-oriented development activity across engineering and learning initiatives.</p>
           </Card>
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Core focus</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Core focus</p>
             <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">AI & Data</p>
             <p className="mt-3 text-sm text-[var(--color-muted)]">From civic intelligence and identity systems to trustable product prototypes and rapid experimentation.</p>
           </Card>
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Current chapter</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Current chapter</p>
             <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">Building</p>
             <p className="mt-3 text-sm text-[var(--color-muted)]">Designing useful systems, shipping real prototypes, and continuing to grow through technical challenges.</p>
           </Card>

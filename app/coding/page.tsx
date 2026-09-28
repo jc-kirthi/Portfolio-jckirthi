@@ -55,7 +55,7 @@ export default function CodingPage() {
               key={profileLink.label}
               className="border-2 border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[3px_3px_0px_0px_var(--color-border)]"
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
                 {profileLink.label}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">

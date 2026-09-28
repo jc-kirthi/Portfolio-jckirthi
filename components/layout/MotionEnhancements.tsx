@@ -145,7 +145,6 @@ export function MotionEnhancements() {
           tilt.style.setProperty("--tilt-x", "0deg");
           tilt.style.setProperty("--tilt-y", "0deg");
         }
-        if (cursor) hideCursor();
       };
 
       document.addEventListener("pointermove", updatePointerEffects, { passive: true });

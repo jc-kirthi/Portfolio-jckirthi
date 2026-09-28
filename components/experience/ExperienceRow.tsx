@@ -27,13 +27,13 @@ export function ExperienceRow({ item, index }: ExperienceRowProps) {
       </div>
 
       <div className="lg:col-span-7 min-w-0">
-        <p className="font-mono text-xs uppercase tracking-wider text-[var(--color-muted)] mb-2">
+        <p className="font-mono text-[13px] uppercase tracking-wider text-[var(--color-muted)] mb-2">
           ROLE
         </p>
         <h3 className="font-display text-2xl sm:text-3xl font-black uppercase text-[var(--color-foreground)] leading-tight">
           {item.role}
         </h3>
-        <p className="font-mono text-xs uppercase text-[var(--color-plum)] font-bold mt-2">
+        <p className="font-mono text-[13px] uppercase text-[var(--color-plum)] font-bold mt-2 break-words">
           {item.company} / {item.location}
         </p>
         <p className="text-sm text-[var(--color-muted)] leading-relaxed mt-4">
@@ -55,7 +55,7 @@ export function ExperienceRow({ item, index }: ExperienceRowProps) {
       </div>
 
       <div className="lg:col-span-3 flex flex-col lg:items-end gap-4">
-        <div className="font-mono text-xs uppercase text-[var(--color-muted)] lg:text-right">
+        <div className="font-mono text-[13px] uppercase text-[var(--color-muted)] lg:text-right">
           <span className="block text-[var(--color-foreground)] font-bold">
             {getExperiencePeriod(item)}
           </span>
@@ -66,7 +66,7 @@ export function ExperienceRow({ item, index }: ExperienceRowProps) {
           {item.tech.map((tech) => (
             <span
               key={tech}
-              className="font-mono text-[10px] uppercase bg-[var(--color-card-subtle)] text-[var(--color-muted)] px-2 py-0.5 border border-[var(--color-border-subtle)]"
+              className="font-mono text-[11px] uppercase bg-[var(--color-card-subtle)] text-[var(--color-muted)] px-2 py-1 border border-[var(--color-border-subtle)]"
             >
               {tech}
             </span>

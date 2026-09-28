@@ -15,7 +15,7 @@ export function AchievementArchive({ achievements, startIndex = 1 }: Achievement
           <span className="font-mono text-xs text-[var(--color-muted)] font-bold">{String(startIndex + index).padStart(2, "0")}</span>
           <div className="min-w-0">
             <p className="font-display text-sm sm:text-base font-bold uppercase break-words">{achievement.title}</p>
-            <p className="font-mono text-[10px] sm:text-xs text-[var(--color-muted)] uppercase mt-1 break-words">{achievement.issuer} / {getCategoryLabel(achievement.category)}</p>
+            <p className="font-mono text-[11px] sm:text-xs text-[var(--color-muted)] uppercase mt-1 break-words">{achievement.issuer} / {getCategoryLabel(achievement.category)}</p>
           </div>
           <div className="flex items-center gap-3 sm:gap-5">
             <span className="font-mono text-xs text-[var(--color-muted)]">{getAchievementYear(achievement)}</span>

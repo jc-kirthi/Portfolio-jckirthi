@@ -34,7 +34,7 @@ export function CommunityCard({ item, index }: CommunityCardProps) {
       <p className="font-mono text-xs uppercase text-[var(--color-plum)] font-bold">
         {item.organization} / {item.location}
       </p>
-      <p className="font-mono text-[10px] uppercase text-[var(--color-muted)] mt-1">
+      <p className="font-mono text-[11px] uppercase text-[var(--color-muted)] mt-1">
         {getCommunityPeriod(item)}
       </p>
       <p className="text-sm text-[var(--color-muted)] leading-relaxed mt-4">
@@ -46,7 +46,7 @@ export function CommunityCard({ item, index }: CommunityCardProps) {
           {item.highlights.map((highlight) => (
             <span
               key={highlight}
-              className="font-mono text-[10px] uppercase text-[var(--color-muted)] bg-[var(--color-card-subtle)] px-2 py-0.5 border border-[var(--color-border-subtle)]"
+              className="font-mono text-[11px] uppercase text-[var(--color-muted)] bg-[var(--color-card-subtle)] px-2 py-1 border border-[var(--color-border-subtle)]"
             >
               {highlight}
             </span>

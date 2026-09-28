@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Badge } from "@/components/ui/Badge";
 import { Link } from "@/components/ui/Link";
+import { ProjectLinks } from "@/components/projects/ProjectLinks";
 import { projects } from "@/data/projects";
 
 interface ProjectPageProps {
@@ -65,17 +66,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <p className="text-sm leading-relaxed mb-8">{project.longDescription}</p>
         )}
 
-        <div className="flex gap-4">
-          {project.links.github && (
-            <Link href={project.links.github} external variant="none" className="text-sm px-4 py-2 border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors">
-              View on GitHub
-            </Link>
-          )}
-          {project.links.live && (
-            <Link href={project.links.live} external variant="none" className="text-sm px-4 py-2 bg-[var(--color-primary)] text-[var(--color-background)] hover:opacity-90 transition-opacity">
-              Live Demo
-            </Link>
-          )}
+        <div className="flex flex-wrap gap-3">
+          <ProjectLinks project={project} />
         </div>
       </Container>
     </Section>

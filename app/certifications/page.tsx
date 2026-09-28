@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
 import { Link } from "@/components/ui/Link";
 import { certifications } from "@/data/certifications";
 import { formatDate } from "@/lib/utils";
@@ -19,27 +20,28 @@ export default function CertificationsPage() {
         <Heading as="h1" size="2xl" className="mb-2">
           Certifications
         </Heading>
-        <p className="text-[var(--color-muted)] text-sm mb-8">
+        <p className="text-[var(--color-muted)] text-base mb-8">
           Professional certifications and verified learning.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((cert) => (
-            <div
+            <Card
               key={cert.id}
-              data-scroll-reveal=""
-              className="border border-[var(--color-border)] p-5 flex flex-col gap-3"
+              variant="interactive"
+              accentStrip="lavender"
+              className="flex flex-col gap-4 p-5 sm:p-6"
             >
               <div>
-                <p className="text-sm font-medium mb-1">{cert.title}</p>
-                <p className="text-xs text-[var(--color-muted)]">
+                <p className="font-display text-lg font-bold leading-snug text-[var(--color-foreground)]">{cert.title}</p>
+                <p className="mt-2 text-sm font-medium text-[var(--color-muted)]">
                   {cert.issuer} · {formatDate(cert.date)}
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-1.5">
                 {cert.skills.map((s) => (
-                  <Badge key={s} variant="outline">
+                  <Badge key={s} variant="outline" size="sm">
                     {s}
                   </Badge>
                 ))}
@@ -50,12 +52,12 @@ export default function CertificationsPage() {
                   href={cert.credentialUrl}
                   external
                   variant="muted"
-                  className="text-xs mt-auto"
+                  className="mt-auto text-sm"
                 >
                   View credential →
                 </Link>
               )}
-            </div>
+            </Card>
           ))}
         </div>
       </Container>
