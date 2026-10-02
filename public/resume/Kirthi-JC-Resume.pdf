@@ -1,0 +1,93 @@
+%PDF-1.4
+% Resume PDF
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 5548 >>
+stream
+0.80 0.91 0.21 rg 42 779 528 4 re f
+BT /F2 25 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 750 Tm (KIRTHI JC) Tj ET
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 443 751 Tm (PROFILE / 2026) Tj ET
+BT /F2 10 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 730 Tm (AI/ML ENGINEERING STUDENT | SOFTWARE, WEB & DATA) Tj ET
+BT /F1 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 713 Tm (India  |  7259103057  |  its.me.jckirthi@gmail.com) Tj ET
+BT /F1 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 700 Tm (github.com/jc-kirthi  |  linkedin.com/in/kirthi-jc-5390b8310) Tj ET
+0.14 0.08 0.18 RG 1.2 w 42 688 m 570 688 l S
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 670 Tm (PROFILE) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 666 m 570 666 l S
+BT /F1 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 654 Tm (AI/ML engineering student focused on applied machine learning, secure identity systems, civic intelligence,) Tj ET
+BT /F1 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 642 Tm (and product-minded software engineering. Builds through projects, prototypes, hackathons, and open-source work.) Tj ET
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 622 Tm (EDUCATION) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 618 m 570 618 l S
+BT /F2 8.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 606 Tm (B.E. Artificial Intelligence & Machine Learning | Cambridge Institute of Technology | 2024-2028) Tj ET
+BT /F1 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 593 Tm (CGPA: 9.4 \(2nd year\)) Tj ET
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 574 Tm (TECHNICAL SKILLS) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 570 m 570 570 l S
+BT /F2 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 558 Tm (LANGUAGES) Tj ET
+BT /F1 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 112 558 Tm (Python, TypeScript, C, SQL) Tj ET
+BT /F2 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 545 Tm (AI / ML) Tj ET
+BT /F1 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 112 545 Tm (Machine Learning, Generative AI, Data Analysis, Feature Engineering, Model Evaluation) Tj ET
+BT /F2 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 532 Tm (WEB) Tj ET
+BT /F1 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 112 532 Tm (Next.js, React, Node.js, Firebase, Tailwind CSS) Tj ET
+BT /F2 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 519 Tm (TOOLS) Tj ET
+BT /F1 7.8 Tf 0.09 0.07 0.10 rg 1 0 0 1 112 519 Tm (Git, GitHub, Docker, Vercel, Figma) Tj ET
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 498 Tm (SELECTED PROJECTS) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 494 m 570 494 l S
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 482 Tm (Samriddhi Parivar | 2025) Tj ET
+BT /F1 7.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 482 Tm (AI-powered multilingual civic reporting with geospatial issue visibility.) Tj ET
+BT /F1 7.2 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 471 Tm (Gemini AI, React, Node.js, Firebase, TypeScript.) Tj ET
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 454 Tm (PrivaKYC | 2025) Tj ET
+BT /F1 7.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 454 Tm (Privacy-preserving identity verification exploring zero-knowledge proofs and WebAuthn.) Tj ET
+BT /F1 7.2 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 443 Tm (Groth16, Circom/snarkjs, WebAuthn, React, Node.js.) Tj ET
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 426 Tm (RapidAuth | 2025) Tj ET
+BT /F1 7.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 426 Tm (Academic credential verification prototype using Algorand-based trust and wallet flows.) Tj ET
+BT /F1 7.2 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 415 Tm (Algorand, AlgoKit, Firebase, IPFS, React + TypeScript.) Tj ET
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 398 Tm (FoodWise | 2025) Tj ET
+BT /F1 7.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 398 Tm (ML decision support estimating food-demand patterns and potential surplus risk.) Tj ET
+BT /F1 7.2 Tf 0.09 0.07 0.10 rg 1 0 0 1 157 387 Tm (Python, XGBoost, SHAP, feature engineering, Streamlit.) Tj ET
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 368 Tm (EXPERIENCE & COMMUNITY) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 364 m 570 364 l S
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 352 Tm (AI/ML Engineering Student | Independent Projects & Hackathons | 2023-present) Tj ET
+BT /F1 7.4 Tf 0.09 0.07 0.10 rg 1 0 0 1 52 339 Tm (- Built civic-tech, privacy-preserving identity, and blockchain-oriented prototypes.) Tj ET
+BT /F1 7.4 Tf 0.09 0.07 0.10 rg 1 0 0 1 52 327 Tm (- Developed full-stack and ML systems through hackathons, public demos, and iterative product work.) Tj ET
+BT /F2 8 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 309 Tm (Open Source & Community Contributor | 2024-present) Tj ET
+BT /F1 7.4 Tf 0.09 0.07 0.10 rg 1 0 0 1 52 296 Tm (- Participated in Hacktoberfest, GirlScript Summer of Code, and student developer communities.) Tj ET
+BT /F1 7.4 Tf 0.09 0.07 0.10 rg 1 0 0 1 52 284 Tm (- Supported peer learning and practical collaboration through project-based engineering.) Tj ET
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 265 Tm (RECOGNITION) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 261 m 570 261 l S
+BT /F1 7.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 249 Tm (Hackathon winner: College Hackathon and ISME Hackathon | Blockchain Track winner: NMIT Hacks) Tj ET
+BT /F1 7.5 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 237 Tm (10+ hackathons | Microsoft Student Learn Ambassador | GirlScript Summer of Code 2025) Tj ET
+BT /F2 9 Tf 0.14 0.08 0.18 rg 1 0 0 1 42 218 Tm (CERTIFICATIONS) Tj ET
+0.70 0.67 0.62 RG 0.45 w 42 214 m 570 214 l S
+BT /F1 7.2 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 202 Tm (Microsoft Applied Skills: Generate Reports with AI Research Agents | Deloitte Forage | Postman API Fundamentals) Tj ET
+BT /F1 7.2 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 190 Tm (Google AI Study Jam | Google Cloud Skills Boost) Tj ET
+0.14 0.08 0.18 RG 0.6 w 42 48 m 570 48 l S
+BT /F1 7 Tf 0.09 0.07 0.10 rg 1 0 0 1 42 34 Tm (Selected work, awards, and credentials: github.com/jc-kirthi  |  Details available through the portfolio.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000022 00000 n 
+0000000071 00000 n 
+0000000128 00000 n 
+0000000264 00000 n 
+0000000334 00000 n 
+0000000409 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+6008
+%%EOF

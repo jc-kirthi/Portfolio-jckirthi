@@ -22,7 +22,7 @@ export const profile = {
     codechef: "https://www.codechef.com/users/chef_kirthi_26",
     hackerRank: "https://www.hackerrank.com/profile/its_me_jckirthi",
   },
-  resumeUrl: "",
+  resumeUrl: "/resume/Kirthi-JC-Resume.pdf",
 } as const;
 
 export type Profile = typeof profile;

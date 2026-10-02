@@ -151,19 +151,18 @@ export function Navbar() {
                 </li>
               </ul>
 
-              {profile.resumeUrl && (
-                <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 border-2 border-[var(--color-border)] bg-[var(--color-accent-warm)] px-3 py-2 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-foreground)] shadow-[2px_2px_0px_0px_var(--color-border)] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_var(--color-border)]">
-                  Resume <span aria-hidden="true" className="font-mono">↗</span>
-                </a>
-              )}
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Kirthi JC's resume (PDF, opens in a new tab)"
+                className="inline-flex items-center gap-1.5 border-2 border-[var(--color-border)] bg-[var(--color-secondary)] px-3 py-2 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-foreground)] shadow-[2px_2px_0px_0px_var(--color-border)] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_var(--color-border)]"
+              >
+                Resume <span aria-hidden="true" className="font-mono">↗</span>
+              </a>
             </div>
 
             <div className="flex items-center gap-3 lg:hidden">
-              {profile.resumeUrl && (
-                <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className="border-2 border-[var(--color-border)] bg-[var(--color-accent-warm)] px-2.5 py-1.5 font-display text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-foreground)] shadow-[2px_2px_0px_0px_var(--color-border)]">
-                  CV ↗
-                </a>
-              )}
               <button
                 type="button"
                 className="flex h-10 w-10 flex-col justify-center gap-1.5 border-2 border-[var(--color-border)] bg-[var(--color-card)] p-2.5 focus-visible:outline-2 focus-visible:outline-[var(--color-foreground)]"
@@ -204,6 +203,19 @@ export function Navbar() {
                   </li>
                 );
               })}
+              <li>
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                  aria-label="View Kirthi JC's resume (PDF, opens in a new tab)"
+                  className="flex items-center justify-between border-t-2 border-[var(--color-border)] py-3.5 font-display text-sm font-bold uppercase tracking-[0.14em] text-[var(--color-plum)] focus-visible:outline-2 focus-visible:outline-[var(--color-foreground)]"
+                >
+                  <span>Resume</span>
+                  <span aria-hidden="true" className="font-mono text-xs">PDF · 2026 ↗</span>
+                </a>
+              </li>
             </ul>
           </Container>
         </div>

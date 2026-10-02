@@ -85,6 +85,9 @@ export default function HomePage() {
                 <Button href="#projects" variant="outline" size="md" withArrow>
                   VIEW PROJECTS
                 </Button>
+                <Button href={profile.resumeUrl} variant="accent" size="md" withArrow download="Kirthi-JC-Resume.pdf" aria-label="Download Kirthi JC's resume PDF">
+                  DOWNLOAD RESUME
+                </Button>
                 <Button href="#contact" variant="secondary" size="md" withArrow>
                   CONTACT / CONNECT
                 </Button>
@@ -373,6 +376,23 @@ export default function HomePage() {
       </Section>
 
       <Section id="contact" spacing="xl" bordered number="11" label="The next chapter" title="Let’s build something useful." description="Open to internships, collaborations, hackathons, and interesting engineering problems.">
+        <div className="mb-6 flex flex-col gap-5 border-2 border-[var(--color-border)] border-l-4 border-l-[var(--color-secondary)] bg-[var(--color-card)] p-5 shadow-[3px_3px_0px_0px_var(--color-border)] sm:flex-row sm:items-center sm:justify-between sm:p-6">
+          <div className="min-w-0">
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-plum)]">Full profile · PDF · 2026</p>
+            <h3 className="mt-2 font-display text-lg font-black uppercase tracking-tight text-[var(--color-foreground)]">Want the complete overview?</h3>
+            <p className="mt-1 text-sm leading-relaxed text-[var(--color-muted)]">
+              A concise look at my technical skills, projects, experience, and recognition.
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <Button href={profile.resumeUrl} external variant="outline" size="sm" withArrow aria-label="View Kirthi JC's resume PDF in a new tab">
+              View resume
+            </Button>
+            <Button href={profile.resumeUrl} variant="accent" size="sm" download="Kirthi-JC-Resume.pdf" aria-label="Download Kirthi JC's resume PDF">
+              <>Download PDF <span aria-hidden="true" className="font-mono">↓</span></>
+            </Button>
+          </div>
+        </div>
         <div className="flex flex-col items-start justify-between gap-7 border-l-4 border-[var(--color-secondary)] bg-[var(--color-card)] p-5 sm:flex-row sm:items-center sm:p-7">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-muted)]">A direct line</p>

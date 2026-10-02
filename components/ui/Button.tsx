@@ -104,6 +104,13 @@ export function Button({
         </a>
       );
     }
+    if (anchorProps.download !== undefined) {
+      return (
+        <a href={href} className={commonClasses} data-magnetic={magnetic ? "" : undefined} {...anchorProps}>
+          {inner}
+        </a>
+      );
+    }
     return (
       <NextLink href={href} className={commonClasses} data-magnetic={magnetic ? "" : undefined} {...anchorProps}>
         {inner}
