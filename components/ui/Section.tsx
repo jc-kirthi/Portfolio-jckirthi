@@ -24,6 +24,7 @@ interface SectionProps {
    */
   number?: string;      // e.g., "01"
   label?: string;       // e.g., "PROJECTS", "THE JOURNEY"
+  eyebrow?: string;     // e.g., "$ skills --list"
   title?: string;       // Large section title
   description?: string; // Supporting narrative
   bordered?: boolean;   // Bottom border dividing sections
@@ -45,11 +46,12 @@ export function Section({
   id,
   number,
   label,
+  eyebrow,
   title,
   description,
   bordered = false,
 }: SectionProps) {
-  const hasHeader = number || label || title || description;
+  const hasHeader = number || label || eyebrow || title || description;
 
   return (
     <Tag
@@ -64,15 +66,15 @@ export function Section({
       {hasHeader ? (
         <Container>
           <div className="mb-10 md:mb-14 border-b border-[var(--color-border-subtle)] pb-6">
-            {(number || label) && (
-              <div className="flex items-center gap-2 mb-3 text-xs font-mono font-bold tracking-wider uppercase text-[var(--color-muted)]">
+            {(number || label || eyebrow) && (
+              <div className="section-eyebrow flex items-center gap-2 mb-3 font-mono text-[13px] font-bold tracking-[0.08em] uppercase text-[var(--color-muted)] sm:text-sm">
                 {number && (
                   <span className="text-[var(--color-foreground)] font-extrabold bg-[var(--color-card)] px-1.5 py-0.5 border border-[var(--color-border)]">
                     {number}
                   </span>
                 )}
-                {number && label && <span>—</span>}
-                {label && <span>{label}</span>}
+                {(number && (eyebrow || label)) && <span>—</span>}
+                {eyebrow ? <span>{eyebrow}</span> : label && <span>{label}</span>}
               </div>
             )}
             {title && (

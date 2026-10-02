@@ -174,7 +174,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section id="about" spacing="xl" bordered number="01" label="A little context" title="About" description={profile.bio}>
+      <Section id="about" spacing="xl" bordered number="01" label="A little context" title="Who I am" description={profile.bio}>
         <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
           <p className="max-w-3xl border-l-4 border-[var(--color-secondary)] pl-5 font-display text-xl font-bold leading-snug text-[var(--color-plum)] sm:text-2xl">
             {profile.tagline}
@@ -195,7 +195,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="skills" spacing="xl" bordered number="02" label="What I work with" title="Skills" description="A practical toolkit across programming, applied AI, web development, and the tools that help ideas ship.">
+      <Section id="skills" spacing="xl" bordered number="02" eyebrow="$ skills --list" title="What I build with" description="A practical toolkit across programming, applied AI, web development, and the tools that help ideas ship.">
         <div className="grid gap-x-8 md:grid-cols-2">
           {skills.map((category, index) => (
             <article key={category.id} data-scroll-reveal="" className="border-t-2 border-[var(--color-border)] py-5">
@@ -213,7 +213,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="experience" spacing="xl" bordered number="03" label="How the work grows" title="Experience" description="A progression built through projects, competitions, and collaborative contribution.">
+      <Section id="experience" spacing="xl" bordered number="03" eyebrow="git log --career" title="Experience" description="A progression built through projects, competitions, and collaborative contribution.">
         <div className="mb-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {experience.map((item) => (
             <div key={item.id} className="border-l-2 border-[var(--color-accent-cool)] bg-[var(--color-card)] px-4 py-3">
@@ -231,7 +231,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="projects" spacing="xl" bordered number="04" label="Technical direction" title="Featured work" description="Applied engineering across civic-tech, privacy-preserving systems, machine learning, and product-driven problem solving.">
+      <Section id="projects" spacing="xl" bordered number="04" eyebrow="./projects --featured" title="Featured Work" description="Applied engineering across civic-tech, privacy-preserving systems, machine learning, and product-driven problem solving.">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <Card key={project.slug} variant="interactive" padding="lg" className="group flex h-full flex-col justify-between">
@@ -307,7 +307,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="journey" spacing="xl" bordered number="07" label="Learning by building" title="The journey" description="An academic path in AI and machine learning, with each stage adding a new reason to build.">
+      <Section id="journey" spacing="xl" bordered number="07" label="Learning by building" title="The Journey" description="An academic path in AI and machine learning, with each stage adding a new reason to build.">
         <div className="relative ml-2 border-l-2 border-[var(--color-border-subtle)] pl-6 sm:ml-4 sm:pl-9">
           {education.map((item) => (
             <article key={item.id} data-scroll-reveal="" className="relative border-b border-[var(--color-border-subtle)] py-5 first:pt-0 last:border-b-0">
@@ -358,7 +358,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="coding" spacing="xl" bordered number="10" label="Practice is part of the process" title="Problem solving" description="Problem solving is part of the build process, from algorithm practice to shipping public work.">
+      <Section id="coding" spacing="xl" bordered number="10" label="Practice is part of the process" title="Problem Solving" description="Problem solving is part of the build process, from algorithm practice to shipping public work.">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {profileLinks.filter((link) => link.label !== "LinkedIn").map((link, index) => (
             <Link key={link.label} href={link.href} external variant="none" className="group flex items-center justify-between border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[2px_2px_0px_0px_var(--color-border)] transition-transform hover:-translate-y-1">
@@ -375,7 +375,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="contact" spacing="xl" bordered number="11" label="The next chapter" title="Let’s build something useful." description="Open to internships, collaborations, hackathons, and interesting engineering problems.">
+      <Section id="contact" spacing="xl" bordered number="11" eyebrow="contact --open" title="Let’s build something useful." description="Open to internships, collaborations, hackathons, and interesting engineering problems.">
         <div className="mb-6 flex flex-col gap-5 border-2 border-[var(--color-border)] border-l-4 border-l-[var(--color-secondary)] bg-[var(--color-card)] p-5 shadow-[3px_3px_0px_0px_var(--color-border)] sm:flex-row sm:items-center sm:justify-between sm:p-6">
           <div className="min-w-0">
             <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-plum)]">Full profile · PDF · 2026</p>
