@@ -45,7 +45,7 @@ export default function CodingPage() {
             Code, practice, and problem solving
           </Heading>
           <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
-            My technical footprint spans product work, competition practice, and collaborative engineering across multiple platforms.
+            Product repositories, coding practice, and contest profiles—different ways to keep learning by doing.
           </p>
         </div>
 

@@ -21,7 +21,7 @@ export default function ProjectsPage() {
           Projects
         </Heading>
         <p className="text-[var(--color-muted)] text-base mb-8">
-          Engineering work across AI/ML, web, and beyond.
+          Ideas that made it out of the notes stage and into repositories, across AI/ML, web, and systems.
         </p>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

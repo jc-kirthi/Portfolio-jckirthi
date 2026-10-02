@@ -61,7 +61,7 @@ export default function ContactPage() {
           <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-5 shadow-[4px_4px_0px_0px_var(--color-border)]">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Recruiter note</p>
             <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
-              This contact flow opens your default email client so you can send a direct message with minimal friction.
+              Have a role, a project idea, or an interesting engineering problem? I’d be glad to compare notes.
             </p>
             <Button href={`mailto:${profile.email}`} variant="primary" size="md" withArrow className="mt-5">
               Email me

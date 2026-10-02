@@ -22,6 +22,9 @@ export default function JourneyPage() {
           <Heading as="h1" size="2xl" className="mt-2 text-[var(--color-plum)]">
             Learning by building
           </Heading>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
+            The fundamentals keep growing clearer when I put them to work in projects.
+          </p>
         </div>
 
         <div className="mb-8 border-2 border-[var(--color-border)] border-t-4 border-t-[var(--color-secondary)] bg-[var(--color-card)] p-5 shadow-[4px_4px_0px_0px_var(--color-border)] sm:p-7">

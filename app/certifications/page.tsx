@@ -21,7 +21,7 @@ export default function CertificationsPage() {
           Certifications
         </Heading>
         <p className="text-[var(--color-muted)] text-base mb-8">
-          Professional certifications and verified learning.
+          A few structured learning checkpoints across AI, APIs, and cloud fundamentals.
         </p>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

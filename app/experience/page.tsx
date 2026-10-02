@@ -39,7 +39,7 @@ export default function ExperiencePage() {
           Experience
         </Heading>
         <p className="text-[var(--color-muted)] text-base mb-10 leading-relaxed">
-          Professional roles, competitive builds, community contributions, and recognition.
+          A work-in-progress record of project building, competitions, community contributions, and recognition.
         </p>
 
         <div className="mt-8">

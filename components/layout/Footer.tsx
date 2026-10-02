@@ -75,7 +75,7 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-5 text-xs text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {profile.name}. All rights reserved.</p>
-          <p>Built with Next.js, React &amp; TypeScript.</p>
+          <p>Built, debugged &amp; deployed with curiosity · Next.js, React &amp; TypeScript.</p>
         </div>
       </Container>
     </footer>

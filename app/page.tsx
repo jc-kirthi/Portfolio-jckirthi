@@ -22,6 +22,7 @@ import { getExperiencePeriod } from "@/lib/experience";
 import { formatDate } from "@/lib/utils";
 import { ExperienceRow } from "@/components/experience/ExperienceRow";
 import { FeaturedHackathonCard } from "@/components/hackathons/FeaturedHackathonCard";
+import { TechFact } from "@/components/ui/TechFact";
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.title}`,
@@ -74,7 +75,7 @@ export default function HomePage() {
                   AI/ML engineering student / <span className="text-[var(--color-plum)] underline decoration-[var(--color-secondary)] decoration-4 underline-offset-4">builder</span>
                 </p>
                 <p data-entrance="" className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)] md:text-base">
-                  {profile.tagline} {profile.bio}
+                  Curious about how systems work—and drawn to turning questions into things I can prototype, test, and ship.
                 </p>
               </div>
 
@@ -195,7 +196,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="skills" spacing="xl" bordered number="02" eyebrow="$ skills --list" title="What I build with" description="A practical toolkit across programming, applied AI, web development, and the tools that help ideas ship.">
+      <Section id="skills" spacing="xl" bordered number="02" eyebrow="$ skills --list" title="What I build with" description="A snapshot of my developer toolbox: languages, frameworks, and tools I’m learning by putting them to work.">
         <div className="grid gap-x-8 md:grid-cols-2">
           {skills.map((category, index) => (
             <article key={category.id} data-scroll-reveal="" className="border-t-2 border-[var(--color-border)] py-5">
@@ -213,7 +214,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="experience" spacing="xl" bordered number="03" eyebrow="git log --career" title="Experience" description="A progression built through projects, competitions, and collaborative contribution.">
+      <Section id="experience" spacing="xl" bordered number="03" eyebrow="git log --career" title="Experience" description="A work-in-progress log of projects, hackathons, community work, and the lessons between them.">
         <div className="mb-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {experience.map((item) => (
             <div key={item.id} className="border-l-2 border-[var(--color-accent-cool)] bg-[var(--color-card)] px-4 py-3">
@@ -231,7 +232,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="projects" spacing="xl" bordered number="04" eyebrow="./projects --featured" title="Featured Work" description="Applied engineering across civic-tech, privacy-preserving systems, machine learning, and product-driven problem solving.">
+      <Section id="projects" spacing="xl" bordered number="04" eyebrow="./projects --featured" title="Featured Work" description="Ideas that made it out of the notes stage and into working projects—from civic tech and privacy to applied machine learning.">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <Card key={project.slug} variant="interactive" padding="lg" className="group flex h-full flex-col justify-between">
@@ -276,27 +277,27 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="community" spacing="xl" bordered number="05" label="Portfolio signals" title="Open source + community" description="Technical contribution and practical engineering are part of the portfolio story beyond classwork and competitions.">
+      <Section id="community" spacing="xl" bordered number="05" eyebrow="git push --open-source" title="Open Source + Community" description="Code gets more interesting when it’s shared, discussed, and improved with other people.">
         <div className="grid gap-6 md:grid-cols-3">
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Contributions</p>
             <p className="mt-3 font-display text-5xl font-black text-[var(--color-plum)]">{allContributionsCount}</p>
-            <p className="mt-3 text-sm text-[var(--color-muted)]">Open-source and community-oriented development activity across engineering and learning initiatives.</p>
+            <p className="mt-3 text-sm text-[var(--color-muted)]">A record of contributing, learning alongside other developers, and getting involved beyond solo projects.</p>
           </Card>
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Core focus</p>
             <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">AI & Data</p>
-            <p className="mt-3 text-sm text-[var(--color-muted)]">From civic intelligence and identity systems to trustable product prototypes and rapid experimentation.</p>
+            <p className="mt-3 text-sm text-[var(--color-muted)]">From civic intelligence and identity systems to prototypes built by trying an idea in code.</p>
           </Card>
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Current chapter</p>
             <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">Building</p>
-            <p className="mt-3 text-sm text-[var(--color-muted)]">Designing useful systems, shipping real prototypes, and continuing to grow through technical challenges.</p>
+            <p className="mt-3 text-sm text-[var(--color-muted)]">Still learning, still building, and always curious about the next problem to take apart.</p>
           </Card>
         </div>
       </Section>
 
-      <Section id="hackathons" spacing="xl" bordered number="06" label="Rapid prototypes" title="Building under pressure" description="A small selection from the competition archive: focused teams, short clocks, and ideas made tangible.">
+      <Section id="hackathons" spacing="xl" bordered number="06" eyebrow="./hackathons --rapid" title="Building Under Pressure" description="Short deadlines, big ideas, quick prototypes—and plenty to learn from every build.">
         <div className="flex flex-col gap-6">
           {featuredHackathons.map((hackathon, index) => (
             <FeaturedHackathonCard key={hackathon.slug} hackathon={hackathon} index={index} />
@@ -307,7 +308,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="journey" spacing="xl" bordered number="07" label="Learning by building" title="The Journey" description="An academic path in AI and machine learning, with each stage adding a new reason to build.">
+      <Section id="journey" spacing="xl" bordered number="07" label="Learning by building" title="The Journey" description="An AI and machine learning degree, with the fundamentals making more sense every time I put them to work.">
         <div className="relative ml-2 border-l-2 border-[var(--color-border-subtle)] pl-6 sm:ml-4 sm:pl-9">
           {education.map((item) => (
             <article key={item.id} data-scroll-reveal="" className="relative border-b border-[var(--color-border-subtle)] py-5 first:pt-0 last:border-b-0">
@@ -327,7 +328,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="achievements" spacing="xl" bordered number="08" label="Selected recognition" title="Achievements" description="Milestones earned through building, competing, and showing up for technical communities.">
+      <Section id="achievements" spacing="xl" bordered number="08" eyebrow="~/achievements" title="Achievements" description="Wins, programs, and milestones worth keeping in the build log.">
         <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] shadow-[3px_3px_0px_0px_var(--color-border)]">
           {achievements.slice(0, 4).map((achievement) => (
             <article key={achievement.id} className="grid gap-2 border-b border-[var(--color-border-subtle)] p-4 last:border-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5">
@@ -344,7 +345,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="certifications" spacing="xl" bordered number="09" label="Continued learning" title="Certifications">
+      <Section id="certifications" spacing="xl" bordered number="09" eyebrow="verify --certificates" title="Certifications" description="A few structured learning checkpoints along the way.">
         <div className="grid gap-4 md:grid-cols-3">
           {certifications.slice(0, 3).map((certification) => (
             <article key={certification.id} className="flex min-h-36 flex-col border-t-4 border-[var(--color-accent-cool)] bg-[var(--color-card)] p-4">
@@ -358,7 +359,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="coding" spacing="xl" bordered number="10" label="Practice is part of the process" title="Problem Solving" description="Problem solving is part of the build process, from algorithm practice to shipping public work.">
+      <Section id="coding" spacing="xl" bordered number="10" eyebrow="DSA.run()" title="Problem Solving" description="Where arrays, algorithms, and edge cases remind me that a working solution and an efficient one aren’t always the same.">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {profileLinks.filter((link) => link.label !== "LinkedIn").map((link, index) => (
             <Link key={link.label} href={link.href} external variant="none" className="group flex items-center justify-between border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[2px_2px_0px_0px_var(--color-border)] transition-transform hover:-translate-y-1">
@@ -370,6 +371,7 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+        <TechFact />
         <div className="mt-6 flex justify-end">
           <Link href="/coding" variant="arrow" className="font-mono text-xs font-bold uppercase">Coding profiles</Link>
         </div>
