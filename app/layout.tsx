@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MotionEnhancements } from "@/components/layout/MotionEnhancements";
+import { WelcomeScreen } from "@/components/layout/WelcomeScreen";
+import { BackgroundMotion } from "@/components/layout/BackgroundMotion";
 import { profile } from "@/data/profile";
 
 const spaceGrotesk = Space_Grotesk({
@@ -65,9 +67,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--color-background)] text-[var(--color-foreground)] font-sans selection:bg-[var(--color-secondary)] selection:text-[var(--color-foreground)]">
         <MotionEnhancements />
+        <BackgroundMotion />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WelcomeScreen />
       </body>
     </html>
   );

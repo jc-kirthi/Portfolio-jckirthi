@@ -11,7 +11,7 @@ export function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="mt-auto border-t-4 border-[var(--color-secondary)] bg-[var(--color-card)]/70 pt-12 pb-8" role="contentinfo">
+    <footer className="portfolio-footer mt-auto border-t-4 border-[var(--color-secondary)] bg-[var(--color-card)]/80 pt-12 pb-9" role="contentinfo">
       <Container>
         <div className="grid gap-10 border-b border-[var(--color-border-subtle)] pb-8 lg:grid-cols-12">
           <div className="lg:col-span-6">
@@ -33,11 +33,11 @@ export function Footer() {
               <ul className="mt-3 space-y-2" role="list">
                 {[
                   ["01 / HOME", "/"],
-                  ["02 / PROJECTS", "/projects"],
-                  ["03 / HACKATHONS", "/hackathons"],
-                  ["04 / JOURNEY", "/journey"],
-                  ["05 / EXPERIENCE", "/experience"],
-                  ["06 / CONTACT", "/contact"],
+                  ["02 / PROJECTS", pathname === "/" ? "#projects" : "/projects"],
+                  ["03 / HACKATHONS", pathname === "/" ? "#hackathons" : "/hackathons"],
+                  ["04 / JOURNEY", pathname === "/" ? "#journey" : "/journey"],
+                  ["05 / EXPERIENCE", pathname === "/" ? "#experience" : "/experience"],
+                  ["06 / CONTACT", pathname === "/" ? "#contact" : "/contact"],
                 ].map(([label, href]) => (
                   <li key={label}>
                     <Link href={href} variant="none" aria-current={pathname === href ? "page" : undefined} className={`font-display text-[12px] font-medium uppercase tracking-[0.16em] transition-all duration-200 hover:text-[var(--color-foreground)] ${pathname === href ? "translate-x-1 text-[var(--color-foreground)] before:mr-2 before:inline-block before:h-1.5 before:w-1.5 before:bg-[var(--color-secondary)] before:content-['']" : "text-[var(--color-muted)]"}`}>

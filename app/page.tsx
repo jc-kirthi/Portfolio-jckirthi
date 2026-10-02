@@ -12,7 +12,16 @@ import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { hackathons } from "@/data/hackathons";
 import { education } from "@/data/education";
+import { experience } from "@/data/experience";
+import { skills } from "@/data/skills";
+import { achievements } from "@/data/achievements";
+import { certifications } from "@/data/certifications";
 import { contributions, ownProjects } from "@/data/openSource";
+import { getFeaturedHackathons } from "@/lib/hackathons";
+import { getExperiencePeriod } from "@/lib/experience";
+import { formatDate } from "@/lib/utils";
+import { ExperienceRow } from "@/components/experience/ExperienceRow";
+import { FeaturedHackathonCard } from "@/components/hackathons/FeaturedHackathonCard";
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.title}`,
@@ -25,6 +34,7 @@ export default function HomePage() {
   const primaryEducation = education[0];
   const allProjectsCount = projects.length;
   const allContributionsCount = contributions.length + ownProjects.length;
+  const featuredHackathons = getFeaturedHackathons().slice(0, 2);
 
   const profileLinks = [
     { label: "GitHub", href: profile.socials.github },
@@ -36,7 +46,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Section spacing="xl" bordered className="relative overflow-hidden">
+      <Section id="home" spacing="xl" bordered className="relative overflow-hidden">
         <Container>
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-8">
             <div className="flex flex-col gap-6 lg:col-span-7">
@@ -69,13 +79,13 @@ export default function HomePage() {
               </div>
 
               <div data-entrance="" className="flex flex-wrap items-center gap-3 pt-2">
-                <Button href="/experience" variant="primary" size="md" withArrow magnetic>
+                <Button href="#experience" variant="primary" size="md" withArrow magnetic>
                   VIEW WORK
                 </Button>
-                <Button href="/projects" variant="outline" size="md" withArrow>
+                <Button href="#projects" variant="outline" size="md" withArrow>
                   VIEW PROJECTS
                 </Button>
-                <Button href="/contact" variant="secondary" size="md" withArrow>
+                <Button href="#contact" variant="secondary" size="md" withArrow>
                   CONTACT / CONNECT
                 </Button>
               </div>
@@ -138,7 +148,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section spacing="md" bordered className="bg-[var(--color-card)]/80">
+      <Section id="signals" spacing="md" bordered className="bg-[var(--color-card)]/80">
         <Container>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             <div className="border-2 border-[var(--color-border)] bg-[var(--color-background)] p-4 shadow-[3px_3px_0px_0px_var(--color-border)]">
@@ -161,7 +171,64 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section spacing="xl" bordered number="01" label="Technical direction" title="Featured work" description="Applied engineering across civic-tech, privacy-preserving systems, machine learning, and product-driven problem solving.">
+      <Section id="about" spacing="xl" bordered number="01" label="A little context" title="About" description={profile.bio}>
+        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+          <p className="max-w-3xl border-l-4 border-[var(--color-secondary)] pl-5 font-display text-xl font-bold leading-snug text-[var(--color-plum)] sm:text-2xl">
+            {profile.tagline}
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              ["STUDYING", profile.institution],
+              ["CURRENT YEAR", profile.year],
+              ["BASED IN", profile.location],
+              ["BUILDING AT", "AI / ML · WEB · DATA"],
+            ].map(([label, value]) => (
+              <div key={label} className="border-t-2 border-[var(--color-border)] pt-2">
+                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-muted)]">{label}</p>
+                <p className="mt-1 font-display text-sm font-bold uppercase text-[var(--color-foreground)]">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section id="skills" spacing="xl" bordered number="02" label="What I work with" title="Skills" description="A practical toolkit across programming, applied AI, web development, and the tools that help ideas ship.">
+        <div className="grid gap-x-8 md:grid-cols-2">
+          {skills.map((category, index) => (
+            <article key={category.id} data-scroll-reveal="" className="border-t-2 border-[var(--color-border)] py-5">
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className="font-display text-xl font-black uppercase text-[var(--color-plum)]">{category.label}</h3>
+                <span className="font-mono text-xs font-bold text-[var(--color-accent-warm)]">0{index + 1}</span>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <Badge key={skill.name} variant="outline" size="sm">{skill.name}</Badge>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="experience" spacing="xl" bordered number="03" label="How the work grows" title="Experience" description="A progression built through projects, competitions, and collaborative contribution.">
+        <div className="mb-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {experience.map((item) => (
+            <div key={item.id} className="border-l-2 border-[var(--color-accent-cool)] bg-[var(--color-card)] px-4 py-3">
+              <p className="font-mono text-xs font-bold uppercase text-[var(--color-plum)]">{getExperiencePeriod(item)}</p>
+              <p className="mt-1 font-display text-sm font-bold uppercase">{item.company}</p>
+            </div>
+          ))}
+          <div className="border-l-2 border-[var(--color-secondary)] bg-[var(--color-card)] px-4 py-3">
+            <p className="font-mono text-xs font-bold uppercase text-[var(--color-plum)]">{profile.year}</p>
+            <p className="mt-1 font-display text-sm font-bold uppercase">Learning by building</p>
+          </div>
+        </div>
+        <div className="border-t-2 border-[var(--color-border)]">
+          {experience.map((item, index) => <ExperienceRow key={item.id} item={item} index={index} />)}
+        </div>
+      </Section>
+
+      <Section id="projects" spacing="xl" bordered number="04" label="Technical direction" title="Featured work" description="Applied engineering across civic-tech, privacy-preserving systems, machine learning, and product-driven problem solving.">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <Card key={project.slug} variant="interactive" padding="lg" className="group flex h-full flex-col justify-between">
@@ -201,9 +268,12 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
+        <div className="mt-9 flex justify-end">
+          <Button href="/projects" variant="outline" size="sm" withArrow>Explore all projects</Button>
+        </div>
       </Section>
 
-      <Section spacing="xl" bordered number="02" label="Portfolio signals" title="Open source + community" description="Technical contribution and practical engineering are part of the portfolio story beyond classwork and competitions.">
+      <Section id="community" spacing="xl" bordered number="05" label="Portfolio signals" title="Open source + community" description="Technical contribution and practical engineering are part of the portfolio story beyond classwork and competitions.">
         <div className="grid gap-6 md:grid-cols-3">
           <Card variant="default" padding="lg" className="border-2 border-[var(--color-border)] bg-[var(--color-card)]">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">Contributions</p>
@@ -220,6 +290,99 @@ export default function HomePage() {
             <p className="mt-3 font-display text-3xl font-black uppercase text-[var(--color-foreground)]">Building</p>
             <p className="mt-3 text-sm text-[var(--color-muted)]">Designing useful systems, shipping real prototypes, and continuing to grow through technical challenges.</p>
           </Card>
+        </div>
+      </Section>
+
+      <Section id="hackathons" spacing="xl" bordered number="06" label="Rapid prototypes" title="Building under pressure" description="A small selection from the competition archive: focused teams, short clocks, and ideas made tangible.">
+        <div className="flex flex-col gap-6">
+          {featuredHackathons.map((hackathon, index) => (
+            <FeaturedHackathonCard key={hackathon.slug} hackathon={hackathon} index={index} />
+          ))}
+        </div>
+        <div className="mt-8 flex justify-end">
+          <Button href="/hackathons" variant="outline" size="sm" withArrow>Open competition archive</Button>
+        </div>
+      </Section>
+
+      <Section id="journey" spacing="xl" bordered number="07" label="Learning by building" title="The journey" description="An academic path in AI and machine learning, with each stage adding a new reason to build.">
+        <div className="relative ml-2 border-l-2 border-[var(--color-border-subtle)] pl-6 sm:ml-4 sm:pl-9">
+          {education.map((item) => (
+            <article key={item.id} data-scroll-reveal="" className="relative border-b border-[var(--color-border-subtle)] py-5 first:pt-0 last:border-b-0">
+              <span aria-hidden="true" className="absolute -left-[33px] top-6 h-3 w-3 border-2 border-[var(--color-border)] bg-[var(--color-secondary)] sm:-left-[46px]" />
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-display text-lg font-black uppercase text-[var(--color-plum)]">{item.field || item.degree}</h3>
+                <span className="font-mono text-xs font-bold text-[var(--color-accent-warm)]">{item.startYear}{item.endYear && item.endYear !== item.startYear ? ` — ${item.endYear}` : ""}</span>
+              </div>
+              <p className="mt-1 text-sm font-semibold text-[var(--color-foreground)]">{item.institution}</p>
+              {item.cgpa && <p className="mt-2 font-mono text-xs uppercase text-[var(--color-muted)]">{item.gradeLabel ?? "CGPA"}: {item.cgpa}</p>}
+              {item.activities?.length ? <p className="mt-2 text-sm text-[var(--color-muted)]">{item.activities.join(" · ")}</p> : null}
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 flex justify-end">
+          <Link href="/journey" variant="arrow" className="font-mono text-xs font-bold uppercase">More about the journey</Link>
+        </div>
+      </Section>
+
+      <Section id="achievements" spacing="xl" bordered number="08" label="Selected recognition" title="Achievements" description="Milestones earned through building, competing, and showing up for technical communities.">
+        <div className="border-2 border-[var(--color-border)] bg-[var(--color-card)] shadow-[3px_3px_0px_0px_var(--color-border)]">
+          {achievements.slice(0, 4).map((achievement) => (
+            <article key={achievement.id} className="grid gap-2 border-b border-[var(--color-border-subtle)] p-4 last:border-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5">
+              <div>
+                <h3 className="font-display text-base font-bold uppercase">{achievement.title}</h3>
+                <p className="mt-1 font-mono text-xs text-[var(--color-muted)]">{achievement.issuer} · {formatDate(achievement.date)}</p>
+              </div>
+              <Badge variant={achievement.category === "competition" ? "tangerine" : "lavender"}>{achievement.category}</Badge>
+            </article>
+          ))}
+        </div>
+        <div className="mt-6 flex justify-end">
+          <Link href="/achievements" variant="arrow" className="font-mono text-xs font-bold uppercase">Full achievement archive</Link>
+        </div>
+      </Section>
+
+      <Section id="certifications" spacing="xl" bordered number="09" label="Continued learning" title="Certifications">
+        <div className="grid gap-4 md:grid-cols-3">
+          {certifications.slice(0, 3).map((certification) => (
+            <article key={certification.id} className="flex min-h-36 flex-col border-t-4 border-[var(--color-accent-cool)] bg-[var(--color-card)] p-4">
+              <h3 className="font-display text-base font-bold leading-snug">{certification.title}</h3>
+              <p className="mt-auto pt-4 font-mono text-xs text-[var(--color-muted)]">{certification.issuer} · {formatDate(certification.date)}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-6 flex justify-end">
+          <Link href="/certifications" variant="arrow" className="font-mono text-xs font-bold uppercase">All certifications</Link>
+        </div>
+      </Section>
+
+      <Section id="coding" spacing="xl" bordered number="10" label="Practice is part of the process" title="Problem solving" description="Problem solving is part of the build process, from algorithm practice to shipping public work.">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {profileLinks.filter((link) => link.label !== "LinkedIn").map((link, index) => (
+            <Link key={link.label} href={link.href} external variant="none" className="group flex items-center justify-between border-2 border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[2px_2px_0px_0px_var(--color-border)] transition-transform hover:-translate-y-1">
+              <span>
+                <span className="block font-mono text-[10px] text-[var(--color-accent-warm)]">0{index + 1} / PROFILE</span>
+                <span className="mt-1 block font-display text-lg font-black uppercase text-[var(--color-plum)]">{link.label}</span>
+              </span>
+              <span aria-hidden="true" className="font-mono text-lg transition-transform group-hover:translate-x-1">↗</span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-6 flex justify-end">
+          <Link href="/coding" variant="arrow" className="font-mono text-xs font-bold uppercase">Coding profiles</Link>
+        </div>
+      </Section>
+
+      <Section id="contact" spacing="xl" bordered number="11" label="The next chapter" title="Let’s build something useful." description="Open to internships, collaborations, hackathons, and interesting engineering problems.">
+        <div className="flex flex-col items-start justify-between gap-7 border-l-4 border-[var(--color-secondary)] bg-[var(--color-card)] p-5 sm:flex-row sm:items-center sm:p-7">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-[var(--color-muted)]">A direct line</p>
+            <Link href={`mailto:${profile.email}`} variant="underline" className="mt-2 block break-all font-display text-lg font-bold text-[var(--color-plum)] sm:text-xl">{profile.email}</Link>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button href={`mailto:${profile.email}`} variant="primary" size="md" withArrow>Email me</Button>
+            <Button href={profile.socials.linkedin} variant="outline" size="md" withArrow>LinkedIn</Button>
+            <Button href={profile.socials.github} external variant="outline" size="md" withArrow>GitHub</Button>
+          </div>
         </div>
       </Section>
     </>
